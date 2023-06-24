@@ -1,12 +1,15 @@
-﻿namespace Users
+﻿using Users.Model;
+
+namespace Users.Interface
 {
     public interface IUserInfo
     {
-        Task<IEnumerable<UserInfo>> GetUserInfoAsync();
-        Task<UserInfo> GetUserInfoByIdAsunc(int id);
         Task<int> CreateUser(UserInfo userInfo);
 
         Task UpdateUser(UserInfo userInfo);
         Task DeleteUser(int id);
+
+        public List<UserInfo> GetAllUsers();
+        UserInfo GetUserInfoById(int id);
     }
 }

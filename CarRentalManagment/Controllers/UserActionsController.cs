@@ -1,23 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Users;
+using Users.Interface;
+using Users.Model;
+using Users.Repository;
 
 namespace CarRentalManagment.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserActionsController : Controller
+    public class UserActionsController : ControllerBase
     {
         private readonly IUserInfo _userInfo;
 
-        public UserActionsController(IUserInfo userInfo)
+        public UserActionsController()
         {
-            _userInfo = userInfo;
+            _userInfo = new UserInfoService();
         }
         [HttpGet("api/users")]
-        public IActionResult GetUsers()
+        public ActionResult<IEnumerable<UserInfo>> GetAllUsers()
         {
-            var userFromRepo = _userInfo.GetUserInfoAsync();
-            return new JsonResult(userFromRepo);
+            return _userInfo.GetAllUsers();
         }
+
     }
 }

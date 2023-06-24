@@ -1,4 +1,4 @@
-﻿namespace Users
+﻿namespace Users.Model
 {
     public class UserInfo
     {

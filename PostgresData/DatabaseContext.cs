@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Users;
-
+using Users.Model;
 
 namespace PostgresData
 {
