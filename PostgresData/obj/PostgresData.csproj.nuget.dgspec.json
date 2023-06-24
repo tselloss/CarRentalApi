@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\karac\\source\\repos\\CarRentalManagment\\PostgresData\\PostgresData.csproj": {}
+    "C:\\Users\\karac\\source\\repos\\CarRentalApi\\PostgresData\\PostgresData.csproj": {}
   },
   "projects": {
-    "C:\\Users\\karac\\source\\repos\\CarRentalManagment\\PostgresData\\PostgresData.csproj": {
+    "C:\\Users\\karac\\source\\repos\\CarRentalApi\\PostgresData\\PostgresData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\karac\\source\\repos\\CarRentalManagment\\PostgresData\\PostgresData.csproj",
+        "projectUniqueName": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\PostgresData\\PostgresData.csproj",
         "projectName": "PostgresData",
-        "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalManagment\\PostgresData\\PostgresData.csproj",
+        "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\PostgresData\\PostgresData.csproj",
         "packagesPath": "C:\\Users\\karac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\karac\\source\\repos\\CarRentalManagment\\PostgresData\\obj\\",
+        "outputPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\PostgresData\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\karac\\source\\repos\\CarRentalManagment\\Users\\Users.csproj": {
-                "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalManagment\\Users\\Users.csproj"
+              "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\Users.csproj": {
+                "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\Users.csproj"
               }
             }
           }
@@ -52,6 +52,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.11.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -94,14 +98,14 @@
         }
       }
     },
-    "C:\\Users\\karac\\source\\repos\\CarRentalManagment\\Users\\Users.csproj": {
+    "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\Users.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\karac\\source\\repos\\CarRentalManagment\\Users\\Users.csproj",
+        "projectUniqueName": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\Users.csproj",
         "projectName": "Users",
-        "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalManagment\\Users\\Users.csproj",
+        "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\Users.csproj",
         "packagesPath": "C:\\Users\\karac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\karac\\source\\repos\\CarRentalManagment\\Users\\obj\\",
+        "outputPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -138,6 +142,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.11.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

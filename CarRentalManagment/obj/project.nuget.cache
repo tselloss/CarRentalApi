@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "7uldX1GxjEtNbSlL+JJCGaeUNJn78pHaLWi9/ZWCeHq3RM6RDdex/RA7wTUST432xmW0u5adeVG77sU4iWmjCw==",
+  "dgSpecHash": "/Gg2veJ1U8wsLR3dyD3IsdR+JYuAnGNgiU5lAMVfH0XBoui9TplmK7H2cyHRW924oCO36+19eLwbNSJIOXMHZQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\karac\\source\\repos\\CarRentalManagment\\CarRentalManagment\\CarRentalManagment.csproj",
+  "projectFilePath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\CarRentalManagment\\CarRentalManagment.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\karac\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\karac\\.nuget\\packages\\fluentassertions\\6.11.0\\fluentassertions.6.11.0.nupkg.sha512",
     "C:\\Users\\karac\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\karac\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.8\\microsoft.entityframeworkcore.7.0.8.nupkg.sha512",
     "C:\\Users\\karac\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.8\\microsoft.entityframeworkcore.abstractions.7.0.8.nupkg.sha512",
@@ -28,7 +29,9 @@
     "C:\\Users\\karac\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\karac\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "C:\\Users\\karac\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
-    "C:\\Users\\karac\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\karac\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.0\\system.configuration.configurationmanager.4.4.0.nupkg.sha512",
+    "C:\\Users\\karac\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\karac\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.4.0\\system.security.cryptography.protecteddata.4.4.0.nupkg.sha512"
   ],
   "logs": []
 }
