@@ -1,0 +1,15 @@
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\obj\Debug\net6.0\PostgresData.csproj.AssemblyReference.cache
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\obj\Debug\net6.0\PostgresData.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\obj\Debug\net6.0\PostgresData.AssemblyInfoInputs.cache
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\obj\Debug\net6.0\PostgresData.AssemblyInfo.cs
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\obj\Debug\net6.0\PostgresData.csproj.CoreCompileInputs.cache
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\bin\Debug\net6.0\PostgresData.deps.json
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\bin\Debug\net6.0\PostgresData.dll
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\bin\Debug\net6.0\PostgresData.pdb
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\bin\Debug\net6.0\Users.dll
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\bin\Debug\net6.0\Users.pdb
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\obj\Debug\net6.0\PostgresData.csproj.CopyComplete
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\obj\Debug\net6.0\PostgresData.dll
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\obj\Debug\net6.0\refint\PostgresData.dll
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\obj\Debug\net6.0\PostgresData.pdb
+C:\Users\karac\source\repos\CarRentalManagment\PostgresData\obj\Debug\net6.0\ref\PostgresData.dll
