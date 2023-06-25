@@ -20,6 +20,5 @@ namespace CarRentalManagment.Controllers
         {
             return _userInfo.GetAllUsers();
         }
-
     }
 }
