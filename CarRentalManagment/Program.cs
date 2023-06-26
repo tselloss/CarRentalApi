@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using PostgresData;
-
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,13 +13,32 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configuration setup
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+var configuration = builder.Configuration;
+
 //JwtAuthorization
 builder.Services.AddAuthentication(_ =>
 {
     _.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
     _.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     _.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer()
+}).AddJwtBearer(_ =>
+{
+    var Key = Encoding.UTF8.GetBytes(configuration["JWT:Key"]);
+    _.SaveToken = true;
+    _.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = configuration["JWT:Issuer"],
+        ValidAudience = configuration["JWT:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Key)
+    };
+});
+builder.Services.AddAuthentication();
 
 //Register DatabaseContext
 builder.Services.AddDbContext<DatabaseContext>(options =>
@@ -34,6 +54,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
 
 app.UseAuthorization();
 
