@@ -14,7 +14,7 @@ namespace Cars.MockHelper
                 Model = "Corolla",
                 Seats = 5,
                 isAvailable=true,
-                isFavourite=false,
+                isFavorite=false,
                 startDate = DateTime.Now.AddMonths(-3),
                 endDate = DateTime.Now.AddMonths(3)
             },
@@ -25,7 +25,7 @@ namespace Cars.MockHelper
                 Model = "Civic",
                 Seats = 5,
                 isAvailable=true,
-                isFavourite=false,
+                isFavorite=false,
                 startDate = DateTime.Now.AddMonths(-2),
                 endDate = DateTime.Now.AddMonths(4)
             },
@@ -36,7 +36,7 @@ namespace Cars.MockHelper
                 Model = "Mustang",
                 Seats = 4,
                 isAvailable=true,
-                isFavourite=false,
+                isFavorite=false,
                 startDate = DateTime.Now.AddMonths(-1),
                 endDate = DateTime.Now.AddMonths(5)
             }
