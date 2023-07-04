@@ -35,7 +35,7 @@ var configuration = builder.Configuration;
 //        IssuerSigningKey = new SymmetricSecurityKey(Key)
 //    };
 //});
-builder.Services.AddAuthentication();
+//builder.Services.AddAuthentication();
 
 //Register DatabaseContext
 builder.Services.AddDbContext<DatabaseContext>(options =>

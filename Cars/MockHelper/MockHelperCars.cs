@@ -5,7 +5,7 @@ namespace Cars.MockHelper
     {
         public List<CarsInfo> GetCarsList()
         {
-            List<CarsInfo> users = new List<CarsInfo>()
+            List<CarsInfo> carsList = new List<CarsInfo>()
             {
             new CarsInfo
             {
@@ -13,6 +13,8 @@ namespace Cars.MockHelper
                 Brand = "Toyota",
                 Model = "Corolla",
                 Seats = 5,
+                isAvailable=true,
+                isFavourite=false,
                 startDate = DateTime.Now.AddMonths(-3),
                 endDate = DateTime.Now.AddMonths(3)
             },
@@ -22,6 +24,8 @@ namespace Cars.MockHelper
                 Brand = "Honda",
                 Model = "Civic",
                 Seats = 5,
+                isAvailable=true,
+                isFavourite=false,
                 startDate = DateTime.Now.AddMonths(-2),
                 endDate = DateTime.Now.AddMonths(4)
             },
@@ -31,12 +35,14 @@ namespace Cars.MockHelper
                 Brand = "Ford",
                 Model = "Mustang",
                 Seats = 4,
+                isAvailable=true,
+                isFavourite=false,
                 startDate = DateTime.Now.AddMonths(-1),
                 endDate = DateTime.Now.AddMonths(5)
             }
             };
 
-            return users;
+            return carsList;
         }
     }
 }
