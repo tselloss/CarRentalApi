@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostgresData", "PostgresDat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersTests", "Unit\UsersTests\UsersTests.csproj", "{91932753-5F28-4D8E-B64B-BBAAF24A2FBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars", "Cars\Cars.csproj", "{A0CD03F4-3B5B-47D9-AF40-A180B53CC104}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{91932753-5F28-4D8E-B64B-BBAAF24A2FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91932753-5F28-4D8E-B64B-BBAAF24A2FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91932753-5F28-4D8E-B64B-BBAAF24A2FBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0CD03F4-3B5B-47D9-AF40-A180B53CC104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0CD03F4-3B5B-47D9-AF40-A180B53CC104}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0CD03F4-3B5B-47D9-AF40-A180B53CC104}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0CD03F4-3B5B-47D9-AF40-A180B53CC104}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

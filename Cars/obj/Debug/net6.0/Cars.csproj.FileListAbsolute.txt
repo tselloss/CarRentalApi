@@ -1,0 +1,5 @@
+C:\Users\karac\source\repos\CarRentalApi\Cars\obj\Debug\net6.0\Cars.csproj.AssemblyReference.cache
+C:\Users\karac\source\repos\CarRentalApi\Cars\obj\Debug\net6.0\Cars.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\karac\source\repos\CarRentalApi\Cars\obj\Debug\net6.0\Cars.AssemblyInfoInputs.cache
+C:\Users\karac\source\repos\CarRentalApi\Cars\obj\Debug\net6.0\Cars.AssemblyInfo.cs
+C:\Users\karac\source\repos\CarRentalApi\Cars\obj\Debug\net6.0\Cars.csproj.CoreCompileInputs.cache
