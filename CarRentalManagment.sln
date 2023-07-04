@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersTests", "Unit\UsersTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars", "Cars\Cars.csproj", "{A0CD03F4-3B5B-47D9-AF40-A180B53CC104}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsTests", "CarsTests\CarsTests.csproj", "{24F597E5-5FA0-4B2F-AE55-173791D1AD21}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{74C11FCD-A3ED-4EEA-B5C8-D95EE238EF06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,9 +43,17 @@ Global
 		{A0CD03F4-3B5B-47D9-AF40-A180B53CC104}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0CD03F4-3B5B-47D9-AF40-A180B53CC104}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0CD03F4-3B5B-47D9-AF40-A180B53CC104}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24F597E5-5FA0-4B2F-AE55-173791D1AD21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24F597E5-5FA0-4B2F-AE55-173791D1AD21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24F597E5-5FA0-4B2F-AE55-173791D1AD21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24F597E5-5FA0-4B2F-AE55-173791D1AD21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{91932753-5F28-4D8E-B64B-BBAAF24A2FBA} = {74C11FCD-A3ED-4EEA-B5C8-D95EE238EF06}
+		{24F597E5-5FA0-4B2F-AE55-173791D1AD21} = {74C11FCD-A3ED-4EEA-B5C8-D95EE238EF06}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {070D507F-2E53-4960-9B70-C90AB7E06886}

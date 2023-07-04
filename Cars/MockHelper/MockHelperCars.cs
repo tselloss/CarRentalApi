@@ -15,8 +15,8 @@ namespace Cars.MockHelper
                 Seats = 5,
                 isAvailable=true,
                 isFavorite=false,
-                startDate = DateTime.Now.AddMonths(-3),
-                endDate = DateTime.Now.AddMonths(3)
+                startDate = DateTime.Now.AddMonths(-3).Date,
+                endDate = DateTime.Now.AddMonths(3).Date
             },
             new CarsInfo
             {
@@ -26,8 +26,8 @@ namespace Cars.MockHelper
                 Seats = 5,
                 isAvailable=true,
                 isFavorite=false,
-                startDate = DateTime.Now.AddMonths(-2),
-                endDate = DateTime.Now.AddMonths(4)
+                startDate = DateTime.Now.AddMonths(-2).Date,
+                endDate = DateTime.Now.AddMonths(4).Date
             },
             new CarsInfo
             {
@@ -37,8 +37,8 @@ namespace Cars.MockHelper
                 Seats = 4,
                 isAvailable=true,
                 isFavorite=false,
-                startDate = DateTime.Now.AddMonths(-1),
-                endDate = DateTime.Now.AddMonths(5)
+                startDate = DateTime.Now.AddMonths(-1).Date,
+                endDate = DateTime.Now.AddMonths(5).Date
             }
             };
 

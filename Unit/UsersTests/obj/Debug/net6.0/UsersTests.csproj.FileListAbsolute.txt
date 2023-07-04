@@ -125,3 +125,10 @@ C:\Users\karac\source\repos\CarRentalApi\Unit\UsersTests\obj\Debug\net6.0\refint
 C:\Users\karac\source\repos\CarRentalApi\Unit\UsersTests\obj\Debug\net6.0\UsersTests.pdb
 C:\Users\karac\source\repos\CarRentalApi\Unit\UsersTests\obj\Debug\net6.0\UsersTests.genruntimeconfig.cache
 C:\Users\karac\source\repos\CarRentalApi\Unit\UsersTests\obj\Debug\net6.0\ref\UsersTests.dll
+C:\Users\karac\source\repos\CarRentalApi\Unit\UsersTests\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\karac\source\repos\CarRentalApi\Unit\UsersTests\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\karac\source\repos\CarRentalApi\Unit\UsersTests\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\karac\source\repos\CarRentalApi\Unit\UsersTests\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\karac\source\repos\CarRentalApi\Unit\UsersTests\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\karac\source\repos\CarRentalApi\Unit\UsersTests\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\karac\source\repos\CarRentalApi\Unit\UsersTests\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
