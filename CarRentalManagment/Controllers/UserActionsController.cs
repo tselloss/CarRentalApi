@@ -16,10 +16,17 @@ namespace CarRentalManagment.Controllers
         {
             _userInfo = new UserInfoService();
         }
+
         [HttpGet("api/users")]
         public ActionResult<IEnumerable<UserInfo>> GetAllUsers()
         {
             return _userInfo.GetAllUsers();
+        }
+
+        [HttpGet("api/userById/{id}")]
+        public ActionResult<UserInfo> GetUserInfoById(int id)
+        {
+            return _userInfo.GetUserInfoById(id);
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Users.Repository
     public class UserInfoService : IUserInfo
     {
         private MockHelper listOfUsers = new MockHelper();
+        List<UserInfo> userInfos = new List<UserInfo>();
         public Task<int> CreateUser(UserInfo userInfo)
         {
             throw new NotImplementedException();
@@ -22,8 +23,6 @@ namespace Users.Repository
         {
             try
             {
-                List<UserInfo> userInfos = new List<UserInfo>();
-
                 using (NpgsqlConnection npgsqlConnection = new NpgsqlConnection("Server=localhost;Database=CarManagmentProject;Username=postgres;Password=admin;"))
                 {
                     using (NpgsqlCommand npgsqlCommand = new NpgsqlCommand())
@@ -51,7 +50,6 @@ namespace Users.Repository
                         }
                     }
                 }
-
                 return userInfos;
             }
             catch
@@ -68,7 +66,8 @@ namespace Users.Repository
 
         public UserInfo GetUserInfoById(int id)
         {
-            return listOfUsers.GetUserInfoList().FirstOrDefault(_ => _.Id == id);
+            GetAllUsers();
+            return userInfos.FirstOrDefault(_ => _.Id == id);
         }
 
         public Task<UserInfo> GetUserInfoByIdAsunc(int id)
