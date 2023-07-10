@@ -10,10 +10,11 @@ namespace CarRentalManagment.Controllers
     public class UserActionsController : ControllerBase
     {
         private readonly IUserInfo _userInfo;
+        private string _connectionString;
 
         public UserActionsController()
         {
-            _userInfo = new UserInfoService();
+            _userInfo = new UserInfoService(_connectionString);
         }
         [HttpGet("api/users")]
         public ActionResult<IEnumerable<UserInfo>> GetAllUsers()
