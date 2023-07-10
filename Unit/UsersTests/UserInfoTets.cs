@@ -7,7 +7,6 @@ namespace UsersTests
     public class UserInfoTets
     {
         private MockHelper _mockHelper;
-        private string connectionString = "Server=127.0.0.1;Database=CarManagementProject;Username=postgres;Password=admin;Persist Security Info=True";
 
         [SetUp]
         public void Setup()
@@ -19,7 +18,7 @@ namespace UsersTests
         public void GetAllUsers_ReturnsListOfUsers()
         {
             // Arrange
-            UserInfoService repository = new UserInfoService(connectionString);
+            UserInfoService repository = new UserInfoService();
 
             // Act
             List<UserInfo> users = repository.GetAllUsers();

@@ -7,13 +7,6 @@ namespace Users.Repository
 {
     public class UserInfoService : IUserInfo
     {
-        //private DatabaseContext _dbContext;
-        //private readonly IMapper _mapper;
-        private string _connectionString;
-        public UserInfoService(string connectionstring)
-        {
-            _connectionString = connectionstring;
-        }
         private MockHelper listOfUsers = new MockHelper();
         public Task<int> CreateUser(UserInfo userInfo)
         {

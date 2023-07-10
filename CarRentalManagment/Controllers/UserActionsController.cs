@@ -14,7 +14,7 @@ namespace CarRentalManagment.Controllers
 
         public UserActionsController()
         {
-            _userInfo = new UserInfoService(_connectionString);
+            _userInfo = new UserInfoService();
         }
         [HttpGet("api/users")]
         public ActionResult<IEnumerable<UserInfo>> GetAllUsers()
