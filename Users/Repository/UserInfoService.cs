@@ -44,7 +44,7 @@ namespace Users.Repository
                                 userInfo.Password = pgSqlReader["_password"].ToString();
                                 userInfo.Address = pgSqlReader["_address"].ToString();
                                 userInfo.City = pgSqlReader["_city"].ToString();
-                                userInfo.PostalCode = pgSqlReader["_postalcode"].ToString();
+                                userInfo.PostalCode = int.Parse(pgSqlReader["_postalcode"].ToString());
                                 userInfos.Add(userInfo);
                             }
                         }

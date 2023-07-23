@@ -37,9 +37,9 @@ var configuration = builder.Configuration;
 //});
 //builder.Services.AddAuthentication();
 
-//Register DatabaseContext
-builder.Services.AddDbContext<DatabaseContext>(options =>
-options.UseNpgsql(builder.Configuration.GetConnectionString("WebApiDatabase")));
+//Register UserInfoContrext
+builder.Services.AddDbContext<UserInfoContrext>(options =>
+options.UseNpgsql(builder.Configuration["ConnectionStrings:PostgreSQL"], b => b.MigrationsAssembly("CarRentalManagment")));
 
 var app = builder.Build();
 
