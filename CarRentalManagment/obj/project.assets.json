@@ -818,6 +818,7 @@
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
           "Newtonsoft.Json": "13.0.3",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4",
+          "RentInfo": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0",
           "Users": "1.0.0"
         },

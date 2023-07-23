@@ -806,6 +806,20 @@
           "bin/placeholder/Cars.dll": {}
         }
       },
+      "RentInfo/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Cars": "1.0.0",
+          "Users": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RentInfo.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RentInfo.dll": {}
+        }
+      },
       "Users/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2284,6 +2298,11 @@
       "path": "../Cars/Cars.csproj",
       "msbuildProject": "../Cars/Cars.csproj"
     },
+    "RentInfo/1.0.0": {
+      "type": "project",
+      "path": "../RentInfo/RentInfo.csproj",
+      "msbuildProject": "../RentInfo/RentInfo.csproj"
+    },
     "Users/1.0.0": {
       "type": "project",
       "path": "../Users/Users.csproj",
@@ -2301,6 +2320,7 @@
       "Microsoft.Extensions.Configuration.Abstractions >= 7.0.0",
       "Newtonsoft.Json >= 13.0.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.4",
+      "RentInfo >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0",
       "Users >= 1.0.0"
     ]
@@ -2340,6 +2360,9 @@
           "projectReferences": {
             "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Cars\\Cars.csproj": {
               "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Cars\\Cars.csproj"
+            },
+            "C:\\Users\\karac\\source\\repos\\CarRentalApi\\RentInfo\\RentInfo.csproj": {
+              "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\RentInfo\\RentInfo.csproj"
             },
             "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\Users.csproj": {
               "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\Users.csproj"

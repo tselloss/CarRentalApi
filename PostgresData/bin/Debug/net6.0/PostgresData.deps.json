@@ -17,6 +17,7 @@
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
           "Newtonsoft.Json": "13.0.3",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4",
+          "RentInfo": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0",
           "Users": "1.0.0"
         },
@@ -498,6 +499,15 @@
           "Cars.dll": {}
         }
       },
+      "RentInfo/1.0.0": {
+        "dependencies": {
+          "Cars": "1.0.0",
+          "Users": "1.0.0"
+        },
+        "runtime": {
+          "RentInfo.dll": {}
+        }
+      },
       "Users/1.0.0": {
         "dependencies": {
           "AutoMapper": "12.0.1",
@@ -850,6 +860,11 @@
       "hashPath": "system.text.json.7.0.0.nupkg.sha512"
     },
     "Cars/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RentInfo/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
