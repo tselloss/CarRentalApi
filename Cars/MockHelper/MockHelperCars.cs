@@ -7,16 +7,14 @@ namespace Cars.MockHelper
         {
             List<CarsInfo> carsList = new List<CarsInfo>()
             {
-            new CarsInfo
+             new CarsInfo
             {
                 Id = 1,
                 Brand = "Toyota",
-                Model = "Corolla",
+                Model = "Camry",
                 Seats = 5,
-                isAvailable=true,
-                isFavorite=false,
-                startDate = DateTime.Now.AddMonths(-3).Date,
-                endDate = DateTime.Now.AddMonths(3).Date
+                Price = 25000.00f,
+                Image = "toyota_camry.jpg"
             },
             new CarsInfo
             {
@@ -24,10 +22,8 @@ namespace Cars.MockHelper
                 Brand = "Honda",
                 Model = "Civic",
                 Seats = 5,
-                isAvailable=true,
-                isFavorite=false,
-                startDate = DateTime.Now.AddMonths(-2).Date,
-                endDate = DateTime.Now.AddMonths(4).Date
+                Price = 22000.00f,
+                Image = "honda_civic.jpg"
             },
             new CarsInfo
             {
@@ -35,10 +31,8 @@ namespace Cars.MockHelper
                 Brand = "Ford",
                 Model = "Mustang",
                 Seats = 4,
-                isAvailable=true,
-                isFavorite=false,
-                startDate = DateTime.Now.AddMonths(-1).Date,
-                endDate = DateTime.Now.AddMonths(5).Date
+                Price = 35000.00f,
+                Image = "ford_mustang.jpg"
             }
             };
 

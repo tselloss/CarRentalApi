@@ -40,6 +40,8 @@ var configuration = builder.Configuration;
 //Register UserInfoContrext
 builder.Services.AddDbContext<UserInfoContrext>(options =>
 options.UseNpgsql(builder.Configuration["ConnectionStrings:PostgreSQL"], b => b.MigrationsAssembly("CarRentalManagment")));
+builder.Services.AddDbContext<CarInfoContext>(options =>
+options.UseNpgsql(builder.Configuration["ConnectionStrings:PostgreSQL"], b => b.MigrationsAssembly("CarRentalManagment")));
 
 var app = builder.Build();
 

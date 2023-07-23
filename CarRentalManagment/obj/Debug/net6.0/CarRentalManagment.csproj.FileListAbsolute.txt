@@ -125,3 +125,5 @@ C:\Users\karac\source\repos\CarRentalApi\CarRentalManagment\bin\Debug\net6.0\Sys
 C:\Users\karac\source\repos\CarRentalApi\CarRentalManagment\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Users\karac\source\repos\CarRentalApi\CarRentalManagment\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\karac\source\repos\CarRentalApi\CarRentalManagment\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\karac\source\repos\CarRentalApi\CarRentalManagment\bin\Debug\net6.0\RentInfo.dll
+C:\Users\karac\source\repos\CarRentalApi\CarRentalManagment\bin\Debug\net6.0\RentInfo.pdb

@@ -7,9 +7,8 @@
 
         public string Model { get; set; }
         public int Seats { get; set; }
-        public bool isAvailable { get; set; }
-        public bool isFavorite { get; set; }
-        public DateTime startDate { get; set; }
-        public DateTime endDate { get; set; }
+        public float Price { get; set; }
+
+        public string Image { get; set; }
     }
 }

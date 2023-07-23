@@ -30,3 +30,5 @@ C:\Users\karac\source\repos\CarRentalApi\PostgresData\obj\Debug\net6.0\PostgresD
 C:\Users\karac\source\repos\CarRentalApi\PostgresData\obj\Debug\net6.0\ref\PostgresData.dll
 C:\Users\karac\source\repos\CarRentalApi\PostgresData\bin\Debug\net6.0\PostgresData.runtimeconfig.json
 C:\Users\karac\source\repos\CarRentalApi\PostgresData\obj\Debug\net6.0\PostgresData.genruntimeconfig.cache
+C:\Users\karac\source\repos\CarRentalApi\PostgresData\bin\Debug\net6.0\Cars.dll
+C:\Users\karac\source\repos\CarRentalApi\PostgresData\bin\Debug\net6.0\Cars.pdb

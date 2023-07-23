@@ -811,6 +811,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AutoMapper": "12.0.1",
+          "Cars": "1.0.0",
           "FluentAssertions": "6.11.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.19",
           "Microsoft.EntityFrameworkCore": "7.0.9",
@@ -825,6 +826,20 @@
         },
         "runtime": {
           "bin/placeholder/PostgresData.dll": {}
+        }
+      },
+      "RentInfo/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Cars": "1.0.0",
+          "Users": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RentInfo.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RentInfo.dll": {}
         }
       },
       "Users/1.0.0": {
@@ -2310,6 +2325,11 @@
       "path": "../PostgresData/PostgresData.csproj",
       "msbuildProject": "../PostgresData/PostgresData.csproj"
     },
+    "RentInfo/1.0.0": {
+      "type": "project",
+      "path": "../RentInfo/RentInfo.csproj",
+      "msbuildProject": "../RentInfo/RentInfo.csproj"
+    },
     "Users/1.0.0": {
       "type": "project",
       "path": "../Users/Users.csproj",
@@ -2327,6 +2347,7 @@
       "Newtonsoft.Json >= 13.0.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.4",
       "PostgresData >= 1.0.0",
+      "RentInfo >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0",
       "Users >= 1.0.0"
     ]
@@ -2369,6 +2390,9 @@
             },
             "C:\\Users\\karac\\source\\repos\\CarRentalApi\\PostgresData\\PostgresData.csproj": {
               "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\PostgresData\\PostgresData.csproj"
+            },
+            "C:\\Users\\karac\\source\\repos\\CarRentalApi\\RentInfo\\RentInfo.csproj": {
+              "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\RentInfo\\RentInfo.csproj"
             },
             "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\Users.csproj": {
               "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\Users.csproj"

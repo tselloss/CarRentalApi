@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Cars\Cars.csproj" />
     <ProjectReference Include="..\PostgresData\PostgresData.csproj" />
+    <ProjectReference Include="..\RentInfo\RentInfo.csproj" />
     <ProjectReference Include="..\Users\Users.csproj" />
   </ItemGroup>
 

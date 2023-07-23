@@ -10,7 +10,6 @@ namespace CarRentalManagment.Controllers
     public class UserActionsController : ControllerBase
     {
         private readonly IUserInfo _userInfo;
-        private string _connectionString;
         private readonly ILogger<UserActionsController> _logger;
 
         public UserActionsController(ILogger<UserActionsController> logger)
@@ -18,8 +17,6 @@ namespace CarRentalManagment.Controllers
             _logger = logger ?? throw new ArgumentException(nameof(logger));
             _userInfo = new UserInfoService();
         }
-
-
 
         [HttpGet("api/users")]
         public ActionResult<IEnumerable<UserInfo>> GetAllUsers()
