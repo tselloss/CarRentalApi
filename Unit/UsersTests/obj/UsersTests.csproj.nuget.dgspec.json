@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Unit\\UsersTests\\UsersTests.csproj": {}
+    "C:\\Users\\EvangelosKarachristo\\source\\repos\\CarRentalApi\\Unit\\UsersTests\\UsersTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Unit\\UsersTests\\UsersTests.csproj": {
+    "C:\\Users\\EvangelosKarachristo\\source\\repos\\CarRentalApi\\Unit\\UsersTests\\UsersTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Unit\\UsersTests\\UsersTests.csproj",
+        "projectUniqueName": "C:\\Users\\EvangelosKarachristo\\source\\repos\\CarRentalApi\\Unit\\UsersTests\\UsersTests.csproj",
         "projectName": "UsersTests",
-        "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Unit\\UsersTests\\UsersTests.csproj",
-        "packagesPath": "C:\\Users\\karac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Unit\\UsersTests\\obj\\",
+        "projectPath": "C:\\Users\\EvangelosKarachristo\\source\\repos\\CarRentalApi\\Unit\\UsersTests\\UsersTests.csproj",
+        "packagesPath": "C:\\Users\\EvangelosKarachristo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\EvangelosKarachristo\\source\\repos\\CarRentalApi\\Unit\\UsersTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\karac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\EvangelosKarachristo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\Users.csproj": {
-                "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\Users.csproj"
+              "C:\\Users\\EvangelosKarachristo\\source\\repos\\CarRentalApi\\Users\\Users.csproj": {
+                "projectPath": "C:\\Users\\EvangelosKarachristo\\source\\repos\\CarRentalApi\\Users\\Users.csproj"
               }
             }
           }
@@ -49,6 +49,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "FluentAssertions": {
               "target": "Package",
               "version": "[6.11.0, )"
@@ -104,24 +108,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\Users.csproj": {
+    "C:\\Users\\EvangelosKarachristo\\source\\repos\\CarRentalApi\\Users\\Users.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\Users.csproj",
+        "projectUniqueName": "C:\\Users\\EvangelosKarachristo\\source\\repos\\CarRentalApi\\Users\\Users.csproj",
         "projectName": "Users",
-        "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\Users.csproj",
-        "packagesPath": "C:\\Users\\karac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Users\\obj\\",
+        "projectPath": "C:\\Users\\EvangelosKarachristo\\source\\repos\\CarRentalApi\\Users\\Users.csproj",
+        "packagesPath": "C:\\Users\\EvangelosKarachristo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\EvangelosKarachristo\\source\\repos\\CarRentalApi\\Users\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\karac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\EvangelosKarachristo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -150,6 +154,10 @@
           "targetAlias": "net6.0",
           "dependencies": {
             "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.1, )"
             },
@@ -200,7 +208,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

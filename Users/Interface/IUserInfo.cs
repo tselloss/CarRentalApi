@@ -1,15 +1,16 @@
-﻿using Users.Model;
+﻿using Users.Entities;
 
 namespace Users.Interface
 {
     public interface IUserInfo
     {
-        Task<int> CreateUser(UserInfo userInfo);
+        Task CreateUser(UserEntity userEntity);
 
-        Task UpdateUser(UserInfo userInfo);
-        Task DeleteUser(int id);
+        Task UpdateUserAsync(UserEntity userEntity);
+        void DeleteUserAsync(int id, UserEntity userEntity);
 
-        public List<UserInfo> GetAllUsers();
-        UserInfo GetUserInfoById(int id);
+        Task<IEnumerable<UserEntity>> GetAllUsersAsync();
+        Task<UserEntity> GetUserInfoByIdAsync(int id);
+
     }
 }

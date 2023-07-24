@@ -1,5 +1,9 @@
+using FluentAssertions.Common;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using PostgresData;
+using Users.Interface;
+using Users.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,8 +42,12 @@ var configuration = builder.Configuration;
 //builder.Services.AddAuthentication();
 
 //Register DatabaseContextContrext
-builder.Services.AddDbContext<PostgresContext>(options =>
-options.UseNpgsql(builder.Configuration["ConnectionStrings:PostgreSQL"], b => b.MigrationsAssembly("CarRentalManagment")));
+//builder.Services.AddDbContext<UsersContext>(options =>
+//options.UseNpgsql(builder.Configuration["ConnectionStrings:PostgreSQL"], b => b.MigrationsAssembly("CarRentalManagment"))); 
+
+
+//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+//builder.Services.AddScoped<IUserInfo, UserInfoService>();
 
 var app = builder.Build();
 

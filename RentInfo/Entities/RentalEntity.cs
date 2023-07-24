@@ -5,7 +5,7 @@ using Users.Model;
 
 namespace RentInfo.Entities
 {
-    public class RentalEntities
+    public class RentalEntity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -13,9 +13,9 @@ namespace RentInfo.Entities
         [Required]
 
         //TODO RELATIONS ON USERS AND CARS ENTITY
-        public UserInfo User { get; set; }
+        public virtual UserInfo User { get; set; }
         [Required]
-        public CarsInfo Car { get; set; }
+        public virtual CarsInfo Car { get; set; }
         [Required]
         public DateTime DateFrom { get; set; }
         [Required]

@@ -9,7 +9,7 @@ namespace PostgresData
     {
         public DbSet<UserEntity> UsersInfo { get; set; }
         public DbSet<CarEntity> CarsInfo { get; set; }
-        public DbSet<RentalEntities> RentalInfo { get; set; }
+        public DbSet<RentalEntity> RentalInfo { get; set; }
 
         public PostgresContext(DbContextOptions<PostgresContext> options) : base(options) { }
 
