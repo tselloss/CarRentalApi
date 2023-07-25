@@ -15,7 +15,7 @@ namespace RentInfo.Entities
         [Required]
         public DateTime DateTo { get; set; }
         [Required]
-        public ICollection<UserInfo> User { get; set; }
+        public UserInfo User { get; set; }
         [Required]
         public ICollection<CarsInfo> Car { get; set; }
     }

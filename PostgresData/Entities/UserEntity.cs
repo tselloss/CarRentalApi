@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using RentInfo.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Users.Entities
@@ -28,15 +29,6 @@ namespace Users.Entities
         [Required]
         public string Role { get; set; }
 
-        public UserEntity(string username, string email, string password, string address, string city, int postalCode, string role)
-        {
-            Username = username;
-            Email = email;
-            Password = password;
-            Address = address;
-            City = city;
-            PostalCode = postalCode;
-            Role = role;
-        }
+        public ICollection<RentalEntity> Rental { get; set; }
     }
 }

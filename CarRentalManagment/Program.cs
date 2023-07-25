@@ -42,12 +42,12 @@ var configuration = builder.Configuration;
 //builder.Services.AddAuthentication();
 
 //Register DatabaseContextContrext
-//builder.Services.AddDbContext<UsersContext>(options =>
-//options.UseNpgsql(builder.Configuration["ConnectionStrings:PostgreSQL"], b => b.MigrationsAssembly("CarRentalManagment"))); 
+builder.Services.AddDbContext<PostgresContext>(options =>
+options.UseNpgsql(builder.Configuration["ConnectionStrings:PostgreSQL"], b => b.MigrationsAssembly("CarRentalManagment")));
 
 
-//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-//builder.Services.AddScoped<IUserInfo, UserInfoService>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<IUserInfo, UserInfoService>();
 
 var app = builder.Build();
 
