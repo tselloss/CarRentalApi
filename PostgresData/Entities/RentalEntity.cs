@@ -10,15 +10,13 @@ namespace RentInfo.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
-        [Required]
-
-        //TODO RELATIONS ON USERS AND CARS ENTITY
-        public virtual UserInfo User { get; set; }
-        [Required]
-        public virtual CarsInfo Car { get; set; }
-        [Required]
+        [Required]        
         public DateTime DateFrom { get; set; }
         [Required]
         public DateTime DateTo { get; set; }
+        [Required]
+        public ICollection<UserInfo> User { get; set; }
+        [Required]
+        public ICollection<CarsInfo> Car { get; set; }
     }
 }
