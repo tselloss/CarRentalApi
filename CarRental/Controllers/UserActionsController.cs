@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using CarRentalManagment.PostgresContext;
 using Microsoft.AspNetCore.Mvc;
 using Users.Entities;
 using Users.Interface;
 using Users.Model;
+using Users.Repository;
 
 namespace CarRentalManagment.Controllers
 {
@@ -13,12 +15,15 @@ namespace CarRentalManagment.Controllers
         private readonly IUserInfo _userInfo;
         private readonly ILogger<UserActionsController> _logger;
         private readonly IMapper _mapper;
+        private readonly UserInfoService _userInfoService;
+        private readonly PostgresDbContext _postgresContext;
 
-        public UserActionsController(IUserInfo userInfo, ILogger<UserActionsController> logger, IMapper mapper)
+        public UserActionsController(IUserInfo userInfo, ILogger<UserActionsController> logger, IMapper mapper, UserInfoService userInfoService)
         {
             _logger = logger ?? throw new ArgumentException(nameof(logger));
             _userInfo = userInfo ?? throw new ArgumentException(nameof(userInfo));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _userInfoService = userInfoService ?? throw new ArgumentNullException(nameof(userInfoService));
         }
 
         [HttpGet("api/users")]
@@ -42,15 +47,16 @@ namespace CarRentalManagment.Controllers
                 _logger.LogInformation($"We have no user on Db with this id: {id} ");
                 return NoContent();
             }
-            return Ok(_mapper.Map<IEnumerable<UserInfo>>(user));
+            return Ok(_mapper.Map<UserInfo>(user));
         }
 
         [HttpPost("api/createUser")]
-        public async Task<ActionResult<UserEntity>> CreateUserAsync(UserEntity userInfo)
+        public async Task<ActionResult<UserInfo>> CreateUserAsync([FromBody] UserInfo userInfo)
         {
             var newUser = _mapper.Map<UserEntity>(userInfo);
             await _userInfo.CreateUser(newUser);
-            return Ok();
+            await _userInfoService.SaveChangesAsync();
+            return Ok(newUser);
         }
 
         [HttpDelete]

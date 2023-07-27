@@ -18,6 +18,7 @@ options.UseNpgsql(builder.Configuration["ConnectionStrings:PostgreSQL"]));
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IUserInfo, UserInfoService>();
+builder.Services.AddScoped<UserInfoService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

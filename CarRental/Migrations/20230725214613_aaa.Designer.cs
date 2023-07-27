@@ -42,11 +42,11 @@ namespace CarRental.Migrations
 
             modelBuilder.Entity("Cars.Entities.CarEntity", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UserId"));
 
                     b.Property<string>("Brand")
                         .IsRequired()
@@ -66,14 +66,14 @@ namespace CarRental.Migrations
                     b.Property<int>("Seats")
                         .HasColumnType("integer");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("CarsInfo");
                 });
 
             modelBuilder.Entity("RentInfo.Entities.RentalEntity", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text");
 
@@ -86,7 +86,7 @@ namespace CarRental.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("integer");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.HasIndex("UserId");
 
@@ -95,11 +95,11 @@ namespace CarRental.Migrations
 
             modelBuilder.Entity("Users.Entities.UserEntity", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UserId"));
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -132,7 +132,7 @@ namespace CarRental.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("UsersInfo");
                 });

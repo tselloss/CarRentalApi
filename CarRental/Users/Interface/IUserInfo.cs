@@ -11,7 +11,7 @@ namespace Users.Interface
         void DeleteUserAsync(int id, UserEntity userEntity);
 
         Task<IEnumerable<UserEntity>> GetAllUsersAsync();
-        Task<UserEntity> GetUserInfoByIdAsync(int id);
+        Task<UserEntity?> GetUserInfoByIdAsync(int id);
 
     }
 }

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Users.Entities;
+using Users.Model;
 
 namespace Users.Profiles
 {
@@ -6,8 +8,7 @@ namespace Users.Profiles
     {
         public UserProfile()
         {
-            CreateMap<Entities.UserEntity, Model.UserInfo>();
-            CreateMap<Model.UserInfo, Entities.UserEntity>();
+            CreateMap<UserEntity, UserInfo>().ReverseMap();
         }
     }
 }

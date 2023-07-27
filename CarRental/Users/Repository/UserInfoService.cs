@@ -15,7 +15,6 @@ namespace Users.Repository
         public async Task CreateUser(UserEntity userEntity)
         {
             _context.Add(userEntity);
-            _context.SaveChanges();
         }
 
         public async Task<IEnumerable<UserEntity>> GetAllUsersAsync()
@@ -23,7 +22,7 @@ namespace Users.Repository
             return await _context.UsersInfo.OrderBy(_ => _.Id).ToListAsync();
         }
 
-        public async Task<UserEntity> GetUserInfoByIdAsync(int id)
+        public async Task<UserEntity?> GetUserInfoByIdAsync(int id)
         {
             return await _context.UsersInfo.Where(_ => _.Id == id).FirstOrDefaultAsync();
         }
@@ -36,7 +35,11 @@ namespace Users.Repository
         public void DeleteUserAsync(int id, UserEntity userEntity)
         {
             _context.UsersInfo.Remove(userEntity);
-            _context.SaveChanges();
+        }
+
+        public async Task<bool> SaveChangesAsync()
+        {
+            return (await _context.SaveChangesAsync() >= 0);
         }
     }
 }

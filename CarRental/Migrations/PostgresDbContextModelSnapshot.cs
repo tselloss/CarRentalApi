@@ -123,6 +123,41 @@ namespace CarRental.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UsersInfo");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "123 Main Street",
+                            City = "New York",
+                            Email = "john.doe@example.com",
+                            Password = "p@ssw0rd",
+                            PostalCode = 10001,
+                            Role = "User",
+                            Username = "JohnDoe"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "456 Elm Avenue",
+                            City = "Los Angeles",
+                            Email = "jane.smith@example.com",
+                            Password = "s3cur3p@ss",
+                            PostalCode = 90001,
+                            Role = "User",
+                            Username = "JaneSmith"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "789 Oak Street",
+                            City = "Chicago",
+                            Email = "admin@example.com",
+                            Password = "adm!n123",
+                            PostalCode = 60601,
+                            Role = "Admin",
+                            Username = "AdminUser"
+                        });
                 });
 
             modelBuilder.Entity("RentInfo.Entities.RentalEntity", b =>

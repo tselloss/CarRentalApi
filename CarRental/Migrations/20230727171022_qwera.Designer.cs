@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CarRental.Migrations
 {
     [DbContext(typeof(PostgresDbContext))]
-    [Migration("20230725210144_Initializer")]
-    partial class Initializer
+    [Migration("20230727171022_qwera")]
+    partial class qwera
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,15 +48,10 @@ namespace CarRental.Migrations
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
-                    b.Property<string>("RentalId")
-                        .HasColumnType("text");
-
                     b.Property<int>("Seats")
                         .HasColumnType("integer");
 
                     b.HasKey("UserId");
-
-                    b.HasIndex("RentalId");
 
                     b.ToTable("CarsInfo");
                 });
@@ -66,6 +61,9 @@ namespace CarRental.Migrations
                     b.Property<string>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text");
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("DateFrom")
                         .HasColumnType("timestamp with time zone");
@@ -77,6 +75,9 @@ namespace CarRental.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("UserId");
+
+                    b.HasIndex("CarId")
+                        .IsUnique();
 
                     b.HasIndex("UserId");
 
@@ -125,31 +126,66 @@ namespace CarRental.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("UsersInfo");
-                });
 
-            modelBuilder.Entity("Cars.Entities.CarEntity", b =>
-                {
-                    b.HasOne("RentInfo.Entities.RentalEntity", "Rental")
-                        .WithMany("Car")
-                        .HasForeignKey("RentalId");
-
-                    b.Navigation("Rental");
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "123 Main Street",
+                            City = "New York",
+                            Email = "john.doe@example.com",
+                            Password = "p@ssw0rd",
+                            PostalCode = 10001,
+                            Role = "User",
+                            Username = "JohnDoe"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "456 Elm Avenue",
+                            City = "Los Angeles",
+                            Email = "jane.smith@example.com",
+                            Password = "s3cur3p@ss",
+                            PostalCode = 90001,
+                            Role = "User",
+                            Username = "JaneSmith"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "789 Oak Street",
+                            City = "Chicago",
+                            Email = "admin@example.com",
+                            Password = "adm!n123",
+                            PostalCode = 60601,
+                            Role = "Admin",
+                            Username = "AdminUser"
+                        });
                 });
 
             modelBuilder.Entity("RentInfo.Entities.RentalEntity", b =>
                 {
+                    b.HasOne("Cars.Entities.CarEntity", "Car")
+                        .WithOne("Rental")
+                        .HasForeignKey("RentInfo.Entities.RentalEntity", "CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Users.Entities.UserEntity", "User")
                         .WithMany("Rental")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Car");
+
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("RentInfo.Entities.RentalEntity", b =>
+            modelBuilder.Entity("Cars.Entities.CarEntity", b =>
                 {
-                    b.Navigation("Car");
+                    b.Navigation("Rental")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Users.Entities.UserEntity", b =>

@@ -24,11 +24,10 @@ namespace Users.Entities
         [Required]
         public string City { get; set; }
         [Required]
-        [MaxLength(7)]
         public int PostalCode { get; set; }
         [Required]
         public string Role { get; set; }
 
-        public ICollection<RentalEntity> Rental { get; set; }
+        public RentalEntity Rental { get; set; }
     }
 }
