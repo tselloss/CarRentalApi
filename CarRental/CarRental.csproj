@@ -32,7 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="NewFolder\" />
+    <ProjectReference Include="..\Cars.Info\Cars.Info.csproj" />
+    <ProjectReference Include="..\Postgres.Context\Postgres.Context.csproj" />
+    <ProjectReference Include="..\Rental.Info\Rental.Info.csproj" />
+    <ProjectReference Include="..\User.Info\User.Info.csproj" />
   </ItemGroup>
 
 </Project>

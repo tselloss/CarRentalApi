@@ -1,7 +1,7 @@
 using CarRentalManagment.PostgresContext;
 using Microsoft.EntityFrameworkCore;
-using Users.Interface;
-using Users.Repository;
+using User.Info.Interface;
+using User.Info.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using CarRentalManagment.PostgresContext;
 using Microsoft.AspNetCore.Mvc;
+using User.Info.Interface;
+using User.Info.Model;
+using User.Info.Repository;
 using Users.Entities;
-using Users.Interface;
-using Users.Model;
-using Users.Repository;
 
 namespace CarRentalManagment.Controllers
 {

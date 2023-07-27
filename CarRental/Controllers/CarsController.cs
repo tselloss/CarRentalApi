@@ -1,6 +1,6 @@
-﻿using Cars.Interface;
-using Cars.Model;
-using Cars.Repository;
+﻿using Cars.Info.Interface;
+using Cars.Info.Model;
+using Cars.Info.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarRentalManagment.Controllers
