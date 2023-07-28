@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using RentInfo.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cars.Entities
@@ -19,9 +20,7 @@ namespace Cars.Entities
         [Required]
         public string Image { get; set; }
 
-        //public int RentalId { get; set; }
-        //[ForeignKey("RentalId")]
-        //public RentalEntity RentalInfo { get; set; }
+        public IEnumerable<RentalEntity> RentalInfo { get; set; }
 
     }
 }

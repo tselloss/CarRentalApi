@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Cars.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Users.Entities;
 
 namespace RentInfo.Entities
 {
@@ -12,11 +14,7 @@ namespace RentInfo.Entities
         public DateTime DateFrom { get; set; }
         [Required]
         public DateTime DateTo { get; set; }
-        //public int UserId { get; set; }
-        //[ForeignKey("UserId")]
-        //public UserEntity User { get; set; }
-        //public int CarId { get; set; }
-        //[ForeignKey("CarId")]
-        //public CarEntity CarsInfo { get; set; }
+        public UserEntity User { get; set; }
+        public CarEntity Cars { get; set; }
     }
 }

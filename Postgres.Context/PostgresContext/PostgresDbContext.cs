@@ -80,7 +80,7 @@ namespace CarRentalManagment.PostgresContext
                 Role = "Admin"
             });
             modelBuilder.Entity<RentalEntity>()
-       .HasData(
+                .HasData(
            new RentalEntity
            {
                RentalId = 1,

@@ -7,7 +7,7 @@ namespace RentInfo.Model
     {
         public int RentalId { get; set; }
         public UserInfo User { get; set; }
-        public CarsInfo Car { get; set; }
+        public CarsInfo Cars { get; set; }
 
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }

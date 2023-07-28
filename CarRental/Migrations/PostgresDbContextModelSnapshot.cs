@@ -90,13 +90,23 @@ namespace CarRental.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("RentalId"));
 
+                    b.Property<int?>("CarsCarId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("DateFrom")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("DateTo")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("integer");
+
                     b.HasKey("RentalId");
+
+                    b.HasIndex("CarsCarId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("RentalInfo");
 
@@ -191,6 +201,31 @@ namespace CarRental.Migrations
                             Role = "Admin",
                             Username = "AdminUser"
                         });
+                });
+
+            modelBuilder.Entity("RentInfo.Entities.RentalEntity", b =>
+                {
+                    b.HasOne("Cars.Entities.CarEntity", "Cars")
+                        .WithMany("RentalInfo")
+                        .HasForeignKey("CarsCarId");
+
+                    b.HasOne("Users.Entities.UserEntity", "User")
+                        .WithMany("RentalInfo")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Cars");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Cars.Entities.CarEntity", b =>
+                {
+                    b.Navigation("RentalInfo");
+                });
+
+            modelBuilder.Entity("Users.Entities.UserEntity", b =>
+                {
+                    b.Navigation("RentalInfo");
                 });
 #pragma warning restore 612, 618
         }

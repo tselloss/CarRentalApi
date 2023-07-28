@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using RentInfo.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Users.Entities
@@ -27,6 +28,6 @@ namespace Users.Entities
         [Required]
         public string Role { get; set; }
 
-        //public IEnumerable<RentalEntity> RentalInfo { get; set; }
+        public IEnumerable<RentalEntity> RentalInfo { get; set; }
     }
 }
