@@ -78,3 +78,14 @@ C:\Users\karac\source\repos\CarRental\CarRental\obj\Debug\net6.0\refint\CarRenta
 C:\Users\karac\source\repos\CarRental\CarRental\obj\Debug\net6.0\CarRental.pdb
 C:\Users\karac\source\repos\CarRental\CarRental\obj\Debug\net6.0\CarRental.genruntimeconfig.cache
 C:\Users\karac\source\repos\CarRental\CarRental\obj\Debug\net6.0\ref\CarRental.dll
+C:\Users\EvangelosKarachristo\source\repos\CarRentalApi\CarRental\bin\Debug\net6.0\CoverletSourceRootsMapping_CarRental
+C:\Users\EvangelosKarachristo\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.csproj.AssemblyReference.cache
+C:\Users\EvangelosKarachristo\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\EvangelosKarachristo\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.AssemblyInfoInputs.cache
+C:\Users\EvangelosKarachristo\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.AssemblyInfo.cs
+C:\Users\EvangelosKarachristo\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.csproj.CoreCompileInputs.cache
+C:\Users\EvangelosKarachristo\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\EvangelosKarachristo\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\EvangelosKarachristo\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.dll
+C:\Users\EvangelosKarachristo\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\refint\CarRental.dll
+C:\Users\EvangelosKarachristo\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.pdb
