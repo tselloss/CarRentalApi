@@ -70,7 +70,7 @@ namespace CarRentalManagment.Controllers
                 _logger.LogInformation($"We delete a user from Db with this id: {id} ");
                 return NoContent();
             }
-            _cars.DeleteUserAsync(id, cars);
+            _cars.DeleteUserAsync(id, car);
 
             return Ok(cars);
         }
