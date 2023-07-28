@@ -67,7 +67,7 @@ namespace CarRentalManagment.Controllers
             var rentalById = await _rental.GetReservationInfoByIdAsync(id);
             if (rentalById == null)
             {
-                _logger.LogInformation($"We delete a reservation from Db with this id: {id} ");
+                _logger.LogInformation($"We have no reservation on Db with this id: {id} ");
                 return NoContent();
             }
             _rental.DeleteReservationAsync(id, rental);

@@ -65,7 +65,7 @@ namespace CarRentalManagment.Controllers
             var users = await _userInfo.GetUserInfoByIdAsync(id);
             if (users == null)
             {
-                _logger.LogInformation($"We delete a user from Db with this id: {id} ");
+                _logger.LogInformation($"We have no user on Db with this id: {id} ");
                 return NoContent();
             }
             _userInfo.DeleteUserAsync(id, user);
