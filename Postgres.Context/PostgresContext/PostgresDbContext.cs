@@ -17,6 +17,35 @@ namespace CarRentalManagment.PostgresContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CarEntity>()
+                .HasData(
+                new CarEntity
+                {
+                    Id = 1,
+                    Brand = "Toyota",
+                    Model = "Camry",
+                    Seats = 5,
+                    Price = 25000.00f,
+                    Image = "toyota_camry.jpg"
+                },
+                new CarEntity
+                {
+                    Id = 2,
+                    Brand = "Honda",
+                    Model = "Civic",
+                    Seats = 5,
+                    Price = 22000.00f,
+                    Image = "honda_civic.jpg"
+                },
+                new CarEntity
+                {
+                    Id = 3,
+                    Brand = "Ford",
+                    Model = "Mustang",
+                    Seats = 4,
+                    Price = 35000.00f,
+                    Image = "ford_mustang.jpg"
+                });
             modelBuilder.Entity<UserEntity>()
                 .HasData(
                new UserEntity

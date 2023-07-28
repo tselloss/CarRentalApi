@@ -16,7 +16,6 @@ namespace CarRentalManagment.Controllers
         private readonly ILogger<UserActionsController> _logger;
         private readonly IMapper _mapper;
         private readonly UserInfoService _userInfoService;
-        private readonly PostgresDbContext _postgresContext;
 
         public UserActionsController(IUserInfo userInfo, ILogger<UserActionsController> logger, IMapper mapper, UserInfoService userInfoService)
         {
@@ -58,19 +57,20 @@ namespace CarRentalManagment.Controllers
             await _userInfoService.SaveChangesAsync();
             return Ok(newUser);
         }
-
+        //TODO check the function
         [HttpDelete]
-        public async Task<ActionResult> DeleteUser(int id, UserEntity userEntity)
+        public async Task<ActionResult> DeleteUser(int id, UserInfo userInfo)
         {
+            var user = _mapper.Map<UserEntity>(userInfo);
             var users = await _userInfo.GetUserInfoByIdAsync(id);
             if (users == null)
             {
-                _logger.LogInformation($"We have no user on Db with this id: {id} ");
+                _logger.LogInformation($"We delete a user from Db with this id: {id} ");
                 return NoContent();
             }
-            _userInfo.DeleteUserAsync(id, userEntity);
+            _userInfo.DeleteUserAsync(id, user);
 
-            return NoContent();
+            return Ok(user);
         }
     }
 }

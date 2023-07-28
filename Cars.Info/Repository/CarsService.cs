@@ -1,27 +1,48 @@
-﻿using Cars.Info.Interface;
-using Cars.Info.MockHelper;
-using Cars.Info.Model;
+﻿using CarRentalManagment.PostgresContext;
+using Cars.Entities;
+using Cars.Info.Interface;
+using Microsoft.EntityFrameworkCore;
+using Users.Entities;
 
 namespace Cars.Info.Repository
 {
     public class CarsService : ICars
     {
-        private MockHelperCars listOfCars = new MockHelperCars();
-        public List<CarsInfo> GetAllCars()
+        private readonly PostgresDbContext _context;
+
+        public CarsService(PostgresDbContext postgresContext)
         {
-            try
-            {
-                return listOfCars.GetCarsList();
-            }
-            catch
-            {
-                throw new NotImplementedException();
-            }
+            _context = postgresContext ?? throw new ArgumentException(nameof(postgresContext));
+
+        }
+        public async Task CreateNewCar(CarEntity carEntity)
+        {
+            _context.Add(carEntity);
         }
 
-        public CarsInfo GetCarById(int id)
+        public void DeleteUserAsync(int id, CarEntity carEntity)
         {
-            return listOfCars.GetCarsList().FirstOrDefault(_ => _.Id == id);
+            _context.CarsInfo.Remove(carEntity);
+        }
+
+        public async Task<IEnumerable<CarEntity>> GetAllCarsAsync()
+        {
+            return await _context.CarsInfo.OrderBy(_ => _.Id).ToListAsync();
+        }
+
+        public async Task<CarEntity> GetCarInfoByIdAsync(int id)
+        {
+            return await _context.CarsInfo.Where(_ => _.Id == id).FirstOrDefaultAsync();
+        }
+
+        public Task UpdateUserAsync(CarEntity carEntity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> SaveChangesAsync()
+        {
+            return await _context.SaveChangesAsync() >= 0;
         }
     }
 }
