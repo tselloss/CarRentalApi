@@ -19,12 +19,12 @@ namespace User.Info.Repository
 
         public async Task<IEnumerable<UserEntity>> GetAllUsersAsync()
         {
-            return await _context.UsersInfo.OrderBy(_ => _.Id).ToListAsync();
+            return await _context.UsersInfo.OrderBy(_ => _.UserId).ToListAsync();
         }
 
         public async Task<UserEntity?> GetUserInfoByIdAsync(int id)
         {
-            return await _context.UsersInfo.Where(_ => _.Id == id).FirstOrDefaultAsync();
+            return await _context.UsersInfo.Where(_ => _.UserId == id).FirstOrDefaultAsync();
         }
 
         public Task UpdateUserAsync(UserEntity userEntity)
@@ -32,7 +32,7 @@ namespace User.Info.Repository
             throw new NotImplementedException();
         }
 
-        public void DeleteUserAsync(int id, UserEntity userEntity)
+        public void DeleteUserAsync(UserEntity userEntity)
         {
             _context.UsersInfo.Remove(userEntity);
         }

@@ -24,11 +24,11 @@ namespace CarRental.Migrations
 
             modelBuilder.Entity("Cars.Entities.CarEntity", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CarId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CarId"));
 
                     b.Property<string>("Brand")
                         .IsRequired()
@@ -48,46 +48,80 @@ namespace CarRental.Migrations
                     b.Property<int>("Seats")
                         .HasColumnType("integer");
 
-                    b.HasKey("Id");
+                    b.HasKey("CarId");
 
                     b.ToTable("CarsInfo");
+
+                    b.HasData(
+                        new
+                        {
+                            CarId = 1,
+                            Brand = "Toyota",
+                            Image = "toyota_camry.jpg",
+                            Model = "Camry",
+                            Price = 25000f,
+                            Seats = 5
+                        },
+                        new
+                        {
+                            CarId = 2,
+                            Brand = "Honda",
+                            Image = "honda_civic.jpg",
+                            Model = "Civic",
+                            Price = 22000f,
+                            Seats = 5
+                        },
+                        new
+                        {
+                            CarId = 3,
+                            Brand = "Ford",
+                            Image = "ford_mustang.jpg",
+                            Model = "Mustang",
+                            Price = 35000f,
+                            Seats = 4
+                        });
                 });
 
             modelBuilder.Entity("RentInfo.Entities.RentalEntity", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("RentalId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("text");
-
-                    b.Property<int>("CarId")
                         .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("RentalId"));
 
                     b.Property<DateTime>("DateFrom")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("DateTo")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CarId")
-                        .IsUnique();
-
-                    b.HasIndex("UserId");
+                    b.HasKey("RentalId");
 
                     b.ToTable("RentalInfo");
+
+                    b.HasData(
+                        new
+                        {
+                            RentalId = 1,
+                            DateFrom = new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateTo = new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            RentalId = 2,
+                            DateFrom = new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateTo = new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("Users.Entities.UserEntity", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UserId"));
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -108,7 +142,6 @@ namespace CarRental.Migrations
                         .HasColumnType("character varying(16)");
 
                     b.Property<int>("PostalCode")
-                        .HasMaxLength(7)
                         .HasColumnType("integer");
 
                     b.Property<string>("Role")
@@ -120,14 +153,14 @@ namespace CarRental.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("UsersInfo");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            UserId = 1,
                             Address = "123 Main Street",
                             City = "New York",
                             Email = "john.doe@example.com",
@@ -138,7 +171,7 @@ namespace CarRental.Migrations
                         },
                         new
                         {
-                            Id = 2,
+                            UserId = 2,
                             Address = "456 Elm Avenue",
                             City = "Los Angeles",
                             Email = "jane.smith@example.com",
@@ -149,7 +182,7 @@ namespace CarRental.Migrations
                         },
                         new
                         {
-                            Id = 3,
+                            UserId = 3,
                             Address = "789 Oak Street",
                             City = "Chicago",
                             Email = "admin@example.com",
@@ -158,36 +191,6 @@ namespace CarRental.Migrations
                             Role = "Admin",
                             Username = "AdminUser"
                         });
-                });
-
-            modelBuilder.Entity("RentInfo.Entities.RentalEntity", b =>
-                {
-                    b.HasOne("Cars.Entities.CarEntity", "Car")
-                        .WithOne("Rental")
-                        .HasForeignKey("RentInfo.Entities.RentalEntity", "CarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Users.Entities.UserEntity", "User")
-                        .WithMany("Rental")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Car");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Cars.Entities.CarEntity", b =>
-                {
-                    b.Navigation("Rental")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Users.Entities.UserEntity", b =>
-                {
-                    b.Navigation("Rental");
                 });
 #pragma warning restore 612, 618
         }

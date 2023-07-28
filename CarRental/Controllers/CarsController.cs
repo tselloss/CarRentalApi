@@ -4,9 +4,6 @@ using Cars.Info.Interface;
 using Cars.Info.Model;
 using Cars.Info.Repository;
 using Microsoft.AspNetCore.Mvc;
-using User.Info.Interface;
-using User.Info.Model;
-using Users.Entities;
 
 namespace CarRentalManagment.Controllers
 {
@@ -60,18 +57,17 @@ namespace CarRentalManagment.Controllers
             return Ok(newCar);
         }
 
-        [HttpDelete]
-        public async Task<ActionResult> DeleteUser(int id, CarsInfo carsInfo)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteCars(int id)
         {
-            var car = _mapper.Map<CarEntity>(carsInfo);
             var cars = await _cars.GetCarInfoByIdAsync(id);
             if (cars == null)
             {
                 _logger.LogInformation($"We have no car on Db with this id: {id} ");
                 return NoContent();
             }
-            _cars.DeleteUserAsync(id, car);
-
+            _cars.DeleteCarAsync(cars);
+            await _carsService.SaveChangesAsync();
             return Ok(cars);
         }
     }

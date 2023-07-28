@@ -1,7 +1,5 @@
-﻿using Cars.Entities;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Users.Entities;
 
 namespace RentInfo.Entities
 {
@@ -9,16 +7,16 @@ namespace RentInfo.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int RentalId { get; set; }
         [Required]
         public DateTime DateFrom { get; set; }
         [Required]
         public DateTime DateTo { get; set; }
-        [Required]
-        public int CarId { get; set; }
-        [Required]
-        public int UserId { get; set; }
-        public CarEntity Car { get; set; }
-        public UserEntity User { get; set; }
+        //public int UserId { get; set; }
+        //[ForeignKey("UserId")]
+        //public UserEntity User { get; set; }
+        //public int CarId { get; set; }
+        //[ForeignKey("CarId")]
+        //public CarEntity CarsInfo { get; set; }
     }
 }

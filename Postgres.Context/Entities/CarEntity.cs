@@ -1,5 +1,4 @@
-﻿using RentInfo.Entities;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cars.Entities
@@ -8,7 +7,7 @@ namespace Cars.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int CarId { get; set; }
         [Required]
         public string Brand { get; set; }
         [Required]
@@ -20,6 +19,9 @@ namespace Cars.Entities
         [Required]
         public string Image { get; set; }
 
-        public RentalEntity Rental { get; set; }
+        //public int RentalId { get; set; }
+        //[ForeignKey("RentalId")]
+        //public RentalEntity RentalInfo { get; set; }
+
     }
 }

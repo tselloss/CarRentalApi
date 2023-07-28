@@ -7,7 +7,7 @@ namespace User.Info.Interface
         Task CreateUser(UserEntity userEntity);
 
         Task UpdateUserAsync(UserEntity userEntity);
-        void DeleteUserAsync(int id, UserEntity userEntity);
+        void DeleteUserAsync(UserEntity userEntity);
 
         Task<IEnumerable<UserEntity>> GetAllUsersAsync();
         Task<UserEntity?> GetUserInfoByIdAsync(int id);

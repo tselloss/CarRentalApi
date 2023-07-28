@@ -4,10 +4,7 @@ using RentInfo.Entities;
 using RentInfo.Interface;
 using RentInfo.Model;
 using RentInfo.Repository;
-using User.Info.Interface;
 using User.Info.Model;
-using User.Info.Repository;
-using Users.Entities;
 
 namespace CarRentalManagment.Controllers
 {
@@ -59,19 +56,19 @@ namespace CarRentalManagment.Controllers
             await _rentalService.SaveChangesAsync();
             return Ok(newRent);
         }
-        //TODO check the function
-        [HttpDelete]
-        public async Task<ActionResult> DeleteUser(int id, RentalInfo rentalInfo)
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteRental(int id)
         {
-            var rental = _mapper.Map<RentalEntity>(rentalInfo);
-            var rentalById = await _rental.GetReservationInfoByIdAsync(id);
-            if (rentalById == null)
+            var rental = await _rental.GetReservationInfoByIdAsync(id);
+
+            if (rental == null)
             {
-                _logger.LogInformation($"We have no reservation on Db with this id: {id} ");
+                _logger.LogInformation($"We have no rent on Db with this id: {id} ");
                 return NoContent();
             }
-            _rental.DeleteReservationAsync(id, rental);
-
+            _rental.DeleteReservationAsync(rental);
+            await _rentalService.SaveChangesAsync();
             return Ok(rental);
         }
     }

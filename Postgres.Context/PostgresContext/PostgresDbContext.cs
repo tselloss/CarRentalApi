@@ -1,6 +1,5 @@
 ﻿using Cars.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using RentInfo.Entities;
 using Users.Entities;
 
@@ -8,7 +7,6 @@ namespace CarRentalManagment.PostgresContext
 {
     public class PostgresDbContext : DbContext
     {
-        private readonly IConfiguration _configuration;
         public DbSet<UserEntity> UsersInfo { get; set; }
         public DbSet<CarEntity> CarsInfo { get; set; }
         public DbSet<RentalEntity> RentalInfo { get; set; }
@@ -21,7 +19,7 @@ namespace CarRentalManagment.PostgresContext
                 .HasData(
                 new CarEntity
                 {
-                    Id = 1,
+                    CarId = 1,
                     Brand = "Toyota",
                     Model = "Camry",
                     Seats = 5,
@@ -30,7 +28,7 @@ namespace CarRentalManagment.PostgresContext
                 },
                 new CarEntity
                 {
-                    Id = 2,
+                    CarId = 2,
                     Brand = "Honda",
                     Model = "Civic",
                     Seats = 5,
@@ -39,7 +37,7 @@ namespace CarRentalManagment.PostgresContext
                 },
                 new CarEntity
                 {
-                    Id = 3,
+                    CarId = 3,
                     Brand = "Ford",
                     Model = "Mustang",
                     Seats = 4,
@@ -50,7 +48,7 @@ namespace CarRentalManagment.PostgresContext
                 .HasData(
                new UserEntity
                {
-                   Id = 1,
+                   UserId = 1,
                    Username = "JohnDoe",
                    Email = "john.doe@example.com",
                    Password = "p@ssw0rd",
@@ -61,7 +59,7 @@ namespace CarRentalManagment.PostgresContext
                },
             new UserEntity
             {
-                Id = 2,
+                UserId = 2,
                 Username = "JaneSmith",
                 Email = "jane.smith@example.com",
                 Password = "s3cur3p@ss",
@@ -72,7 +70,7 @@ namespace CarRentalManagment.PostgresContext
             },
             new UserEntity
             {
-                Id = 3,
+                UserId = 3,
                 Username = "AdminUser",
                 Email = "admin@example.com",
                 Password = "adm!n123",
@@ -81,7 +79,21 @@ namespace CarRentalManagment.PostgresContext
                 PostalCode = 60601,
                 Role = "Admin"
             });
-
+            modelBuilder.Entity<RentalEntity>()
+       .HasData(
+           new RentalEntity
+           {
+               RentalId = 1,
+               DateFrom = new DateTime(2023, 7, 30),
+               DateTo = new DateTime(2023, 8, 5)
+           },
+           new RentalEntity
+           {
+               RentalId = 2,
+               DateFrom = new DateTime(2023, 8, 1),
+               DateTo = new DateTime(2023, 8, 8)
+           }
+       );
             base.OnModelCreating(modelBuilder);
         }
     }

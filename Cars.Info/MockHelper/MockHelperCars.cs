@@ -10,7 +10,7 @@ namespace Cars.Info.MockHelper
             {
              new CarsInfo
             {
-                Id = 1,
+                CarId = 1,
                 Brand = "Toyota",
                 Model = "Camry",
                 Seats = 5,
@@ -19,7 +19,7 @@ namespace Cars.Info.MockHelper
             },
             new CarsInfo
             {
-                Id = 2,
+                CarId = 2,
                 Brand = "Honda",
                 Model = "Civic",
                 Seats = 5,
@@ -28,7 +28,7 @@ namespace Cars.Info.MockHelper
             },
             new CarsInfo
             {
-                Id = 3,
+                CarId = 3,
                 Brand = "Ford",
                 Model = "Mustang",
                 Seats = 4,

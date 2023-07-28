@@ -1,6 +1,4 @@
 ﻿using RentInfo.Entities;
-using RentInfo.Model;
-using Users.Entities;
 
 namespace RentInfo.Interface
 {
@@ -9,7 +7,7 @@ namespace RentInfo.Interface
         Task CreateReservation(RentalEntity rentalEntity);
 
         Task UpdateReservationAsync(RentalEntity rentalEntity);
-        void DeleteReservationAsync(int id, RentalEntity rentalEntity);
+        void DeleteReservationAsync(RentalEntity rentalEntity);
 
         Task<IEnumerable<RentalEntity>> GetAllReservationsAsync();
         Task<RentalEntity?> GetReservationInfoByIdAsync(int id);

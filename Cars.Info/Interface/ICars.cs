@@ -1,6 +1,4 @@
 ﻿using Cars.Entities;
-using Cars.Info.Model;
-using Users.Entities;
 
 namespace Cars.Info.Interface
 {
@@ -8,7 +6,7 @@ namespace Cars.Info.Interface
     {
         Task CreateNewCar(CarEntity carEntity);
         Task UpdateUserAsync(CarEntity carEntity);
-        void DeleteUserAsync(int id, CarEntity carEntity);
+        void DeleteCarAsync(CarEntity carEntity);
 
         Task<IEnumerable<CarEntity>> GetAllCarsAsync();
         Task<CarEntity?> GetCarInfoByIdAsync(int id);

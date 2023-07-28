@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using CarRentalManagment.PostgresContext;
 using Microsoft.AspNetCore.Mvc;
 using User.Info.Interface;
 using User.Info.Model;
@@ -57,20 +56,20 @@ namespace CarRentalManagment.Controllers
             await _userInfoService.SaveChangesAsync();
             return Ok(newUser);
         }
-        //TODO check the function
-        [HttpDelete]
-        public async Task<ActionResult> DeleteUser(int id, UserInfo userInfo)
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteUser(int id)
         {
-            var user = _mapper.Map<UserEntity>(userInfo);
             var users = await _userInfo.GetUserInfoByIdAsync(id);
+
             if (users == null)
             {
                 _logger.LogInformation($"We have no user on Db with this id: {id} ");
                 return NoContent();
             }
-            _userInfo.DeleteUserAsync(id, user);
-
-            return Ok(user);
+            _userInfo.DeleteUserAsync(users);
+            await _userInfoService.SaveChangesAsync();
+            return Ok(users);
         }
     }
 }

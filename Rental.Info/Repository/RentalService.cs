@@ -17,19 +17,19 @@ namespace RentInfo.Repository
             _context.Add(rentalEntity);
         }
 
-        public void DeleteReservationAsync(int id, RentalEntity rentalEntity)
+        public void DeleteReservationAsync(RentalEntity rentalEntity)
         {
             _context.RentalInfo.Remove(rentalEntity);
         }
 
         public async Task<IEnumerable<RentalEntity>> GetAllReservationsAsync()
         {
-            return await _context.RentalInfo.OrderBy(_ => _.Id).ToListAsync();
+            return await _context.RentalInfo.OrderBy(_ => _.RentalId).ToListAsync();
         }
 
         public async Task<RentalEntity?> GetReservationInfoByIdAsync(int id)
         {
-            return await _context.RentalInfo.Where(_ => _.Id == id).FirstOrDefaultAsync();
+            return await _context.RentalInfo.Where(_ => _.RentalId == id).FirstOrDefaultAsync();
         }
 
         public Task UpdateReservationAsync(RentalEntity rentalEntity)

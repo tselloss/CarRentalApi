@@ -1,5 +1,4 @@
-﻿using RentInfo.Entities;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Users.Entities
@@ -8,7 +7,7 @@ namespace Users.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int UserId { get; set; }
         [Required]
         [MaxLength(50)]
         public string Username { get; set; }
@@ -28,6 +27,6 @@ namespace Users.Entities
         [Required]
         public string Role { get; set; }
 
-        public RentalEntity Rental { get; set; }
+        //public IEnumerable<RentalEntity> RentalInfo { get; set; }
     }
 }
