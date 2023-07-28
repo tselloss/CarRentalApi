@@ -1,5 +1,9 @@
 using CarRentalManagment.PostgresContext;
+using Cars.Info.Interface;
+using Cars.Info.Repository;
 using Microsoft.EntityFrameworkCore;
+using RentInfo.Interface;
+using RentInfo.Repository;
 using User.Info.Interface;
 using User.Info.Repository;
 
@@ -19,6 +23,10 @@ options.UseNpgsql(builder.Configuration["ConnectionStrings:PostgreSQL"]));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IUserInfo, UserInfoService>();
 builder.Services.AddScoped<UserInfoService>();
+builder.Services.AddScoped<ICars, CarsService>();
+builder.Services.AddScoped<CarsService>();
+builder.Services.AddScoped<IRental, RentalService>();
+builder.Services.AddScoped<RentalService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
