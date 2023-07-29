@@ -154,9 +154,8 @@ namespace CarRental.Migrations
                     b.Property<int>("PostalCode")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Role")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Username")
                         .IsRequired()
@@ -176,7 +175,7 @@ namespace CarRental.Migrations
                             Email = "john.doe@example.com",
                             Password = "p@ssw0rd",
                             PostalCode = 10001,
-                            Role = "User",
+                            Role = 0,
                             Username = "JohnDoe"
                         },
                         new
@@ -187,7 +186,7 @@ namespace CarRental.Migrations
                             Email = "jane.smith@example.com",
                             Password = "s3cur3p@ss",
                             PostalCode = 90001,
-                            Role = "User",
+                            Role = 0,
                             Username = "JaneSmith"
                         },
                         new
@@ -198,7 +197,7 @@ namespace CarRental.Migrations
                             Email = "admin@example.com",
                             Password = "adm!n123",
                             PostalCode = 60601,
-                            Role = "Admin",
+                            Role = 0,
                             Username = "AdminUser"
                         });
                 });
@@ -206,26 +205,16 @@ namespace CarRental.Migrations
             modelBuilder.Entity("RentInfo.Entities.RentalEntity", b =>
                 {
                     b.HasOne("Cars.Entities.CarEntity", "Cars")
-                        .WithMany("RentalInfo")
+                        .WithMany()
                         .HasForeignKey("CarsCarId");
 
                     b.HasOne("Users.Entities.UserEntity", "User")
-                        .WithMany("RentalInfo")
+                        .WithMany()
                         .HasForeignKey("UserId");
 
                     b.Navigation("Cars");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Cars.Entities.CarEntity", b =>
-                {
-                    b.Navigation("RentalInfo");
-                });
-
-            modelBuilder.Entity("Users.Entities.UserEntity", b =>
-                {
-                    b.Navigation("RentalInfo");
                 });
 #pragma warning restore 612, 618
         }

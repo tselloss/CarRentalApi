@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CarRental.Migrations
 {
     [DbContext(typeof(PostgresDbContext))]
-    [Migration("20230728225623_RecreateInfo7")]
-    partial class RecreateInfo7
+    [Migration("20230729094304_a1")]
+    partial class a1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,21 +24,6 @@ namespace CarRental.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
-
-            modelBuilder.Entity("CarEntityRentalEntity", b =>
-                {
-                    b.Property<int>("CarsInfoCarId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("RentalInfoRentalId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("CarsInfoCarId", "RentalInfoRentalId");
-
-                    b.HasIndex("RentalInfoRentalId");
-
-                    b.ToTable("CarEntityRentalEntity");
-                });
 
             modelBuilder.Entity("Cars.Entities.CarEntity", b =>
                 {
@@ -108,6 +93,9 @@ namespace CarRental.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("RentalId"));
 
+                    b.Property<int?>("CarsCarId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("DateFrom")
                         .HasColumnType("timestamp without time zone");
 
@@ -118,6 +106,8 @@ namespace CarRental.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("RentalId");
+
+                    b.HasIndex("CarsCarId");
 
                     b.HasIndex("UserId");
 
@@ -167,9 +157,8 @@ namespace CarRental.Migrations
                     b.Property<int>("PostalCode")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Role")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Username")
                         .IsRequired()
@@ -189,7 +178,7 @@ namespace CarRental.Migrations
                             Email = "john.doe@example.com",
                             Password = "p@ssw0rd",
                             PostalCode = 10001,
-                            Role = "User",
+                            Role = 0,
                             Username = "JohnDoe"
                         },
                         new
@@ -200,7 +189,7 @@ namespace CarRental.Migrations
                             Email = "jane.smith@example.com",
                             Password = "s3cur3p@ss",
                             PostalCode = 90001,
-                            Role = "User",
+                            Role = 0,
                             Username = "JaneSmith"
                         },
                         new
@@ -211,38 +200,24 @@ namespace CarRental.Migrations
                             Email = "admin@example.com",
                             Password = "adm!n123",
                             PostalCode = 60601,
-                            Role = "Admin",
+                            Role = 0,
                             Username = "AdminUser"
                         });
                 });
 
-            modelBuilder.Entity("CarEntityRentalEntity", b =>
-                {
-                    b.HasOne("Cars.Entities.CarEntity", null)
-                        .WithMany()
-                        .HasForeignKey("CarsInfoCarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("RentInfo.Entities.RentalEntity", null)
-                        .WithMany()
-                        .HasForeignKey("RentalInfoRentalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("RentInfo.Entities.RentalEntity", b =>
                 {
+                    b.HasOne("Cars.Entities.CarEntity", "Cars")
+                        .WithMany()
+                        .HasForeignKey("CarsCarId");
+
                     b.HasOne("Users.Entities.UserEntity", "User")
-                        .WithMany("RentalInfo")
+                        .WithMany()
                         .HasForeignKey("UserId");
 
-                    b.Navigation("User");
-                });
+                    b.Navigation("Cars");
 
-            modelBuilder.Entity("Users.Entities.UserEntity", b =>
-                {
-                    b.Navigation("RentalInfo");
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

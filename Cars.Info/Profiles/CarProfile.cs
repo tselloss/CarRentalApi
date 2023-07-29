@@ -8,7 +8,7 @@ namespace CarRental.Profiles
     {
         public CarProfile()
         {
-            CreateMap<CarEntity, CarsInfo>();
+            CreateMap<CarEntity, CarsInfo>().ReverseMap();
         }
     }
 }

@@ -5,7 +5,6 @@ namespace RentInfo.Model
 {
     public class RentalInfo
     {
-        public int RentalId { get; set; }
         public UserInfo User { get; set; }
         public CarsInfo Cars { get; set; }
 

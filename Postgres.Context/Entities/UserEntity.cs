@@ -1,4 +1,4 @@
-﻿using RentInfo.Entities;
+﻿using CarRentalManagment.Extensions;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -26,8 +26,6 @@ namespace Users.Entities
         [Required]
         public int PostalCode { get; set; }
         [Required]
-        public string Role { get; set; }
-
-        public IEnumerable<RentalEntity> RentalInfo { get; set; }
+        public Roles Role { get; set; }
     }
 }

@@ -15,6 +15,7 @@ namespace CarRentalManagment.PostgresContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<CarEntity>()
                 .HasData(
                 new CarEntity
@@ -55,7 +56,7 @@ namespace CarRentalManagment.PostgresContext
                    Address = "123 Main Street",
                    City = "New York",
                    PostalCode = 10001,
-                   Role = "User"
+                   Role = 0
                },
             new UserEntity
             {
@@ -66,7 +67,7 @@ namespace CarRentalManagment.PostgresContext
                 Address = "456 Elm Avenue",
                 City = "Los Angeles",
                 PostalCode = 90001,
-                Role = "User"
+                Role = 0
             },
             new UserEntity
             {
@@ -77,7 +78,7 @@ namespace CarRentalManagment.PostgresContext
                 Address = "789 Oak Street",
                 City = "Chicago",
                 PostalCode = 60601,
-                Role = "Admin"
+                Role = 0
             });
             modelBuilder.Entity<RentalEntity>()
                 .HasData(
@@ -93,7 +94,8 @@ namespace CarRentalManagment.PostgresContext
                DateFrom = new DateTime(2023, 8, 1),
                DateTo = new DateTime(2023, 8, 8)
            }
-       );
+           );
+
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -48,7 +48,7 @@ namespace CarRentalManagment.Controllers
             return Ok(_mapper.Map<CarsInfo>(cars));
         }
 
-        [HttpPost("api/createUser")]
+        [HttpPost("api/createCar")]
         public async Task<ActionResult<CarsInfo>> CreateUserAsync([FromBody] CarsInfo carsInfo)
         {
             var newCar = _mapper.Map<CarEntity>(carsInfo);

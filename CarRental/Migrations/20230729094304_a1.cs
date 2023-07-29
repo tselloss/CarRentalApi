@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CarRental.Migrations
 {
     /// <inheritdoc />
-    public partial class RecreateInfo : Migration
+    public partial class a1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,20 +32,6 @@ namespace CarRental.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RentalInfo",
-                columns: table => new
-                {
-                    RentalId = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    DateFrom = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    DateTo = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RentalInfo", x => x.RentalId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "UsersInfo",
                 columns: table => new
                 {
@@ -57,11 +43,37 @@ namespace CarRental.Migrations
                     Address = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     City = table.Column<string>(type: "text", nullable: false),
                     PostalCode = table.Column<int>(type: "integer", nullable: false),
-                    Role = table.Column<string>(type: "text", nullable: false)
+                    Role = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UsersInfo", x => x.UserId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RentalInfo",
+                columns: table => new
+                {
+                    RentalId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    DateFrom = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    DateTo = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    UserId = table.Column<int>(type: "integer", nullable: true),
+                    CarsCarId = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RentalInfo", x => x.RentalId);
+                    table.ForeignKey(
+                        name: "FK_RentalInfo_CarsInfo_CarsCarId",
+                        column: x => x.CarsCarId,
+                        principalTable: "CarsInfo",
+                        principalColumn: "CarId");
+                    table.ForeignKey(
+                        name: "FK_RentalInfo_UsersInfo_UserId",
+                        column: x => x.UserId,
+                        principalTable: "UsersInfo",
+                        principalColumn: "UserId");
                 });
 
             migrationBuilder.InsertData(
@@ -76,11 +88,11 @@ namespace CarRental.Migrations
 
             migrationBuilder.InsertData(
                 table: "RentalInfo",
-                columns: new[] { "RentalId", "DateFrom", "DateTo" },
+                columns: new[] { "RentalId", "CarsCarId", "DateFrom", "DateTo", "UserId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 1, null, new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 2, null, new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
                 });
 
             migrationBuilder.InsertData(
@@ -88,20 +100,30 @@ namespace CarRental.Migrations
                 columns: new[] { "UserId", "Address", "City", "Email", "Password", "PostalCode", "Role", "Username" },
                 values: new object[,]
                 {
-                    { 1, "123 Main Street", "New York", "john.doe@example.com", "p@ssw0rd", 10001, "User", "JohnDoe" },
-                    { 2, "456 Elm Avenue", "Los Angeles", "jane.smith@example.com", "s3cur3p@ss", 90001, "User", "JaneSmith" },
-                    { 3, "789 Oak Street", "Chicago", "admin@example.com", "adm!n123", 60601, "Admin", "AdminUser" }
+                    { 1, "123 Main Street", "New York", "john.doe@example.com", "p@ssw0rd", 10001, 0, "JohnDoe" },
+                    { 2, "456 Elm Avenue", "Los Angeles", "jane.smith@example.com", "s3cur3p@ss", 90001, 0, "JaneSmith" },
+                    { 3, "789 Oak Street", "Chicago", "admin@example.com", "adm!n123", 60601, 0, "AdminUser" }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RentalInfo_CarsCarId",
+                table: "RentalInfo",
+                column: "CarsCarId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RentalInfo_UserId",
+                table: "RentalInfo",
+                column: "UserId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CarsInfo");
+                name: "RentalInfo");
 
             migrationBuilder.DropTable(
-                name: "RentalInfo");
+                name: "CarsInfo");
 
             migrationBuilder.DropTable(
                 name: "UsersInfo");
