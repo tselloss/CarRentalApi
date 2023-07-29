@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CarRental.Migrations
 {
     [DbContext(typeof(PostgresDbContext))]
-    [Migration("20230729094304_a1")]
+    [Migration("20230729110642_a1")]
     partial class a1
     {
         /// <inheritdoc />
@@ -32,6 +32,9 @@ namespace CarRental.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CarId"));
+
+                    b.Property<int>("AdminUserId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Brand")
                         .IsRequired()
@@ -53,36 +56,9 @@ namespace CarRental.Migrations
 
                     b.HasKey("CarId");
 
-                    b.ToTable("CarsInfo");
+                    b.HasIndex("AdminUserId");
 
-                    b.HasData(
-                        new
-                        {
-                            CarId = 1,
-                            Brand = "Toyota",
-                            Image = "toyota_camry.jpg",
-                            Model = "Camry",
-                            Price = 25000f,
-                            Seats = 5
-                        },
-                        new
-                        {
-                            CarId = 2,
-                            Brand = "Honda",
-                            Image = "honda_civic.jpg",
-                            Model = "Civic",
-                            Price = 22000f,
-                            Seats = 5
-                        },
-                        new
-                        {
-                            CarId = 3,
-                            Brand = "Ford",
-                            Image = "ford_mustang.jpg",
-                            Model = "Mustang",
-                            Price = 35000f,
-                            Seats = 4
-                        });
+                    b.ToTable("CarsInfo");
                 });
 
             modelBuilder.Entity("RentInfo.Entities.RentalEntity", b =>
@@ -93,7 +69,10 @@ namespace CarRental.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("RentalId"));
 
-                    b.Property<int?>("CarsCarId")
+                    b.Property<int?>("CarId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("ClientUserId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("DateFrom")
@@ -102,30 +81,13 @@ namespace CarRental.Migrations
                     b.Property<DateTime>("DateTo")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("integer");
-
                     b.HasKey("RentalId");
 
-                    b.HasIndex("CarsCarId");
+                    b.HasIndex("CarId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("ClientUserId");
 
                     b.ToTable("RentalInfo");
-
-                    b.HasData(
-                        new
-                        {
-                            RentalId = 1,
-                            DateFrom = new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(2023, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            RentalId = 2,
-                            DateFrom = new DateTime(2023, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateTo = new DateTime(2023, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("Users.Entities.UserEntity", b =>
@@ -167,57 +129,66 @@ namespace CarRental.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("UsersInfo");
+                    b.ToTable("UserInfo");
 
-                    b.HasData(
-                        new
-                        {
-                            UserId = 1,
-                            Address = "123 Main Street",
-                            City = "New York",
-                            Email = "john.doe@example.com",
-                            Password = "p@ssw0rd",
-                            PostalCode = 10001,
-                            Role = 0,
-                            Username = "JohnDoe"
-                        },
-                        new
-                        {
-                            UserId = 2,
-                            Address = "456 Elm Avenue",
-                            City = "Los Angeles",
-                            Email = "jane.smith@example.com",
-                            Password = "s3cur3p@ss",
-                            PostalCode = 90001,
-                            Role = 0,
-                            Username = "JaneSmith"
-                        },
-                        new
-                        {
-                            UserId = 3,
-                            Address = "789 Oak Street",
-                            City = "Chicago",
-                            Email = "admin@example.com",
-                            Password = "adm!n123",
-                            PostalCode = 60601,
-                            Role = 0,
-                            Username = "AdminUser"
-                        });
+                    b.HasDiscriminator<int>("Role").HasValue(2);
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("Postgres.Context.Entities.AdminEntity", b =>
+                {
+                    b.HasBaseType("Users.Entities.UserEntity");
+
+                    b.HasDiscriminator().HasValue(0);
+                });
+
+            modelBuilder.Entity("Postgres.Context.Entities.ClientEntity", b =>
+                {
+                    b.HasBaseType("Users.Entities.UserEntity");
+
+                    b.HasDiscriminator().HasValue(1);
+                });
+
+            modelBuilder.Entity("Cars.Entities.CarEntity", b =>
+                {
+                    b.HasOne("Postgres.Context.Entities.AdminEntity", "Admin")
+                        .WithMany("Cars")
+                        .HasForeignKey("AdminUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Admin");
                 });
 
             modelBuilder.Entity("RentInfo.Entities.RentalEntity", b =>
                 {
-                    b.HasOne("Cars.Entities.CarEntity", "Cars")
-                        .WithMany()
-                        .HasForeignKey("CarsCarId");
+                    b.HasOne("Cars.Entities.CarEntity", "Car")
+                        .WithMany("Rents")
+                        .HasForeignKey("CarId");
 
-                    b.HasOne("Users.Entities.UserEntity", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
+                    b.HasOne("Postgres.Context.Entities.ClientEntity", "Client")
+                        .WithMany("Rents")
+                        .HasForeignKey("ClientUserId");
 
+                    b.Navigation("Car");
+
+                    b.Navigation("Client");
+                });
+
+            modelBuilder.Entity("Cars.Entities.CarEntity", b =>
+                {
+                    b.Navigation("Rents");
+                });
+
+            modelBuilder.Entity("Postgres.Context.Entities.AdminEntity", b =>
+                {
                     b.Navigation("Cars");
+                });
 
-                    b.Navigation("User");
+            modelBuilder.Entity("Postgres.Context.Entities.ClientEntity", b =>
+                {
+                    b.Navigation("Rents");
                 });
 #pragma warning restore 612, 618
         }

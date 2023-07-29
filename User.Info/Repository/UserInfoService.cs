@@ -19,12 +19,12 @@ namespace User.Info.Repository
 
         public async Task<IEnumerable<UserEntity>> GetAllUsersAsync()
         {
-            return await _context.UsersInfo.OrderBy(_ => _.UserId).ToListAsync();
+            return await _context.UserInfo.OrderBy(_ => _.UserId).ToListAsync();
         }
 
         public async Task<UserEntity?> GetUserInfoByIdAsync(int id)
         {
-            return await _context.UsersInfo.Where(_ => _.UserId == id).FirstOrDefaultAsync();
+            return await _context.UserInfo.Where(_ => _.UserId == id).FirstOrDefaultAsync();
         }
 
         public Task UpdateUserAsync(UserEntity userEntity)
@@ -34,7 +34,7 @@ namespace User.Info.Repository
 
         public void DeleteUserAsync(UserEntity userEntity)
         {
-            _context.UsersInfo.Remove(userEntity);
+            _context.UserInfo.Remove(userEntity);
         }
 
         public async Task<bool> SaveChangesAsync()

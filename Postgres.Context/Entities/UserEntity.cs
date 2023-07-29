@@ -12,20 +12,16 @@ namespace Users.Entities
         [Required]
         [MaxLength(50)]
         public string Username { get; set; }
-        [Required]
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        [MaxLength(16)]
-        public string Password { get; set; }
+        public byte[] PasswordHash { get; set; }
         [Required]
+        public byte[] PasswordSalt { get; set; }
         [MaxLength(50)]
         public string Address { get; set; }
-        [Required]
         public string City { get; set; }
-        [Required]
         public int PostalCode { get; set; }
-        [Required]
         public Roles Role { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Postgres.Context.Entities;
+using RentInfo.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cars.Entities
@@ -18,6 +20,8 @@ namespace Cars.Entities
         public float Price { get; set; }
         [Required]
         public string Image { get; set; }
-
+        [Required]
+        public AdminEntity Admin { get; set; }
+        public IEnumerable<RentalEntity> Rents { get; set; }
     }
 }
