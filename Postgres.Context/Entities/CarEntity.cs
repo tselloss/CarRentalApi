@@ -19,6 +19,5 @@ namespace Cars.Entities
         [Required]
         public string Image { get; set; }
 
-
     }
 }
