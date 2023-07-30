@@ -27,7 +27,7 @@ namespace CarRentalApi.Services
             this.config = config;
             this.dbContext = dbContext;
         }
-        public async Task<IActionResult> Login(UserDto request)
+        public async Task<IActionResult> Login(UserAuthenticationDto request)
         {
             if (!dbContext.UserInfo.Any(_ => _.Username == request.Username))
             {

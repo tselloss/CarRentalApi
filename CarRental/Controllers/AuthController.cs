@@ -17,7 +17,7 @@ namespace CarRental.Controllers
         }
 
         [HttpPost("Login")]
-        public async Task<IActionResult> Login(UserDto request)
+        public async Task<IActionResult> Login(UserAuthenticationDto request)
         {
             return await authService.Login(request);
         }
