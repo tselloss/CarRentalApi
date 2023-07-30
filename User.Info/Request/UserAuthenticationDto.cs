@@ -1,6 +1,6 @@
 ﻿namespace CarRentalApi.Requests
 {
-    public class UserDto
+    public class UserAuthenticationDto
     {
         public string Username { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
