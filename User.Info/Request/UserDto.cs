@@ -1,6 +1,4 @@
-﻿using CarRentalApi.Model;
-
-namespace CarRentalApi.Requests
+﻿namespace CarRentalApi.Requests
 {
     public class UserDto
     {
@@ -8,3 +6,5 @@ namespace CarRentalApi.Requests
         public string Password { get; set; } = string.Empty;
     }
 }
+
+

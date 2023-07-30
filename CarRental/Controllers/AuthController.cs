@@ -16,17 +16,10 @@ namespace CarRental.Controllers
             authService = new AuthService(this, configuration, dataContext);
         }
 
-        [HttpPost("register")]
-        public async Task<IActionResult> register(UserDto request)
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login(UserDto request)
         {
-
-            return await authService.register(request);
-        }
-
-        [HttpPost("login")]
-        public async Task<IActionResult> login(UserDto request)
-        {
-            return await authService.login(request);
+            return await authService.Login(request);
         }
 
         [Authorize]

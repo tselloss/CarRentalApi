@@ -27,17 +27,20 @@ namespace CarRentalApi.Services
             this.config = config;
             this.dbContext = dbContext;
         }
-
-        public async Task<IActionResult> login(UserDto request)
+        public async Task<IActionResult> Login(UserDto request)
         {
             if (!dbContext.UserInfo.Any(_ => _.Username == request.Username))
             {
                 return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.USER_NOT_FOUND });
             }
             UserEntity user = await dbContext.UserInfo.Where(_ => _.Username == request.Username).FirstAsync();
+            var verifyHashedPass = VerifyPassword(request.Password);
+            if (user.Password != verifyHashedPass)
+            {
+                return controller.NotFound();
+            }
             return controller.Ok(UserPresenter.GetUserPresenter(user, CreateToken(user)));
         }
-
         private string CreateToken(UserEntity user)
         {
             List<Claim> claims = new List<Claim>
@@ -46,22 +49,29 @@ namespace CarRentalApi.Services
                 new Claim(ClaimTypes.Role, user.Role.ToString())
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config.GetSection("AppSettings:Token").Value));
-            var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
             var token = new JwtSecurityToken(
                 claims: claims,
                 expires: DateTime.Now.AddDays(1),
-                signingCredentials: cred
+                signingCredentials: credentials
             );
 
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
             return jwt;
         }
-        private bool VerifyPassword(string password, byte[] passwordHash, byte[] passwordSalt)
+
+        private string VerifyPassword(string password)
         {
-            using (var hmac = new HMACSHA512(passwordSalt))
+            byte[] inputBytes = Encoding.UTF8.GetBytes(password);
+            using (SHA256 sha256 = SHA256.Create())
             {
-                var computeHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return computeHash.SequenceEqual(passwordHash);
+                byte[] hashBytes = sha256.ComputeHash(inputBytes);
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in hashBytes)
+                {
+                    sb.Append(b.ToString("x2"));
+                }
+                return sb.ToString();
             }
         }
 
