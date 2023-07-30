@@ -253,3 +253,7 @@ C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Micros
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Scrutor.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:\Users\karac\source\repos\CarRentalApi\CarRental\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\karac\source\repos\CarRentalApi\CarRental\bin\Debug\net6.0\Scrutor.dll
+C:\Users\karac\source\repos\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\karac\source\repos\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll

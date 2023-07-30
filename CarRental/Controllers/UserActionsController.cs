@@ -48,14 +48,6 @@ namespace CarRentalManagment.Controllers
             return Ok(_mapper.Map<UserInfo>(user));
         }
 
-        [HttpPost("api/createUser")]
-        public async Task<ActionResult<UserInfo>> CreateUserAsync([FromBody] UserInfo userInfo)
-        {
-            var newUser = _mapper.Map<UserEntity>(userInfo);
-            await _userInfo.CreateUser(newUser);
-            await _userInfoService.SaveChangesAsync();
-            return Ok(newUser);
-        }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteUser(int id)
@@ -70,6 +62,15 @@ namespace CarRentalManagment.Controllers
             _userInfo.DeleteUserAsync(users);
             await _userInfoService.SaveChangesAsync();
             return Ok(users);
+        }
+
+        [HttpPost("api/registerUser")]
+        public async Task<ActionResult<UserInfo>> RegisterUser([FromBody] UserInfo userInfo)
+        {
+            var newUser = _mapper.Map<UserEntity>(userInfo);
+            await _userInfo.Register(newUser);
+            await _userInfoService.SaveChangesAsync();
+            return Ok(newUser);
         }
     }
 }

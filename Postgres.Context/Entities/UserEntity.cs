@@ -15,9 +15,7 @@ namespace Users.Entities
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        public byte[] PasswordHash { get; set; }
-        [Required]
-        public byte[] PasswordSalt { get; set; }
+        public string Password { get; set; }
         [MaxLength(50)]
         public string Address { get; set; }
         public string City { get; set; }

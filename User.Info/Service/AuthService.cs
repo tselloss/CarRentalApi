@@ -2,7 +2,6 @@
 using CarRentalApi.Presenters;
 using CarRentalApi.Requests;
 using CarRentalApi.Responses;
-using CarRentalManagment.Extensions;
 using CarRentalManagment.PostgresContext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -28,47 +27,17 @@ namespace CarRentalApi.Services
             this.config = config;
             this.dbContext = dbContext;
         }
-        public async Task<IActionResult> register(UserDto request)
-        {
-            if (dbContext.UserInfo.Any(u => u.Username == request.Username))
-            {
-                return controller.BadRequest(new ErrorResponse { message = ErrorMessages.USERNAME_EXISTS });
-            }
 
-            CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
-            UserEntity user = new UserEntity();
-            user.Username = request.Username;
-            user.PasswordHash = passwordHash;
-            user.PasswordSalt = passwordSalt;
-            user.Role = Roles.Client;
-            dbContext.UserInfo.Add(user);
-            dbContext.SaveChanges();
-
-            return controller.Ok();
-        }
         public async Task<IActionResult> login(UserDto request)
         {
-            if(!dbContext.UserInfo.Any(_ => _.Username == request.Username))
+            if (!dbContext.UserInfo.Any(_ => _.Username == request.Username))
             {
                 return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.USER_NOT_FOUND });
             }
             UserEntity user = await dbContext.UserInfo.Where(_ => _.Username == request.Username).FirstAsync();
-            if (!VerifyPassword(request.Password, user.PasswordHash, user.PasswordSalt))
-            {
-                return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.WRONG_PASSWORD });
-            }
-
             return controller.Ok(UserPresenter.GetUserPresenter(user, CreateToken(user)));
         }
 
-        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
-            using (var hmac = new HMACSHA512())
-            {
-                passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-            }
-        }
         private string CreateToken(UserEntity user)
         {
             List<Claim> claims = new List<Claim>

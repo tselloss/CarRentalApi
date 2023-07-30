@@ -1,5 +1,4 @@
-﻿using AutoMapper.Internal;
-using CarRentalApi.Requests;
+﻿using CarRentalApi.Requests;
 using CarRentalApi.Services;
 using CarRentalManagment.PostgresContext;
 using Microsoft.AspNetCore.Authorization;
@@ -29,6 +28,7 @@ namespace CarRental.Controllers
         {
             return await authService.login(request);
         }
+
         [Authorize]
         [HttpPost("test")]
         public async Task<IActionResult> test()

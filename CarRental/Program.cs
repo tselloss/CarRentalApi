@@ -7,7 +7,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using RentInfo.Interface;
 using RentInfo.Repository;
-using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 using User.Info.Interface;
 using User.Info.Repository;
@@ -29,15 +28,32 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options => {
-    options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+builder.Services.AddSwaggerGen(setup =>
+{
+    // Include 'SecurityScheme' to use JWT Authentication
+    var jwtSecurityScheme = new OpenApiSecurityScheme
     {
-        Description = "Standard Authorization header using the Bearer scheme (\"{token}\")",
+        BearerFormat = "JWT",
+        Name = "JWT Authentication",
         In = ParameterLocation.Header,
-        Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey
+        Type = SecuritySchemeType.Http,
+        Scheme = JwtBearerDefaults.AuthenticationScheme,
+        Description = "Put **_ONLY_** your JWT Bearer token on textbox below!",
+
+        Reference = new OpenApiReference
+        {
+            Id = JwtBearerDefaults.AuthenticationScheme,
+            Type = ReferenceType.SecurityScheme
+        }
+    };
+
+    setup.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
+
+    setup.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        { jwtSecurityScheme, Array.Empty<string>() }
     });
-    options.OperationFilter<SecurityRequirementsOperationFilter>();
+
 });
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
