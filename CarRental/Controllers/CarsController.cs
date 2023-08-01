@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CarRentalApi.Model;
 using Cars.Entities;
 using Cars.Info.Interface;
 using Cars.Info.Model;
@@ -43,7 +44,7 @@ namespace CarRentalManagment.Controllers
             var cars = await _cars.GetCarInfoByIdAsync(id);
             if (cars == null)
             {
-                _logger.LogInformation($"We have no car on Db with this id: {id} ");
+                _logger.LogInformation(ErrorMessages. $" {id} ");
                 return NoContent();
             }
             return Ok(_mapper.Map<CarsInfo>(cars));

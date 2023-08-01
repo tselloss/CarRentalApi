@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CarRentalApi.Model;
 using CarRentalApi.Requests;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -27,25 +28,26 @@ namespace CarRentalManagment.Controllers
         }
 
         [HttpGet("all")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<UserInfoForGet>>> GetAllUsersAsync()
         {
             var users = await _userInfo.GetAllUsersAsync();
             if (users == null)
             {
-                _logger.LogInformation("We have no users on Db");
+                _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND);
                 return NoContent();
             }
             return Ok(_mapper.Map<IEnumerable<UserInfoForGet>>(users));
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<UserInfoForGet>> GetUserInfoByIdAsync(int id)
         {
             var user = await _userInfo.GetUserInfoByIdAsync(id);
             if (user == null)
             {
-                _logger.LogInformation($"We have no user on Db with this id: {id} ");
+                _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND + $" User to find by id: {id} ");
                 return NoContent();
             }
             return Ok(_mapper.Map<UserInfoForGet>(user));
@@ -53,13 +55,14 @@ namespace CarRentalManagment.Controllers
 
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteUser(int id)
         {
             var users = await _userInfo.GetUserInfoByIdAsync(id);
 
             if (users == null)
             {
-                _logger.LogInformation($"We have no user on Db with this id: {id} ");
+                _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND + $" User to delete with id: {id} ");
                 return NoContent();
             }
             _userInfo.DeleteUserAsync(users);

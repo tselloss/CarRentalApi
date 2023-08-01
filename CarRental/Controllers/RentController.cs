@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CarRentalApi.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RentInfo.Entities;
@@ -28,31 +29,33 @@ namespace CarRentalManagment.Controllers
         }
 
         [HttpGet("all")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<RentalInfo>>> GetAllReservationsAsync()
         {
             var rental = await _rental.GetAllReservationsAsync();
             if (rental == null)
             {
-                _logger.LogInformation("We have no reservations on Db");
+                _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND);
                 return NoContent();
             }
             return Ok(_mapper.Map<IEnumerable<RentalInfo>>(rental));
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<RentalInfo>> GetUserInfoByIdAsync(int id)
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<RentalInfo>> GetRentalInfoByIdAsync(int id)
         {
             var rentalId = await _rental.GetReservationInfoByIdAsync(id);
             if (rentalId == null)
             {
-                _logger.LogInformation($"We have no reservation on Db with this id: {id} ");
+                _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND + $" with find by id: {id} ");
                 return NoContent();
             }
             return Ok(_mapper.Map<UserInfo>(rentalId));
         }
 
         [HttpPost]
-        public async Task<ActionResult<RentalInfo>> CreateUserAsync([FromBody] RentalInfo rentalInfo)
+        public async Task<ActionResult<RentalInfo>> CreateRentalAsync([FromBody] RentalInfo rentalInfo)
         {
             var newRent = _mapper.Map<RentalEntity>(rentalInfo);
             await _rental.CreateReservation(newRent);
@@ -61,13 +64,14 @@ namespace CarRentalManagment.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteRental(int id)
         {
             var rental = await _rental.GetReservationInfoByIdAsync(id);
 
             if (rental == null)
             {
-                _logger.LogInformation($"We have no rent on Db with this id: {id} ");
+                _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND + $" with delete id: {id} ");
                 return NoContent();
             }
             _rental.DeleteReservationAsync(rental);

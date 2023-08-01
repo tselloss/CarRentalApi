@@ -11,5 +11,8 @@
 
         public static string CAR_NOT_FOUND = "Car not found";
         public static string INVALID_DATE_FORMAT = "Invalid date format";
+
+        public static string ITEM_NOT_FOUND = "Item not found on database";
+
     }
 }
