@@ -9,6 +9,7 @@ namespace User.Info.Profiles
         public UserProfile()
         {
             CreateMap<UserEntity, UserInfo>().ReverseMap();
+            CreateMap<UserEntity, UserInfoForGet>().ReverseMap();
         }
     }
 }

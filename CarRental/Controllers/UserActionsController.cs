@@ -27,7 +27,7 @@ namespace CarRentalManagment.Controllers
 
         [HttpGet("api/users")]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<UserInfo>>> GetAllUsersAsync()
+        public async Task<ActionResult<IEnumerable<UserInfoForGet>>> GetAllUsersAsync()
         {
             var users = await _userInfo.GetAllUsersAsync();
             if (users == null)
@@ -35,11 +35,11 @@ namespace CarRentalManagment.Controllers
                 _logger.LogInformation("We have no users on Db");
                 return NoContent();
             }
-            return Ok(_mapper.Map<IEnumerable<UserInfo>>(users));
+            return Ok(_mapper.Map<IEnumerable<UserInfoForGet>>(users));
         }
 
         [HttpGet("api/userById/{id}")]
-        public async Task<ActionResult<UserInfo>> GetUserInfoByIdAsync(int id)
+        public async Task<ActionResult<UserInfoForGet>> GetUserInfoByIdAsync(int id)
         {
             var user = await _userInfo.GetUserInfoByIdAsync(id);
             if (user == null)
@@ -47,7 +47,7 @@ namespace CarRentalManagment.Controllers
                 _logger.LogInformation($"We have no user on Db with this id: {id} ");
                 return NoContent();
             }
-            return Ok(_mapper.Map<UserInfo>(user));
+            return Ok(_mapper.Map<UserInfoForGet>(user));
         }
 
 
