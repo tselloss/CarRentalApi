@@ -169,6 +169,10 @@ C:\Users\karac\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\refint\CarRe
 C:\Users\karac\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.pdb
 C:\Users\karac\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.genruntimeconfig.cache
 C:\Users\karac\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\ref\CarRental.dll
+C:\Users\karac\source\repos\CarRentalApi\CarRental\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\karac\source\repos\CarRentalApi\CarRental\bin\Debug\net6.0\Scrutor.dll
+C:\Users\karac\source\repos\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\karac\source\repos\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\CoverletSourceRootsMapping_CarRental
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\appsettings.json
@@ -197,6 +201,7 @@ C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Micros
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
@@ -209,6 +214,9 @@ C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Newton
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Npgsql.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\nunit.framework.dll
+C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Scrutor.dll
+C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -249,11 +257,3 @@ C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\refint
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.pdb
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.genruntimeconfig.cache
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\ref\CarRental.dll
-C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Scrutor.dll
-C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
-C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
-C:\Users\karac\source\repos\CarRentalApi\CarRental\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\karac\source\repos\CarRentalApi\CarRental\bin\Debug\net6.0\Scrutor.dll
-C:\Users\karac\source\repos\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
-C:\Users\karac\source\repos\CarRentalApi\CarRental\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll

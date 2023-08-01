@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CarRentalApi.Requests;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using User.Info.Interface;
@@ -8,7 +9,7 @@ using Users.Entities;
 
 namespace CarRentalManagment.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UserActionsController : ControllerBase
     {
@@ -25,7 +26,7 @@ namespace CarRentalManagment.Controllers
             _userInfoService = userInfoService ?? throw new ArgumentNullException(nameof(userInfoService));
         }
 
-        [HttpGet("api/users")]
+        [HttpGet("all")]
         [Authorize]
         public async Task<ActionResult<IEnumerable<UserInfo>>> GetAllUsersAsync()
         {
@@ -38,7 +39,7 @@ namespace CarRentalManagment.Controllers
             return Ok(_mapper.Map<IEnumerable<UserInfo>>(users));
         }
 
-        [HttpGet("api/userById/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<UserInfo>> GetUserInfoByIdAsync(int id)
         {
             var user = await _userInfo.GetUserInfoByIdAsync(id);
@@ -66,13 +67,19 @@ namespace CarRentalManagment.Controllers
             return Ok(users);
         }
 
-        [HttpPost("api/registerUser")]
-        public async Task<ActionResult<UserInfo>> RegisterUser([FromBody] UserInfo userInfo)
+        [HttpPost("register")]
+        public async Task<IActionResult> RegisterUser([FromBody] UserInfo userInfo)
         {
             var newUser = _mapper.Map<UserEntity>(userInfo);
             await _userInfo.Register(newUser);
             await _userInfoService.SaveChangesAsync();
-            return Ok(newUser);
+            return Ok();
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> LoginUser([FromBody] UserAuthenticationDto request)
+        {
+            return await _userInfo.Login(this, request);
         }
     }
 }

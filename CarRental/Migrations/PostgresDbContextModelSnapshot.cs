@@ -109,12 +109,6 @@ namespace CarRental.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<byte[]>("PasswordHash")
-                        .HasColumnType("bytea");
-
-                    b.Property<byte[]>("PasswordSalt")
-                        .HasColumnType("bytea");
-
                     b.Property<int>("PostalCode")
                         .HasColumnType("integer");
 

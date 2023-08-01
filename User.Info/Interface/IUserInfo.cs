@@ -1,4 +1,6 @@
-﻿using Users.Entities;
+﻿using CarRentalApi.Requests;
+using Microsoft.AspNetCore.Mvc;
+using Users.Entities;
 
 namespace User.Info.Interface
 {
@@ -10,5 +12,6 @@ namespace User.Info.Interface
         Task<IEnumerable<UserEntity>> GetAllUsersAsync();
         Task<UserEntity?> GetUserInfoByIdAsync(int id);
         Task Register(UserEntity userEntity);
+        Task<IActionResult> Login(ControllerBase controller, UserAuthenticationDto request);
     }
 }

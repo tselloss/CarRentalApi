@@ -3,11 +3,12 @@ using Cars.Entities;
 using Cars.Info.Interface;
 using Cars.Info.Model;
 using Cars.Info.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarRentalManagment.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/car")]
     [ApiController]
     public class CarsController : ControllerBase
     {
@@ -24,7 +25,7 @@ namespace CarRentalManagment.Controllers
             _carsService = carsService ?? throw new ArgumentNullException(nameof(carsService));
         }
 
-        [HttpGet("api/cars")]
+        [HttpGet("all")]
         public async Task<ActionResult<IEnumerable<CarsInfo>>> GetAllCarsAsync()
         {
             var cars = await _cars.GetAllCarsAsync();
@@ -36,7 +37,7 @@ namespace CarRentalManagment.Controllers
             return Ok(_mapper.Map<IEnumerable<CarsInfo>>(cars));
         }
 
-        [HttpGet("api/carsById/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<CarsInfo>> GetCarsInfoByIdAsync(int id)
         {
             var cars = await _cars.GetCarInfoByIdAsync(id);
@@ -48,8 +49,9 @@ namespace CarRentalManagment.Controllers
             return Ok(_mapper.Map<CarsInfo>(cars));
         }
 
-        [HttpPost("api/createCar")]
-        public async Task<ActionResult<CarsInfo>> CreateUserAsync([FromBody] CarsInfo carsInfo)
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<CarsInfo>> CreateCarAsync([FromBody] CarsInfo carsInfo)
         {
             var newCar = _mapper.Map<CarEntity>(carsInfo);
             await _cars.CreateNewCar(newCar);
@@ -58,7 +60,8 @@ namespace CarRentalManagment.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteCars(int id)
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> DeleteCar(int id)
         {
             var cars = await _cars.GetCarInfoByIdAsync(id);
             if (cars == null)
