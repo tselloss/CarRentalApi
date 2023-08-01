@@ -32,7 +32,7 @@ namespace CarRentalManagment.Controllers
             var cars = await _cars.GetAllCarsAsync();
             if (cars == null)
             {
-                _logger.LogInformation("We have no cars on Db");
+                _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND);
                 return NoContent();
             }
             return Ok(_mapper.Map<IEnumerable<CarsInfo>>(cars));
@@ -44,7 +44,7 @@ namespace CarRentalManagment.Controllers
             var cars = await _cars.GetCarInfoByIdAsync(id);
             if (cars == null)
             {
-                _logger.LogInformation(ErrorMessages. $" {id} ");
+                _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND + $" car find by id: {id} ");
                 return NoContent();
             }
             return Ok(_mapper.Map<CarsInfo>(cars));
@@ -67,7 +67,7 @@ namespace CarRentalManagment.Controllers
             var cars = await _cars.GetCarInfoByIdAsync(id);
             if (cars == null)
             {
-                _logger.LogInformation($"We have no car on Db with this id: {id} ");
+                _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND + $" to delete by id: {id} ");
                 return NoContent();
             }
             _cars.DeleteCarAsync(cars);
