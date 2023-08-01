@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RentInfo.Entities;
 using RentInfo.Interface;
@@ -8,6 +9,8 @@ using User.Info.Model;
 
 namespace CarRentalManagment.Controllers
 {
+    [ApiController]
+    [Route("api/rent")]
     public class RentController : ControllerBase
     {
 
@@ -24,7 +27,7 @@ namespace CarRentalManagment.Controllers
             _rentalService = rentalService ?? throw new ArgumentNullException(nameof(rentalService));
         }
 
-        [HttpGet("api/getAllRental")]
+        [HttpGet("all")]
         public async Task<ActionResult<IEnumerable<RentalInfo>>> GetAllReservationsAsync()
         {
             var rental = await _rental.GetAllReservationsAsync();
@@ -36,7 +39,7 @@ namespace CarRentalManagment.Controllers
             return Ok(_mapper.Map<IEnumerable<RentalInfo>>(rental));
         }
 
-        [HttpGet("api/rentById/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<RentalInfo>> GetUserInfoByIdAsync(int id)
         {
             var rentalId = await _rental.GetReservationInfoByIdAsync(id);
@@ -48,7 +51,7 @@ namespace CarRentalManagment.Controllers
             return Ok(_mapper.Map<UserInfo>(rentalId));
         }
 
-        [HttpPost("api/createRental")]
+        [HttpPost]
         public async Task<ActionResult<RentalInfo>> CreateUserAsync([FromBody] RentalInfo rentalInfo)
         {
             var newRent = _mapper.Map<RentalEntity>(rentalInfo);
