@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using User.Info.Interface;
 using User.Info.Model;
@@ -25,6 +26,7 @@ namespace CarRentalManagment.Controllers
         }
 
         [HttpGet("api/users")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<UserInfo>>> GetAllUsersAsync()
         {
             var users = await _userInfo.GetAllUsersAsync();
