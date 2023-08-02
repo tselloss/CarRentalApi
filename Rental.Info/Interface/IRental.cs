@@ -1,15 +1,17 @@
-﻿using RentInfo.Entities;
+﻿using Microsoft.AspNetCore.Mvc;
+using RentInfo.Entities;
+using RentInfo.Model;
 
 namespace RentInfo.Interface
 {
     public interface IRental
     {
-        Task CreateReservation(RentalEntity rentalEntity);
+        Task<IActionResult> CreateReservation(ControllerBase controller, RentalInfo request);
 
         Task UpdateReservationAsync(RentalEntity rentalEntity);
-        void DeleteReservationAsync(RentalEntity rentalEntity);
+        Task<IActionResult> DeleteReservationAsync(ControllerBase controller, int id);
 
-        Task<IEnumerable<RentalEntity>> GetAllReservationsAsync();
-        Task<RentalEntity?> GetReservationInfoByIdAsync(int id);
+        Task<IActionResult> GetAllReservationsAsync(ControllerBase controller);
+        Task<IActionResult> GetReservationInfoByIdAsync(ControllerBase contoller, int id);
     }
 }
