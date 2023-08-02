@@ -124,7 +124,7 @@ namespace CarRental.Migrations
 
                     b.ToTable("UserInfo");
 
-                    b.HasDiscriminator<int>("Role").HasValue(2);
+                    b.HasDiscriminator<int>("Role").HasValue(3);
 
                     b.UseTphMappingStrategy();
                 });
@@ -133,14 +133,14 @@ namespace CarRental.Migrations
                 {
                     b.HasBaseType("Users.Entities.UserEntity");
 
-                    b.HasDiscriminator().HasValue(0);
+                    b.HasDiscriminator().HasValue(1);
                 });
 
             modelBuilder.Entity("Postgres.Context.Entities.ClientEntity", b =>
                 {
                     b.HasBaseType("Users.Entities.UserEntity");
 
-                    b.HasDiscriminator().HasValue(1);
+                    b.HasDiscriminator().HasValue(2);
                 });
 
             modelBuilder.Entity("Cars.Entities.CarEntity", b =>

@@ -15,65 +15,36 @@ namespace CarRentalManagment.Controllers
     public class CarsController : ControllerBase
     {
         private readonly ICars _cars;
-        private readonly ILogger<CarsController> _logger;
-        private readonly IMapper _mapper;
-        private readonly CarsService _carsService;
 
-        public CarsController(ICars cars, ILogger<CarsController> logger, IMapper mapper, CarsService carsService)
+        public CarsController(ICars cars)
         {
-            _logger = logger ?? throw new ArgumentException(nameof(logger));
             _cars = cars ?? throw new ArgumentException(nameof(cars));
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-            _carsService = carsService ?? throw new ArgumentNullException(nameof(carsService));
         }
 
         [HttpGet("all")]
-        public async Task<ActionResult<IEnumerable<CarsInfo>>> GetAllCarsAsync()
+        public async Task<IActionResult> GetAllCarsAsync()
         {
-            var cars = await _cars.GetAllCarsAsync();
-            if (cars == null)
-            {
-                _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND);
-                return NoContent();
-            }
-            return Ok(_mapper.Map<IEnumerable<CarsInfo>>(cars));
+            return await _cars.GetAllCarsAsync(this);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<CarsInfo>> GetCarsInfoByIdAsync(int id)
+        public async Task<IActionResult> GetCarsInfoByIdAsync(int id)
         {
-            var cars = await _cars.GetCarInfoByIdAsync(id);
-            if (cars == null)
-            {
-                _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND + $" car find by id: {id} ");
-                return NoContent();
-            }
-            return Ok(_mapper.Map<CarsInfo>(cars));
+            return await _cars.GetCarInfoByIdAsync(this, id);
         }
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<CarsInfo>> CreateCarAsync([FromBody] CarsInfo carsInfo)
+        public async Task<IActionResult> CreateCarAsync([FromBody] CarsInfo request)
         {
-            var newCar = _mapper.Map<CarEntity>(carsInfo);
-            await _cars.CreateNewCar(newCar);
-            await _carsService.SaveChangesAsync();
-            return Ok(newCar);
+            return await _cars.CreateNewCar(this, request);
         }
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> DeleteCar(int id)
+        public async Task<IActionResult> DeleteCar(int id)
         {
-            var cars = await _cars.GetCarInfoByIdAsync(id);
-            if (cars == null)
-            {
-                _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND + $" to delete by id: {id} ");
-                return NoContent();
-            }
-            _cars.DeleteCarAsync(cars);
-            await _carsService.SaveChangesAsync();
-            return Ok(cars);
+            return await _cars.DeleteCarAsync(this, id);
         }
     }
 }

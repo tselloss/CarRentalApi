@@ -1,14 +1,14 @@
 ﻿using Cars.Entities;
+using Cars.Info.Model;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Cars.Info.Interface
 {
     public interface ICars
     {
-        Task CreateNewCar(CarEntity carEntity);
-        Task UpdateUserAsync(CarEntity carEntity);
-        void DeleteCarAsync(CarEntity carEntity);
-
-        Task<IEnumerable<CarEntity>> GetAllCarsAsync();
-        Task<CarEntity?> GetCarInfoByIdAsync(int id);
+        Task<IActionResult> CreateNewCar(ControllerBase controller, CarsInfo carEntity);
+        Task<IActionResult> DeleteCarAsync(ControllerBase controller, int id);
+        Task<IActionResult> GetAllCarsAsync(ControllerBase controller);
+        Task<IActionResult> GetCarInfoByIdAsync(ControllerBase controller ,int id);
     }
 }

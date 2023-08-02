@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CarRental.Migrations
 {
     [DbContext(typeof(PostgresDbContext))]
-    [Migration("20230801130517_a0")]
+    [Migration("20230802144005_a0")]
     partial class a0
     {
         /// <inheritdoc />
@@ -127,7 +127,7 @@ namespace CarRental.Migrations
 
                     b.ToTable("UserInfo");
 
-                    b.HasDiscriminator<int>("Role").HasValue(2);
+                    b.HasDiscriminator<int>("Role").HasValue(3);
 
                     b.UseTphMappingStrategy();
                 });
@@ -136,14 +136,14 @@ namespace CarRental.Migrations
                 {
                     b.HasBaseType("Users.Entities.UserEntity");
 
-                    b.HasDiscriminator().HasValue(0);
+                    b.HasDiscriminator().HasValue(1);
                 });
 
             modelBuilder.Entity("Postgres.Context.Entities.ClientEntity", b =>
                 {
                     b.HasBaseType("Users.Entities.UserEntity");
 
-                    b.HasDiscriminator().HasValue(1);
+                    b.HasDiscriminator().HasValue(2);
                 });
 
             modelBuilder.Entity("Cars.Entities.CarEntity", b =>
