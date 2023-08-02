@@ -6,6 +6,7 @@ using Cars.Info.Model;
 using Cars.Info.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace CarRentalManagment.Controllers
 {

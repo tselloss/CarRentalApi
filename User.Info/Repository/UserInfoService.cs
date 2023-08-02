@@ -1,17 +1,21 @@
-﻿using CarRentalApi.Model;
+﻿using AutoMapper;
+using CarRentalApi.Model;
 using CarRentalApi.Presenters;
 using CarRentalApi.Requests;
 using CarRentalApi.Responses;
+using CarRentalManagment.Controllers;
 using CarRentalManagment.PostgresContext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using User.Info.Interface;
+using User.Info.Model;
 using Users.Entities;
 
 namespace User.Info.Repository
@@ -20,21 +24,35 @@ namespace User.Info.Repository
     {
         private readonly PostgresDbContext _context;
         private readonly IConfiguration _config;
-        public UserInfoService(IConfiguration config, PostgresDbContext postgresContext)
+        private readonly ILogger<UserActionsController> _logger;
+        private readonly IMapper _mapper;
+
+        public UserInfoService(IConfiguration config, PostgresDbContext postgresContext, ILogger<UserActionsController> logger, IMapper mapper)
         {
             _context = postgresContext ?? throw new ArgumentException(nameof(postgresContext));
             _config = config ?? throw new ArgumentException(nameof(config));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _logger = logger ?? throw new ArgumentException(nameof(logger));
         }
 
-        public async Task Register(UserEntity userEntity)
+        public async Task<IActionResult> Register(ControllerBase controller, UserInfo request)
         {
-            if (!_context.UserInfo.Any(u => u.Username == userEntity.Username))
+            if (_context.UserInfo.Any(u => u.Username == request.Username))
             {
-                var hashedPass = CreatePasswordHash(userEntity.Password);
-                userEntity.Password = hashedPass;
-                _context.UserInfo.Add(userEntity);
-                _context.SaveChanges();
+                controller.BadRequest(new ErrorResponse() { message = ErrorMessages.USERNAME_EXISTS });
             }
+            if (_context.UserInfo.Any(u => u.Email == request.Email))
+            {
+                controller.BadRequest(new ErrorResponse() { message = ErrorMessages.EMAIL_EXISTS });
+            }
+
+            var userEntity = _mapper.Map<UserEntity>(request);
+            var hashedPass = CreatePasswordHash(userEntity.Password);
+            userEntity.Password = hashedPass;
+            _context.UserInfo.Add(userEntity);
+            _context.SaveChanges();
+
+            return controller.Ok();
         }
 
         private string CreatePasswordHash(string password)
@@ -66,14 +84,26 @@ namespace User.Info.Repository
             return controller.Ok(UserPresenter.GetUserPresenter(user, CreateToken(user)));
         }
 
-        public async Task<IEnumerable<UserEntity>> GetAllUsersAsync()
+        public async Task<ActionResult<IEnumerable<UserInfoForGet>>> GetAllUsersAsync(ControllerBase controller)
         {
-            return await _context.UserInfo.OrderBy(_ => _.UserId).ToListAsync();
+            var users = await _context.UserInfo.OrderBy(_ => _.UserId).ToListAsync();
+            if (users == null)
+            {
+                _logger.LogInformation("We have no users on Db");
+                return controller.NoContent();
+            }
+            return controller.Ok(_mapper.Map<IEnumerable<UserInfoForGet>>(users));
         }
 
-        public async Task<UserEntity?> GetUserInfoByIdAsync(int id)
+        public async Task<ActionResult<UserInfoForGet>> GetUserInfoByIdAsync(ControllerBase controller, int id)
         {
-            return await _context.UserInfo.Where(_ => _.UserId == id).FirstOrDefaultAsync();
+            var user = await _context.UserInfo.Where(_ => _.UserId == id).FirstOrDefaultAsync();
+            if (user == null)
+            {
+                _logger.LogInformation($"We have no user on Db with this id: {id} ");
+                return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.USER_NOT_FOUND });
+            }
+            return controller.Ok(_mapper.Map<UserInfoForGet>(user));
         }
 
         public Task UpdateUserAsync(UserEntity userEntity)
@@ -81,15 +111,11 @@ namespace User.Info.Repository
             throw new NotImplementedException();
         }
 
-        public void DeleteUserAsync(UserEntity userEntity)
-        {
-            _context.UserInfo.Remove(userEntity);
-        }
-
         public async Task<bool> SaveChangesAsync()
         {
             return await _context.SaveChangesAsync() >= 0;
         }
+
         private string CreateToken(UserEntity user)
         {
             List<Claim> claims = new List<Claim>
@@ -124,5 +150,18 @@ namespace User.Info.Repository
             }
         }
 
+        public async Task<IActionResult> DeleteUser(ControllerBase controller, int id)
+        {
+            var user = await _context.UserInfo.Where(_ => _.UserId == id).FirstOrDefaultAsync();
+            if (user == null)
+            {
+                _logger.LogInformation($"We have no user on Db with this id: {id} ");
+                return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.USER_NOT_FOUND });
+            }
+            _context.UserInfo.Remove(user);
+            await _context.SaveChangesAsync();
+            return controller.Ok();
+
+        }
     }
 }
