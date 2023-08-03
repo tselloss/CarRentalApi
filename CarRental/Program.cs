@@ -69,7 +69,6 @@ builder.Services.AddScoped<UserInfoService>();
 builder.Services.AddScoped<ICars, CarsService>();
 builder.Services.AddScoped<CarsService>();
 builder.Services.AddScoped<IRental, RentalService>();
-builder.Services.AddScoped<RentalService>();
 
 var app = builder.Build();
 

@@ -18,14 +18,12 @@ namespace RentInfo.Repository
         private readonly PostgresDbContext _context;
         private readonly ILogger<UserActionsController> _logger;
         private readonly IMapper _mapper;
-        private readonly RentalService _rentalService;
 
-        public RentalService(PostgresDbContext postgresContext, ILogger<UserActionsController> logger, IMapper mapper, RentalService rentalService)
+        public RentalService(PostgresDbContext postgresContext, ILogger<UserActionsController> logger, IMapper mapper)
         {
             _context = postgresContext ?? throw new ArgumentException(nameof(postgresContext));
             _logger = logger ?? throw new ArgumentException(nameof(logger));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-            _rentalService = rentalService ?? throw new ArgumentNullException(nameof(rentalService));
         }
         public async Task<IActionResult> CreateReservation(ControllerBase controller, RentalInfo request)
         {
