@@ -470,6 +470,23 @@
           "build/net6.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.Proxies/7.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Castle.Core": "5.1.0",
+          "Microsoft.EntityFrameworkCore": "7.0.9"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Proxies.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Proxies.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/7.0.9": {
         "type": "package",
         "dependencies": {
@@ -1907,6 +1924,20 @@
         "lib/net6.0/Microsoft.EntityFrameworkCore.Design.xml",
         "microsoft.entityframeworkcore.design.7.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Proxies/7.0.9": {
+      "sha512": "G5PK408lliYIKLTnMH6ZGgX7pQHydNHy3/MnUz0WBloxCUyliTHo+91vQIpi4yan/geTvfOz/QmLXqMU0a3unQ==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.proxies/7.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.Proxies.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.Proxies.xml",
+        "microsoft.entityframeworkcore.proxies.7.0.9.nupkg.sha512",
+        "microsoft.entityframeworkcore.proxies.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/7.0.9": {
@@ -3751,6 +3782,7 @@
       "FluentAssertions >= 6.11.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.20",
       "Microsoft.EntityFrameworkCore >= 7.0.9",
+      "Microsoft.EntityFrameworkCore.Proxies >= 7.0.9",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.9",
       "Moq >= 4.18.4",
       "NUnit >= 3.13.3",
@@ -3767,24 +3799,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\karac\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Y9GNGS726\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\CarRental\\CarRental.csproj",
+      "projectUniqueName": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\CarRental.csproj",
       "projectName": "CarRental",
-      "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\CarRental\\CarRental.csproj",
-      "packagesPath": "C:\\Users\\karac\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\CarRental\\obj\\",
+      "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\CarRental.csproj",
+      "packagesPath": "C:\\Users\\Y9GNGS726\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\karac\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Y9GNGS726\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3792,7 +3819,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -3800,17 +3826,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Cars.Info\\Cars.Info.csproj": {
-              "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Cars.Info\\Cars.Info.csproj"
+            "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\Cars.Info.csproj": {
+              "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\Cars.Info.csproj"
             },
-            "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
-              "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj"
+            "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
+              "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj"
             },
-            "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Rental.Info\\Rental.Info.csproj": {
-              "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\Rental.Info\\Rental.Info.csproj"
+            "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\Rental.Info.csproj": {
+              "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\Rental.Info.csproj"
             },
-            "C:\\Users\\karac\\source\\repos\\CarRentalApi\\User.Info\\User.Info.csproj": {
-              "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi\\User.Info\\User.Info.csproj"
+            "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj": {
+              "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj"
             }
           }
         }
@@ -3842,6 +3868,10 @@
             "version": "[6.0.20, )"
           },
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[7.0.9, )"
+          },
+          "Microsoft.EntityFrameworkCore.Proxies": {
             "target": "Package",
             "version": "[7.0.9, )"
           },

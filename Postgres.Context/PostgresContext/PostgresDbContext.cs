@@ -106,28 +106,33 @@ namespace CarRentalManagment.PostgresContext
 
             modelBuilder.Entity<ClientEntity>()
                 .HasMany(c => c.Rents)
-                .WithOne(r => r.Client);
+                .WithOne(r => r.Client)
+                .IsRequired();
 
             modelBuilder.Entity<RentalEntity>()
                 .HasOne(r => r.Client)
-                .WithMany(c => c.Rents);
+                .WithMany(c => c.Rents)
+                .IsRequired();
 
             modelBuilder.Entity<AdminEntity>()
                 .HasMany(a => a.Cars)
-                .WithOne(c => c.Admin);
+                .WithOne(c => c.Admin)
+                .IsRequired();
 
             modelBuilder.Entity<CarEntity>()
                 .HasOne(c => c.Admin)
-                .WithMany(a => a.Cars);
+                .WithMany(a => a.Cars)
+                .IsRequired();
 
             modelBuilder.Entity<CarEntity>()
                 .HasMany(c => c.Rents)
-                .WithOne(r => r.Car);
+                .WithOne(r => r.Car)
+                .IsRequired();
 
             modelBuilder.Entity<RentalEntity>()
                 .HasOne(r => r.Car)
-                .WithMany(c => c.Rents);
-
+                .WithMany(c => c.Rents)
+                .IsRequired();
             base.OnModelCreating(modelBuilder);
         }
     }

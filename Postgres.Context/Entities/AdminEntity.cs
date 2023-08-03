@@ -5,6 +5,6 @@ namespace Postgres.Context.Entities
 {
     public class AdminEntity : UserEntity
     {
-        public IEnumerable<CarEntity> Cars { get; set; }
+        public virtual List<CarEntity> Cars { get; set; } = new List<CarEntity> ();
     }
 }

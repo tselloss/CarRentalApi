@@ -60,7 +60,7 @@ builder.Services.AddSwaggerGen(option =>
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 //Register DatabaseContextContrext
 builder.Services.AddDbContext<PostgresDbContext>(options =>
-options.UseNpgsql(builder.Configuration["ConnectionStrings:PostgreSQL"], b => b.MigrationsAssembly("CarRental")));
+options.UseLazyLoadingProxies().UseNpgsql(builder.Configuration["ConnectionStrings:PostgreSQL"], b => b.MigrationsAssembly("CarRental")));
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

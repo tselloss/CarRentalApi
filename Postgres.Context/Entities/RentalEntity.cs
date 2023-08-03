@@ -12,10 +12,10 @@ namespace RentInfo.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RentalId { get; set; }
         [Required]
-        public DateTime DateFrom { get; set; }
+        public long DateFrom { get; set; }
         [Required]
-        public DateTime DateTo { get; set; }
-        public ClientEntity Client { get; set; }
-        public CarEntity Car { get; set; }
+        public long DateTo { get; set; }
+        public virtual ClientEntity Client { get; set; }
+        public virtual CarEntity Car { get; set; }
     }
 }

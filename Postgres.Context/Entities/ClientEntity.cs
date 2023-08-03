@@ -5,6 +5,6 @@ namespace Postgres.Context.Entities
 {
     public class ClientEntity : UserEntity
     {
-        public IEnumerable<RentalEntity> Rents { get; set; }
+        public virtual List<RentalEntity> Rents { get; set; } = new List<RentalEntity>();
     }
 }

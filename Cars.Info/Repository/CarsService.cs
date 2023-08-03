@@ -6,6 +6,7 @@ using CarRentalManagment.PostgresContext;
 using Cars.Entities;
 using Cars.Info.Interface;
 using Cars.Info.Model;
+using Cars.Info.Responses;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -41,7 +42,7 @@ namespace Cars.Info.Repository
             newCar = _context.CarsInfo.Add(newCar).Entity;
             _context.SaveChanges();
 
-            return controller.Ok(newCar);
+            return controller.Ok(CarPresenter.GetPresenter(newCar));
         }
 
         public async Task<IActionResult> DeleteCarAsync(ControllerBase controller, int id)
@@ -66,13 +67,7 @@ namespace Cars.Info.Repository
 
         public async Task<IActionResult> GetAllCarsAsync(ControllerBase controller)
         {
-            List<CarsInfo> carsInfos = new List<CarsInfo>();
-            foreach (CarEntity carEntity in await _context.CarsInfo.OrderBy(_ => _.CarId).ToListAsync())
-            {
-                CarsInfo carsInfo = _mapper.Map<CarsInfo>(carEntity);
-                carsInfos.Add(carsInfo);
-            }
-            return controller.Ok(await _context.CarsInfo.OrderBy(_ => _.CarId).ToListAsync());
+            return controller.Ok(CarPresenter.GetPresenter(await _context.CarsInfo.OrderBy(_ => _.CarId).ToListAsync()));
         }
 
         public async Task<IActionResult> GetCarInfoByIdAsync(ControllerBase controller, int id)
@@ -83,7 +78,7 @@ namespace Cars.Info.Repository
                 _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND + $" car find by id: {id} ");
                 return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.CAR_NOT_FOUND });
             }
-            return controller.Ok(_mapper.Map<CarsInfo>(car));
+            return controller.Ok(CarPresenter.GetPresenter(car));
         }
     }
 }

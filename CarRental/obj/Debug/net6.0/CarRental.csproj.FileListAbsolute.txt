@@ -157,7 +157,6 @@ C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\CarRen
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.AssemblyInfoInputs.cache
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.AssemblyInfo.cs
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.csproj.CoreCompileInputs.cache
-C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\staticwebassets\msbuild.CarRental.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\staticwebassets\msbuild.build.CarRental.props
@@ -257,3 +256,5 @@ C:\Users\karac\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\refint\CarRe
 C:\Users\karac\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.pdb
 C:\Users\karac\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.genruntimeconfig.cache
 C:\Users\karac\source\repos\CarRentalApi\CarRental\obj\Debug\net6.0\ref\CarRental.dll
+C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\CarRental.MvcApplicationPartsAssemblyInfo.cs

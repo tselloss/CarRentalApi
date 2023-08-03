@@ -21,7 +21,7 @@ namespace Cars.Entities
         [Required]
         public string Image { get; set; }
         [Required]
-        public AdminEntity Admin { get; set; }
-        public IEnumerable<RentalEntity> Rents { get; set; }
+        public virtual AdminEntity Admin { get; set; }
+        public virtual List<RentalEntity> Rents { get; set; } = new List<RentalEntity>();
     }
 }

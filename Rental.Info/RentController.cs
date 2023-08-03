@@ -1,12 +1,7 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using RentInfo.Entities;
+using Rental.Info.Requests;
 using RentInfo.Interface;
-using RentInfo.Model;
-using RentInfo.Repository;
-using User.Info.Model;
 
 namespace CarRentalManagment.Controllers
 {
@@ -33,12 +28,14 @@ namespace CarRentalManagment.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateUserAsync([FromBody] RentalInfo request)
+        [Authorize(Roles = "Client")]
+        public async Task<IActionResult> CreateRentAsync([FromBody] RentRequest request)
         {
             return await _rental.CreateReservation(this, request);
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteRental(int id)
         {
             return await _rental.DeleteReservationAsync(this, id);
