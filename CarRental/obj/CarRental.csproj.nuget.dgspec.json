@@ -1,45 +1,43 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\CarRental.csproj": {}
+    "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/CarRental/CarRental.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\CarRental.csproj": {
+    "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/CarRental/CarRental.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\CarRental.csproj",
+        "projectUniqueName": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/CarRental/CarRental.csproj",
         "projectName": "CarRental",
-        "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\CarRental.csproj",
-        "packagesPath": "C:\\Users\\Y9GNGS726\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\obj\\",
+        "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/CarRental/CarRental.csproj",
+        "packagesPath": "/Users/panagiotiskontos/.nuget/packages/",
+        "outputPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/CarRental/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Y9GNGS726\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/panagiotiskontos/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "/usr/local/share/dotnet/sdk/7.0.306/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\Cars.Info.csproj": {
-                "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\Cars.Info.csproj"
+              "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Cars.Info/Cars.Info.csproj": {
+                "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Cars.Info/Cars.Info.csproj"
               },
-              "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
-                "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj"
+              "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Postgres.Context/Postgres.Context.csproj": {
+                "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Postgres.Context/Postgres.Context.csproj"
               },
-              "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\Rental.Info.csproj": {
-                "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\Rental.Info.csproj"
+              "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Rental.Info/Rental.Info.csproj": {
+                "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Rental.Info/Rental.Info.csproj"
               },
-              "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj": {
-                "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj"
+              "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/User.Info/User.Info.csproj": {
+                "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/User.Info/User.Info.csproj"
               }
             }
           }
@@ -144,36 +142,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\Cars.Info.csproj": {
+    "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Cars.Info/Cars.Info.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\Cars.Info.csproj",
+        "projectUniqueName": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Cars.Info/Cars.Info.csproj",
         "projectName": "Cars.Info",
-        "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\Cars.Info.csproj",
-        "packagesPath": "C:\\Users\\Y9GNGS726\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\obj\\",
+        "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Cars.Info/Cars.Info.csproj",
+        "packagesPath": "/Users/panagiotiskontos/.nuget/packages/",
+        "outputPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Cars.Info/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Y9GNGS726\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/panagiotiskontos/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
-                "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj"
+              "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Postgres.Context/Postgres.Context.csproj": {
+                "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Postgres.Context/Postgres.Context.csproj"
               }
             }
           }
@@ -213,28 +209,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
+    "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Postgres.Context/Postgres.Context.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj",
+        "projectUniqueName": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Postgres.Context/Postgres.Context.csproj",
         "projectName": "Postgres.Context",
-        "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj",
-        "packagesPath": "C:\\Users\\Y9GNGS726\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\obj\\",
+        "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Postgres.Context/Postgres.Context.csproj",
+        "packagesPath": "/Users/panagiotiskontos/.nuget/packages/",
+        "outputPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Postgres.Context/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Y9GNGS726\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/panagiotiskontos/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -286,39 +280,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\Rental.Info.csproj": {
+    "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Rental.Info/Rental.Info.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\Rental.Info.csproj",
+        "projectUniqueName": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Rental.Info/Rental.Info.csproj",
         "projectName": "Rental.Info",
-        "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\Rental.Info.csproj",
-        "packagesPath": "C:\\Users\\Y9GNGS726\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\obj\\",
+        "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Rental.Info/Rental.Info.csproj",
+        "packagesPath": "/Users/panagiotiskontos/.nuget/packages/",
+        "outputPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Rental.Info/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Y9GNGS726\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/panagiotiskontos/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\Cars.Info.csproj": {
-                "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\Cars.Info.csproj"
+              "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Cars.Info/Cars.Info.csproj": {
+                "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Cars.Info/Cars.Info.csproj"
               },
-              "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj": {
-                "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj"
+              "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/User.Info/User.Info.csproj": {
+                "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/User.Info/User.Info.csproj"
               }
             }
           }
@@ -354,36 +346,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj": {
+    "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/User.Info/User.Info.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj",
+        "projectUniqueName": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/User.Info/User.Info.csproj",
         "projectName": "User.Info",
-        "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj",
-        "packagesPath": "C:\\Users\\Y9GNGS726\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\obj\\",
+        "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/User.Info/User.Info.csproj",
+        "packagesPath": "/Users/panagiotiskontos/.nuget/packages/",
+        "outputPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/User.Info/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Y9GNGS726\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/panagiotiskontos/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
-                "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj"
+              "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Postgres.Context/Postgres.Context.csproj": {
+                "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Postgres.Context/Postgres.Context.csproj"
               }
             }
           }
@@ -431,7 +421,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -70,6 +70,19 @@ builder.Services.AddScoped<ICars, CarsService>();
 builder.Services.AddScoped<CarsService>();
 builder.Services.AddScoped<IRental, RentalService>();
 
+
+// Enable CORS to allow all origins, headers, and methods
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -84,6 +97,8 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.UseCors(); 
 
 app.MapControllers();
 
