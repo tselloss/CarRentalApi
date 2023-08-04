@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CarRental.Migrations
 {
     [DbContext(typeof(PostgresDbContext))]
-    [Migration("20230804122248_a0")]
+    [Migration("20230804150100_a0")]
     partial class a0
     {
         /// <inheritdoc />
@@ -42,6 +42,9 @@ namespace CarRental.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Color")
+                        .HasColumnType("text");
+
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("text");
@@ -55,6 +58,9 @@ namespace CarRental.Migrations
 
                     b.Property<int>("Seats")
                         .HasColumnType("integer");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("text");
 
                     b.HasKey("CarId");
 

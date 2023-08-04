@@ -19,6 +19,9 @@ namespace Cars.Info.Responses
         public float Price { get; set; }
         public string Image { get; set; }
         public int AdminId { get; set; }
+        public string Color { get; set; }
+        public string Status { get; set; }
+
         public List<int> Rents { get; set; } = new List<int>();
 
         public static CarPresenter GetPresenter(CarEntity car) 
@@ -42,6 +45,8 @@ namespace Cars.Info.Responses
                 Seats = car.Seats,
                 Price = car.Price,
                 Image = car.Image,
+                Color = car.Color,
+                Status = car.Status,
                 AdminId = AdminId,
                 Rents = rents
             };

@@ -103,6 +103,16 @@ namespace Cars.Info.Repository
                 car.Image = request.Image;
             }
 
+            if (request.Color != null)
+            {
+                car.Color = request.Color;
+            }
+
+            if (request.Status != null)
+            {
+                car.Status = request.Status;
+            }
+
             _context.SaveChanges();
             return controller.Ok(CarPresenter.GetPresenter(car));
         }

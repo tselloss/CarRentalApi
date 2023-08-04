@@ -18,6 +18,8 @@ namespace Cars.Entities
         public int Seats { get; set; }
         [Required]
         public float Price { get; set; }
+        public string Color { get; set; }
+        public string Status { get; set; }
         [Required]
         public string Image { get; set; }
         [Required]

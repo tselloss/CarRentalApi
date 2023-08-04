@@ -40,6 +40,8 @@ namespace CarRental.Migrations
                     Model = table.Column<string>(type: "text", nullable: false),
                     Seats = table.Column<int>(type: "integer", nullable: false),
                     Price = table.Column<float>(type: "real", nullable: false),
+                    Color = table.Column<string>(type: "text", nullable: true),
+                    Status = table.Column<string>(type: "text", nullable: true),
                     Image = table.Column<string>(type: "text", nullable: false),
                     AdminUserId = table.Column<int>(type: "integer", nullable: false)
                 },
