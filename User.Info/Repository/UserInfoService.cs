@@ -4,6 +4,7 @@ using CarRentalApi.Presenters;
 using CarRentalApi.Requests;
 using CarRentalApi.Responses;
 using CarRentalManagment.Controllers;
+using CarRentalManagment.Extensions;
 using CarRentalManagment.PostgresContext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -35,18 +36,28 @@ namespace User.Info.Repository
             _logger = logger ?? throw new ArgumentException(nameof(logger));
         }
 
-        public async Task<IActionResult> Register(ControllerBase controller, UserInfo request)
+        public async Task<IActionResult> Register(ControllerBase controller, UserAuthRegister request)
         {
+            if (request.Email == null || request.Username == null || request.Password == null)
+            {
+                return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.FILL_MANDATORY_FIELDS });
+            }
             if (_context.UserInfo.Any(u => u.Username == request.Username))
             {
-                controller.BadRequest(new ErrorResponse() { message = ErrorMessages.USERNAME_EXISTS });
+                return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.USERNAME_EXISTS });
             }
             if (_context.UserInfo.Any(u => u.Email == request.Email))
             {
-                controller.BadRequest(new ErrorResponse() { message = ErrorMessages.EMAIL_EXISTS });
+                return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.EMAIL_EXISTS });
             }
 
-            var userEntity = _mapper.Map<UserEntity>(request);
+            UserEntity userEntity = new UserEntity()
+            {
+                Email = request.Email,
+                Username = request.Username,
+                Password = request.Password,
+                Role = request.Role
+            };
             var hashedPass = CreatePasswordHash(userEntity.Password);
             userEntity.Password = hashedPass;
             _context.UserInfo.Add(userEntity);
@@ -69,13 +80,16 @@ namespace User.Info.Repository
                 return sb.ToString();
             }
         }
-        public async Task<IActionResult> Login(ControllerBase controller , UserAuthenticationDto request)
+        public async Task<IActionResult> Login(ControllerBase controller , UserAuthLogin request)
         {
             if (!_context.UserInfo.Any(_ => _.Username == request.Username))
             {
-                return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.USER_NOT_FOUND });
+                if (!_context.UserInfo.Any(_ => _.Email == request.Email))
+                {
+                    return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.USER_NOT_FOUND });
+                }
             }
-            UserEntity user = _context.UserInfo.Where(_ => _.Username == request.Username).First();
+            UserEntity user = _context.UserInfo.Where(_ => _.Username == request.Username || _.Email == request.Email ).First();
             var verifyHashedPass = VerifyPassword(request.Password);
             if (user.Password != verifyHashedPass)
             {

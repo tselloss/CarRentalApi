@@ -23,4 +23,8 @@
     <ProjectReference Include="..\Postgres.Context\Postgres.Context.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>

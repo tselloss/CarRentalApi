@@ -11,5 +11,6 @@
         public static string INVALID_DATE_FORMAT = "Invalid date format";
         public static string ITEM_NOT_FOUND = "Item not found on database";
         public static string RENT_NOT_FOUND = "Rent not found";
+        public static string FILL_MANDATORY_FIELDS = "Fill mandatory fields";
     }
 }

@@ -31,13 +31,13 @@ namespace CarRentalManagment.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> RegisterUser([FromBody] UserInfo request)
+        public async Task<IActionResult> RegisterUser([FromBody] UserAuthRegister request)
         {
             return await _userInfo.Register(this, request);
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> LoginUser([FromBody] UserAuthenticationDto request)
+        public async Task<IActionResult> LoginUser([FromBody] UserAuthLogin request)
         {
             return await _userInfo.Login(this, request);
         }

@@ -1,4 +1,4 @@
-﻿using User.Info.Extensions;
+﻿using CarRentalManagment.Extensions;
 
 namespace User.Info.Model
 {

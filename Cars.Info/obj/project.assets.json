@@ -4319,32 +4319,34 @@
     ]
   },
   "packageFolders": {
-    "/Users/panagiotiskontos/.nuget/packages/": {}
+    "C:\\Users\\Y9GNGS726\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Cars.Info/Cars.Info.csproj",
+      "projectUniqueName": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\Cars.Info.csproj",
       "projectName": "Cars.Info",
-      "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Cars.Info/Cars.Info.csproj",
-      "packagesPath": "/Users/panagiotiskontos/.nuget/packages/",
-      "outputPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Cars.Info/obj/",
+      "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\Cars.Info.csproj",
+      "packagesPath": "C:\\Users\\Y9GNGS726\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/panagiotiskontos/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Y9GNGS726\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Postgres.Context/Postgres.Context.csproj": {
-              "projectPath": "/Users/panagiotiskontos/Documents/projects/c_sharp/cs2/CarRentalApi/Postgres.Context/Postgres.Context.csproj"
+            "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
+              "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj"
             }
           }
         }
@@ -4384,7 +4386,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }
