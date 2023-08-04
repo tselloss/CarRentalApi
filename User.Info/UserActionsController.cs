@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using User.Info.Interface;
 using User.Info.Model;
+using User.Info.Request;
 
 namespace CarRentalManagment.Controllers
 {
@@ -40,6 +41,13 @@ namespace CarRentalManagment.Controllers
         public async Task<IActionResult> LoginUser([FromBody] UserAuthLogin request)
         {
             return await _userInfo.Login(this, request);
+        }
+
+        [HttpPatch]
+        [Authorize]
+        public async Task<IActionResult> EditUser([FromBody] UserEditRequest request)
+        {
+            return await _userInfo.EditUser(this, request);
         }
 
         [HttpDelete("{id}")]

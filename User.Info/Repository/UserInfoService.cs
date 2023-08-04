@@ -6,6 +6,7 @@ using CarRentalApi.Responses;
 using CarRentalManagment.Controllers;
 using CarRentalManagment.Extensions;
 using CarRentalManagment.PostgresContext;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -17,6 +18,7 @@ using System.Security.Cryptography;
 using System.Text;
 using User.Info.Interface;
 using User.Info.Model;
+using User.Info.Request;
 using Users.Entities;
 
 namespace User.Info.Repository
@@ -26,14 +28,16 @@ namespace User.Info.Repository
         private readonly PostgresDbContext _context;
         private readonly IConfiguration _config;
         private readonly ILogger<UserActionsController> _logger;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IMapper _mapper;
 
-        public UserInfoService(IConfiguration config, PostgresDbContext postgresContext, ILogger<UserActionsController> logger, IMapper mapper)
+        public UserInfoService(IConfiguration config, PostgresDbContext postgresContext, ILogger<UserActionsController> logger, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             _context = postgresContext ?? throw new ArgumentException(nameof(postgresContext));
             _config = config ?? throw new ArgumentException(nameof(config));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _logger = logger ?? throw new ArgumentException(nameof(logger));
+            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
         }
 
         public async Task<IActionResult> Register(ControllerBase controller, UserAuthRegister request)
@@ -119,12 +123,6 @@ namespace User.Info.Repository
             }
             return controller.Ok(_mapper.Map<UserInfoForGet>(user));
         }
-
-        public Task UpdateUserAsync(UserEntity userEntity)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<bool> SaveChangesAsync()
         {
             return await _context.SaveChangesAsync() >= 0;
@@ -176,6 +174,41 @@ namespace User.Info.Repository
             await _context.SaveChangesAsync();
             return controller.Ok();
 
+        }
+
+        public async Task<IActionResult> EditUser(ControllerBase controller, UserEditRequest request)
+        {
+            UserEntity user = await Tools.GetUser(_httpContextAccessor, _context);
+            if (user == null)
+            {
+                return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.INVALID_TOKEN });
+            }
+            if (request.Address != null)
+            {
+                if (!request.Address.Equals(user.Address))
+                {
+                    user.Address = request.Address;
+                }
+            }
+            if (request.City != null)
+            {
+                if (!request.City.Equals(user.City))
+                {
+                    user.City = request.City;
+                }
+            }
+
+            if (request.PostalCode != 0)
+            {
+                if (!request.PostalCode.Equals(user.PostalCode))
+                {
+                    user.PostalCode = request.PostalCode;
+                }
+            }
+
+            _context.SaveChanges();
+
+            return controller.Ok(UserPresenter.GetUserPresenter(user));
         }
     }
 }

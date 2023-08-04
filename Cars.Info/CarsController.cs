@@ -39,6 +39,12 @@ namespace CarRentalManagment.Controllers
         {
             return await _cars.CreateNewCar(this, request);
         }
+        [HttpPatch("{id}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> EditCar(int id, [FromBody] CarsInfo request)
+        {
+            return await _cars.EditCar(this, id, request);
+        }
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]

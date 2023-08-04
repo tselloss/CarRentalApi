@@ -7,13 +7,12 @@ using Cars.Entities;
 using Cars.Info.Interface;
 using Cars.Info.Model;
 using Cars.Info.Responses;
-using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Postgres.Context.Entities;
-using System.Dynamic;
+using RentInfo.Entities;
 
 namespace Cars.Info.Repository
 {
@@ -32,9 +31,9 @@ namespace Cars.Info.Repository
             _logger = logger ?? throw new ArgumentException(nameof(logger));
         }
 
-        public async Task<IActionResult> CreateNewCar(ControllerBase controller,CarsInfo request)
+        public async Task<IActionResult> CreateNewCar(ControllerBase controller, CarsInfo request)
         {
-            AdminEntity adminEntity = (AdminEntity) await Tools.GetUser(_httpContextAccessor, _context);
+            AdminEntity adminEntity = (AdminEntity)await Tools.GetUser(_httpContextAccessor, _context);
             if (adminEntity == null) { return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.INVALID_TOKEN }); }
 
             CarEntity newCar = _mapper.Map<CarEntity>(request);
@@ -47,22 +46,65 @@ namespace Cars.Info.Repository
 
         public async Task<IActionResult> DeleteCarAsync(ControllerBase controller, int id)
         {
-            AdminEntity admin = (AdminEntity) await Tools.GetUser(_httpContextAccessor, _context);
+            AdminEntity admin = (AdminEntity)await Tools.GetUser(_httpContextAccessor, _context);
             if (admin == null)
             {
                 controller.BadRequest(new ErrorResponse() { message = ErrorMessages.INVALID_TOKEN });
             }
 
-            var car = await _context.CarsInfo.Where(_=>_.CarId == id).FirstOrDefaultAsync();
+            var car = await _context.CarsInfo.Where(_ => _.CarId == id).FirstOrDefaultAsync();
             if (car == null)
             {
                 _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND + $" to delete by id: {id} ");
                 return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.CAR_NOT_FOUND });
             }
 
+            foreach (RentalEntity rent in car.Rents)
+            {
+                _context.RentalInfo.Remove(rent);
+            }
+            car.Rents.Clear();
+            _context.SaveChanges();
             _context.CarsInfo.Remove(car);
             _context.SaveChanges();
             return controller.Ok();
+        }
+
+        public async Task<IActionResult> EditCar(ControllerBase controller, int id, CarsInfo request)
+        {
+            if (!_context.CarsInfo.Any(_=>_.CarId == id))
+            {
+                return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.CAR_NOT_FOUND });
+            }
+            CarEntity car = _context.CarsInfo.Where(_=>_.CarId == id).First();
+            
+            if (request.Brand != null)
+            {
+                car.Brand = request.Brand;
+            }
+
+            if (request.Model != null)
+            {
+                car.Model = request.Model;
+            }
+
+            if (request.Seats != 0)
+            {
+                car.Seats = request.Seats;
+            }
+
+            if (request.Price != 0)
+            {
+                car.Price = request.Price;
+            }
+
+            if (request.Image != null)
+            {
+                car.Image = request.Image;
+            }
+
+            _context.SaveChanges();
+            return controller.Ok(CarPresenter.GetPresenter(car));
         }
 
         public async Task<IActionResult> GetAllCarsAsync(ControllerBase controller)
