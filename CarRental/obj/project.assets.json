@@ -1400,6 +1400,22 @@
           "bin/placeholder/Rental.Info.dll": {}
         }
       },
+      "Statistics.Info/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
+          "Postgres.Context": "1.0.0",
+          "Rental.Info": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Statistics.Info.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Statistics.Info.dll": {}
+        }
+      },
       "User.Info/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3768,6 +3784,11 @@
       "path": "../Rental.Info/Rental.Info.csproj",
       "msbuildProject": "../Rental.Info/Rental.Info.csproj"
     },
+    "Statistics.Info/1.0.0": {
+      "type": "project",
+      "path": "../Statistics.Info/Statistics.Info.csproj",
+      "msbuildProject": "../Statistics.Info/Statistics.Info.csproj"
+    },
     "User.Info/1.0.0": {
       "type": "project",
       "path": "../User.Info/User.Info.csproj",
@@ -3791,6 +3812,7 @@
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.4",
       "Postgres.Context >= 1.0.0",
       "Rental.Info >= 1.0.0",
+      "Statistics.Info >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0",
       "Swashbuckle.AspNetCore.Filters >= 7.0.8",
       "System.IdentityModel.Tokens.Jwt >= 6.32.1",
@@ -3834,6 +3856,9 @@
             },
             "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\Rental.Info.csproj": {
               "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\Rental.Info.csproj"
+            },
+            "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Statistics.Info\\Statistics.Info.csproj": {
+              "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Statistics.Info\\Statistics.Info.csproj"
             },
             "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj": {
               "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj"

@@ -11,5 +11,6 @@ namespace Rental.Info.Requests
         public int CarId { get; set; }
         public long DateFrom { get; set; }
         public long DateTo { get; set; }
+        public int Value { get; set; }
     }
 }

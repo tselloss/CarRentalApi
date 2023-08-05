@@ -7,6 +7,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using RentInfo.Interface;
 using RentInfo.Repository;
+using Statistics.Info.Interface;
+using Statistics.Info.Repository;
 using System.Text;
 using User.Info.Interface;
 using User.Info.Repository;
@@ -69,7 +71,9 @@ builder.Services.AddScoped<UserInfoService>();
 builder.Services.AddScoped<ICars, CarsService>();
 builder.Services.AddScoped<CarsService>();
 builder.Services.AddScoped<IRental, RentalService>();
-
+builder.Services.AddScoped<RentalService>();
+builder.Services.AddScoped<IStatistics, StatisticsService>();
+builder.Services.AddScoped<StatisticsService>();
 
 // Enable CORS to allow all origins, headers, and methods
 builder.Services.AddCors(options =>

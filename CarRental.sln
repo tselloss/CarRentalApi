@@ -5,13 +5,15 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRental", "CarRental\CarRental.csproj", "{FE5F4E2A-5004-4BFF-A849-AAB61ECDCD92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.Info", "User.Info\User.Info.csproj", "{FB595E4E-97E2-4245-821D-5F0D5738B447}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.Info", "User.Info\User.Info.csproj", "{FB595E4E-97E2-4245-821D-5F0D5738B447}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars.Info", "Cars.Info\Cars.Info.csproj", "{DBB4824D-956F-4DB4-B621-CAB81BE3CA40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cars.Info", "Cars.Info\Cars.Info.csproj", "{DBB4824D-956F-4DB4-B621-CAB81BE3CA40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rental.Info", "Rental.Info\Rental.Info.csproj", "{4A9B089C-CABF-4B33-AFFB-EBADC8E1352B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rental.Info", "Rental.Info\Rental.Info.csproj", "{4A9B089C-CABF-4B33-AFFB-EBADC8E1352B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postgres.Context", "Postgres.Context\Postgres.Context.csproj", "{184B86EE-3AA7-4F20-A452-7B018DC74442}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Postgres.Context", "Postgres.Context\Postgres.Context.csproj", "{184B86EE-3AA7-4F20-A452-7B018DC74442}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statistics.Info", "Statistics.Info\Statistics.Info.csproj", "{B542DC30-5CDB-45F1-B5D6-37F3FED07DA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{184B86EE-3AA7-4F20-A452-7B018DC74442}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{184B86EE-3AA7-4F20-A452-7B018DC74442}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{184B86EE-3AA7-4F20-A452-7B018DC74442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B542DC30-5CDB-45F1-B5D6-37F3FED07DA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B542DC30-5CDB-45F1-B5D6-37F3FED07DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B542DC30-5CDB-45F1-B5D6-37F3FED07DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B542DC30-5CDB-45F1-B5D6-37F3FED07DA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

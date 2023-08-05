@@ -6,6 +6,7 @@ using CarRentalManagment.PostgresContext;
 using Cars.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Internal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Postgres.Context.Entities;
@@ -53,7 +54,8 @@ namespace RentInfo.Repository
                 Client = client,
                 Car = car,
                 DateFrom = request.DateFrom,
-                DateTo = request.DateTo
+                DateTo = request.DateTo,
+                Value = request.Value,
             };
             rent = _context.RentalInfo.Add(rent).Entity;
             _context.SaveChanges();
@@ -86,12 +88,13 @@ namespace RentInfo.Repository
 
         public async Task<IActionResult> GetReservationInfoByIdAsync(ControllerBase controller, int id)
         {
-            var rentalId = await _context.RentalInfo.Where(_ => _.RentalId == id).FirstOrDefaultAsync();
-            if (rentalId == null)
+            RentalEntity rentEntity = await _context.RentalInfo.Where(_ => _.RentalId == id).FirstOrDefaultAsync();
+            if (rentEntity == null)
             {
                 _logger.LogInformation($"We have no reservation on Db with this id: {id} ");
+                return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.RENT_NOT_FOUND });
             }
-            return controller.Ok(_mapper.Map<UserInfo>(rentalId));
+            return controller.Ok(RentPresenter.getPresenter(rentEntity));
         }
 
         public Task UpdateReservationAsync(RentalEntity rentalEntity)

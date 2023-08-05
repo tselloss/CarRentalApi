@@ -86,6 +86,9 @@ namespace CarRental.Migrations
                     b.Property<long>("DateTo")
                         .HasColumnType("bigint");
 
+                    b.Property<int>("Value")
+                        .HasColumnType("integer");
+
                     b.HasKey("RentalId");
 
                     b.HasIndex("CarId");

@@ -23,6 +23,7 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4",
           "Postgres.Context": "1.0.0",
           "Rental.Info": "1.0.0",
+          "Statistics.Info": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0",
           "Swashbuckle.AspNetCore.Filters": "7.0.8",
           "System.IdentityModel.Tokens.Jwt": "6.32.1",
@@ -771,6 +772,17 @@
           "Rental.Info.dll": {}
         }
       },
+      "Statistics.Info/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
+          "Postgres.Context": "1.0.0",
+          "Rental.Info": "1.0.0"
+        },
+        "runtime": {
+          "Statistics.Info.dll": {}
+        }
+      },
       "User.Info/1.0.0": {
         "dependencies": {
           "AutoMapper": "12.0.1",
@@ -1390,6 +1402,11 @@
       "sha512": ""
     },
     "Rental.Info/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Statistics.Info/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

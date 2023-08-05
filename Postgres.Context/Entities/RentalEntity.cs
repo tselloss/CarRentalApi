@@ -15,6 +15,8 @@ namespace RentInfo.Entities
         public long DateFrom { get; set; }
         [Required]
         public long DateTo { get; set; }
+        [Required]
+        public int Value { get; set; }
         public virtual ClientEntity Client { get; set; }
         public virtual CarEntity Car { get; set; }
     }

@@ -16,6 +16,7 @@ namespace Rental.Info.Response
         public int RentalId { get; set; }
         public long DateFrom { get; set; }
         public long DateTo { get; set; }
+        public int Value { get; set; }
         public int ClientId { get; set; }
         public int CarId { get; set; }
         
@@ -27,7 +28,8 @@ namespace Rental.Info.Response
                 CarId = rentEntity.Car.CarId,
                 ClientId = rentEntity.Client.UserId,
                 DateFrom = rentEntity.DateFrom,
-                DateTo = rentEntity.DateTo
+                DateTo = rentEntity.DateTo,
+                Value = rentEntity.Value
             };
         }
         public static List<RentPresenter> getPresenter(List<RentalEntity> rents)
