@@ -8,11 +8,11 @@ namespace Cars.Info.Interface
 {
     public interface ICars
     {
-        Task<IActionResult> AddCarImage(ControllerBase controller, IFormFile? request);
         Task<IActionResult> CreateNewCar(ControllerBase controller, CarsInfo carEntity);
         Task<IActionResult> DeleteCarAsync(ControllerBase controller, int id);
         Task<IActionResult> EditCar(ControllerBase controller, int id, CarsInfo request);
         Task<IActionResult> GetAllCarsAsync(ControllerBase controller);
+        Task<IActionResult> GetCarImage(ControllerBase controller, int id);
         Task<IActionResult> GetCarInfoByIdAsync(ControllerBase controller ,int id);
     }
 }

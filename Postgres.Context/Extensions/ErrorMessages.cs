@@ -12,5 +12,6 @@
         public static string ITEM_NOT_FOUND = "Item not found on database";
         public static string RENT_NOT_FOUND = "Rent not found";
         public static string FILL_MANDATORY_FIELDS = "Fill mandatory fields";
+        public static string IMAGE_NOT_FOUND = "Image not found";
     }
 }

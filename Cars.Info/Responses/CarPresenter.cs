@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace Cars.Info.Responses
 {
-    internal class CarPresenter
+    public class CarPresenter
     {
         public int CarId { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
-        public int Seats { get; set; }
-        public float Price { get; set; }
+        public int? Seats { get; set; }
+        public float? Price { get; set; }
         public string Image { get; set; }
         public int AdminId { get; set; }
         public string Color { get; set; }
@@ -31,9 +31,11 @@ namespace Cars.Info.Responses
         {
             CarPresenter carPresenter = BuildPresenter(car);
 
+            List<int> rents = new List<int>();
             List<String> excludedDates = new List<string>();
             foreach (var rent in car.Rents)
             {
+                rents.Add(rent.RentalId);
                 DateTime dateFrom = DateTimeOffset.FromUnixTimeSeconds(rent.DateFrom).DateTime;
                 DateTime dateTo = DateTimeOffset.FromUnixTimeSeconds(rent.DateTo).DateTime;
                 while (dateFrom < dateTo)
@@ -47,6 +49,7 @@ namespace Cars.Info.Responses
                 }
             }
             carPresenter.ExcludedMonths = excludedDates;
+            carPresenter.Rents = rents;
             return carPresenter;
         }
         public static List<CarPresenter> GetPresenter(List<CarEntity> cars)
@@ -58,14 +61,8 @@ namespace Cars.Info.Responses
             }
             return carsPresenter;
         }
-        private static CarPresenter BuildPresenter(CarEntity car)
+        public static CarPresenter BuildPresenter(CarEntity car)
         {
-            List<int> rents = new List<int>();
-            int AdminId = -1;
-            if (car.Admin != null)
-            {
-                AdminId = car.Admin.UserId;
-            }
             return new CarPresenter()
             {
                 CarId = car.CarId,
@@ -76,8 +73,7 @@ namespace Cars.Info.Responses
                 Image = car.Image,
                 Color = car.Color,
                 Status = car.Status,
-                AdminId = AdminId,
-                Rents = rents
+                AdminId = car.Admin.UserId
             };
         }
     }

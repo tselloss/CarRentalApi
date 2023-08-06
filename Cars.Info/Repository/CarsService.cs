@@ -10,11 +10,11 @@ using Cars.Info.Responses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Postgres.Context.Entities;
 using RentInfo.Entities;
-using System;
 
 namespace Cars.Info.Repository
 {
@@ -24,42 +24,15 @@ namespace Cars.Info.Repository
         private readonly ILogger<CarsController> _logger;
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IHostingEnvironment _environment;
 
-        public CarsService(PostgresDbContext postgresContext, ILogger<CarsController> logger, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public CarsService(PostgresDbContext postgresContext, ILogger<CarsController> logger, IMapper mapper, IHttpContextAccessor httpContextAccessor, IHostingEnvironment environment)
         {
             _context = postgresContext ?? throw new ArgumentException(nameof(postgresContext));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _httpContextAccessor = httpContextAccessor;
             _logger = logger ?? throw new ArgumentException(nameof(logger));
-        }
-
-        public async Task<IActionResult> AddCarImage(ControllerBase controller, IFormFile request)
-        {
-            //try
-            //{
-            //    List<Customer> list = JsonConvert.DeserializeObject<List<Customer>>(objFile.Customers);
-            //    obj.LstCustomer = list;
-            //    obj._fileAPI.ImgID = objFile.ImgID;
-            //    obj._fileAPI.ImgName = "\\Upload\\" + objFile.files.FileName;
-            //    if (objFile.files.Length > 0)
-            //    {
-            //        if (!Directory.Exists(_environment.WebRootPath + "\\Upload"))
-            //        {
-            //            Directory.CreateDirectory(_environment.WebRootPath + "\\Upload\\");
-            //        }
-            //        using (FileStream filestream = System.IO.File.Create(_environment.WebRootPath + "\\Upload\\" + objFile.files.FileName))
-            //        {
-            //            objFile.files.CopyTo(filestream);
-            //            filestream.Flush();
-            //            //  return "\\Upload\\" + objFile.files.FileName;
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw;
-            //}
-            return controller.NoContent();
+            _environment = environment ?? throw new ArgumentNullException(nameof(environment));
         }
 
         public async Task<IActionResult> CreateNewCar(ControllerBase controller, CarsInfo request)
@@ -67,9 +40,22 @@ namespace Cars.Info.Repository
             AdminEntity adminEntity = (AdminEntity)await Tools.GetUser(_httpContextAccessor, _context);
             if (adminEntity == null) { return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.INVALID_TOKEN }); }
 
-            CarEntity newCar = _mapper.Map<CarEntity>(request);
-            newCar.Admin = adminEntity;
+            CarEntity newCar = new CarEntity()
+            {
+                Admin = adminEntity,
+                Brand = request.Brand,
+                Color = request.Color,
+                Model = request.Model,
+                Price = request.Price,
+                Seats = request.Seats,
+                Status = request.Status
+            };
             newCar = _context.CarsInfo.Add(newCar).Entity;
+            _context.SaveChanges();
+            if (request.Image != null)
+            {
+                newCar.Image = SaveImage(newCar.CarId, request.Image);
+            }
             _context.SaveChanges();
 
             return controller.Ok(CarPresenter.GetPresenter(newCar));
@@ -119,19 +105,19 @@ namespace Cars.Info.Repository
                 car.Model = request.Model;
             }
 
-            if (request.Seats != 0)
+            if (request.Seats != null)
             {
                 car.Seats = request.Seats;
             }
 
-            if (request.Price != 0)
+            if (request.Price != null)
             {
                 car.Price = request.Price;
             }
 
             if (request.Image != null)
             {
-                car.Image = request.Image;
+                car.Image = SaveImage(car.CarId, request.Image);
             }
 
             if (request.Color != null)
@@ -153,6 +139,29 @@ namespace Cars.Info.Repository
             return controller.Ok(CarPresenter.GetPresenter(await _context.CarsInfo.OrderBy(_ => _.CarId).ToListAsync()));
         }
 
+        public async Task<IActionResult> GetCarImage(ControllerBase controller, int id)
+        {
+            CarEntity car = _context.CarsInfo.Where(_ => _.CarId == id).FirstOrDefault();
+            if (car == null)
+            {
+                return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.CAR_NOT_FOUND });
+            }
+
+            string wwwPath = Path.GetFullPath("wwwroot");
+            string path = Path.Combine(wwwPath, "Uploads");
+            Byte[] b;
+            try
+            {
+               b = File.ReadAllBytes(Path.Combine(path, car.Image));
+            }
+            catch (Exception)
+            {
+                return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.IMAGE_NOT_FOUND });
+            }
+
+            return controller.File(b, "image/jpeg");
+        }
+
         public async Task<IActionResult> GetCarInfoByIdAsync(ControllerBase controller, int id)
         {
             var car = await _context.CarsInfo.Where(_ => _.CarId == id).FirstOrDefaultAsync();
@@ -162,6 +171,22 @@ namespace Cars.Info.Repository
                 return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.CAR_NOT_FOUND });
             }
             return controller.Ok(CarPresenter.GetPresenter(car));
+        }
+
+        private string SaveImage(int carId, IFormFile image)
+        {
+            string wwwPath = Path.GetFullPath("wwwroot");
+            string path = Path.Combine(wwwPath, "Uploads");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            string filename = carId + Path.GetExtension(image.FileName);
+            using (FileStream stream = new FileStream(Path.Combine(path, filename), FileMode.Create))
+            {
+                image.CopyTo(stream);
+            }
+            return filename;
         }
     }
 }

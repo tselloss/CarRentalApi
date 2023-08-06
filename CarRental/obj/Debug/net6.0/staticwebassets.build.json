@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rTDKxuuiAP9t4tCd6FRFK9U/pUFSVKQ5bdVRjLXbjhY=",
+  "Hash": "yLoeE6sNmOKK+QyFf1g1XiJPIJt43jdJEpRcIIhl6Do=",
   "Source": "CarRental",
   "BasePath": "_content/CarRental",
   "Mode": "Default",
@@ -15,5 +15,57 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\wwwroot\\Uploads\\0.png",
+      "SourceId": "CarRental",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\wwwroot\\",
+      "BasePath": "_content/CarRental",
+      "RelativePath": "Uploads/0.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\0.png"
+    },
+    {
+      "Identity": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\wwwroot\\Uploads\\3.png",
+      "SourceId": "CarRental",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\wwwroot\\",
+      "BasePath": "_content/CarRental",
+      "RelativePath": "Uploads/3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\3.png"
+    },
+    {
+      "Identity": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\wwwroot\\Uploads\\9.png",
+      "SourceId": "CarRental",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\wwwroot\\",
+      "BasePath": "_content/CarRental",
+      "RelativePath": "Uploads/9.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\9.png"
+    }
+  ]
 }

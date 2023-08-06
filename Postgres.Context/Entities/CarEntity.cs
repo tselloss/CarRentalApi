@@ -15,14 +15,12 @@ namespace Cars.Entities
         [Required]
         public string Model { get; set; }
         [Required]
-        public int Seats { get; set; }
+        public int? Seats { get; set; }
         [Required]
-        public float Price { get; set; }
+        public float? Price { get; set; }
         public string Color { get; set; }
         public string Status { get; set; }
-        [Required]
         public string Image { get; set; }
-        [Required]
         public virtual AdminEntity Admin { get; set; }
         public virtual List<RentalEntity> Rents { get; set; } = new List<RentalEntity>();
     }

@@ -1,12 +1,4 @@
-﻿using Cars.Entities;
-using Postgres.Context.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Cars.Info.Responses;
 using RentInfo.Entities;
 
 namespace Rental.Info.Response
@@ -18,18 +10,18 @@ namespace Rental.Info.Response
         public long DateTo { get; set; }
         public int Value { get; set; }
         public int ClientId { get; set; }
-        public int CarId { get; set; }
+        public CarPresenter Car { get; set; }
         
         public static RentPresenter getPresenter(RentalEntity rentEntity)
         {
             return new RentPresenter()
             {
                 RentalId = rentEntity.RentalId,
-                CarId = rentEntity.Car.CarId,
-                ClientId = rentEntity.Client.UserId,
                 DateFrom = rentEntity.DateFrom,
                 DateTo = rentEntity.DateTo,
-                Value = rentEntity.Value
+                Value = rentEntity.Value,
+                ClientId = rentEntity.Client.UserId,
+                Car = CarPresenter.BuildPresenter(rentEntity.Car)
             };
         }
         public static List<RentPresenter> getPresenter(List<RentalEntity> rents)
