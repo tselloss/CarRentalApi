@@ -1,5 +1,6 @@
 ﻿using CarRentalApi.Model;
 using Cars.Entities;
+using Microsoft.AspNetCore.Http;
 using Postgres.Context.Entities;
 using RentInfo.Entities;
 using System;
@@ -28,23 +29,42 @@ namespace Cars.Info.Responses
 
         public static CarPresenter GetPresenter(CarEntity car) 
         {
+            CarPresenter carPresenter = BuildPresenter(car);
+
             List<String> excludedDates = new List<string>();
-            List<int> rents = new List<int>();
-            int AdminId = -1;
-            if (car.Admin != null)
-            {
-                AdminId = car.Admin.UserId;
-            }
             foreach (var rent in car.Rents)
             {
-                rents.Add(rent.RentalId);
                 DateTime dateFrom = DateTimeOffset.FromUnixTimeSeconds(rent.DateFrom).DateTime;
                 DateTime dateTo = DateTimeOffset.FromUnixTimeSeconds(rent.DateTo).DateTime;
                 while (dateFrom < dateTo)
                 {
                     excludedDates.Add(Tools.GetStringDate(dateFrom));
+                    if (dateFrom.Month == 12)
+                    {
+                        dateFrom = dateFrom.AddYears(1);
+                    }
                     dateFrom = dateFrom.AddMonths(1);
                 }
+            }
+            carPresenter.ExcludedMonths = excludedDates;
+            return carPresenter;
+        }
+        public static List<CarPresenter> GetPresenter(List<CarEntity> cars)
+        {
+            List<CarPresenter> carsPresenter = new List<CarPresenter>();
+            foreach (var car in cars)
+            {
+                carsPresenter.Add(BuildPresenter(car));
+            }
+            return carsPresenter;
+        }
+        private static CarPresenter BuildPresenter(CarEntity car)
+        {
+            List<int> rents = new List<int>();
+            int AdminId = -1;
+            if (car.Admin != null)
+            {
+                AdminId = car.Admin.UserId;
             }
             return new CarPresenter()
             {
@@ -57,18 +77,8 @@ namespace Cars.Info.Responses
                 Color = car.Color,
                 Status = car.Status,
                 AdminId = AdminId,
-                Rents = rents,
-                ExcludedMonths = excludedDates
+                Rents = rents
             };
-        }
-        public static List<CarPresenter> GetPresenter(List<CarEntity> cars)
-        {
-            List<CarPresenter> carsPresenter = new List<CarPresenter>();
-            foreach (var car in cars)
-            {
-                carsPresenter.Add(CarPresenter.GetPresenter(car));
-            }
-            return carsPresenter;
         }
     }
 }
