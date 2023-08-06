@@ -5,6 +5,7 @@ using Cars.Info.Interface;
 using Cars.Info.Model;
 using Cars.Info.Repository;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -39,6 +40,14 @@ namespace CarRentalManagment.Controllers
         {
             return await _cars.CreateNewCar(this, request);
         }
+
+        [HttpPost("{id}/image")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> postImage([FromBody] IFormFile? request)
+        {
+            return await _cars.AddCarImage(this, request);
+        }
+
         [HttpPatch("{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EditCar(int id, [FromBody] CarsInfo request)

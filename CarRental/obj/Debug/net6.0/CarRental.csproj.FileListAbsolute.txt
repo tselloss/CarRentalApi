@@ -345,3 +345,4 @@ C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\CarRen
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\ref\CarRental.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Statistics.Info.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Statistics.Info.pdb
+C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\CarRental.staticwebassets.runtime.json

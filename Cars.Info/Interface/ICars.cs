@@ -1,12 +1,14 @@
 ﻿using CarRentalManagment.Controllers;
 using Cars.Entities;
 using Cars.Info.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cars.Info.Interface
 {
     public interface ICars
     {
+        Task<IActionResult> AddCarImage(ControllerBase controller, IFormFile? request);
         Task<IActionResult> CreateNewCar(ControllerBase controller, CarsInfo carEntity);
         Task<IActionResult> DeleteCarAsync(ControllerBase controller, int id);
         Task<IActionResult> EditCar(ControllerBase controller, int id, CarsInfo request);

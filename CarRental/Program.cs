@@ -2,6 +2,7 @@ using CarRentalManagment.PostgresContext;
 using Cars.Info.Interface;
 using Cars.Info.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -60,6 +61,7 @@ builder.Services.AddSwaggerGen(option =>
 });
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 //Register DatabaseContextContrext
 builder.Services.AddDbContext<PostgresDbContext>(options =>
 options.UseLazyLoadingProxies().UseNpgsql(builder.Configuration["ConnectionStrings:PostgreSQL"], b => b.MigrationsAssembly("CarRental")));
@@ -95,6 +97,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 

@@ -64,15 +64,16 @@ namespace Statistics.Info.Repository
                     totalSpendings.Add(new TotalSpendingResponse()
                     {
                         Brand = rentalEntity.Car.Brand,
-                        Value = rentalEntity.Value
+                        Value = rentalEntity.Value,
+                        Months = GetDateTimeDiffInMonths(rentalEntity.DateTo, rentalEntity.DateFrom),
                     });
                 }
                 else
                 {
                     totalSpendings[idx].Value += rentalEntity.Value;
+                    totalSpendings[idx].Months += GetDateTimeDiffInMonths(rentalEntity.DateTo, rentalEntity.DateFrom);
                 }
             }
-
             return controller.Ok(totalSpendings);
         }
 
@@ -104,7 +105,7 @@ namespace Statistics.Info.Repository
         }
         private List<RentalEntity> GetRentsBasedOnUser(UserEntity userEntity)
         {
-            if (userEntity.GetType() == typeof(ClientEntity))
+            if (userEntity is ClientEntity)
             {
                 return _context.RentalInfo.Where(_ => _.Client.UserId == userEntity.UserId)
                                           .OrderBy(_ => _.DateFrom)

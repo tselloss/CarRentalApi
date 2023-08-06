@@ -10,5 +10,6 @@ namespace Statistics.Info.Responses
     {
         public string Brand { get; set; }
         public int Value { get; set; }
+        public int Months { get; set; }
     }
 }

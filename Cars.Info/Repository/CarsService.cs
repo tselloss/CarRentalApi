@@ -11,8 +11,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Postgres.Context.Entities;
 using RentInfo.Entities;
+using System;
 
 namespace Cars.Info.Repository
 {
@@ -29,6 +31,35 @@ namespace Cars.Info.Repository
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _httpContextAccessor = httpContextAccessor;
             _logger = logger ?? throw new ArgumentException(nameof(logger));
+        }
+
+        public async Task<IActionResult> AddCarImage(ControllerBase controller, IFormFile request)
+        {
+            //try
+            //{
+            //    List<Customer> list = JsonConvert.DeserializeObject<List<Customer>>(objFile.Customers);
+            //    obj.LstCustomer = list;
+            //    obj._fileAPI.ImgID = objFile.ImgID;
+            //    obj._fileAPI.ImgName = "\\Upload\\" + objFile.files.FileName;
+            //    if (objFile.files.Length > 0)
+            //    {
+            //        if (!Directory.Exists(_environment.WebRootPath + "\\Upload"))
+            //        {
+            //            Directory.CreateDirectory(_environment.WebRootPath + "\\Upload\\");
+            //        }
+            //        using (FileStream filestream = System.IO.File.Create(_environment.WebRootPath + "\\Upload\\" + objFile.files.FileName))
+            //        {
+            //            objFile.files.CopyTo(filestream);
+            //            filestream.Flush();
+            //            //  return "\\Upload\\" + objFile.files.FileName;
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw;
+            //}
+            return controller.NoContent();
         }
 
         public async Task<IActionResult> CreateNewCar(ControllerBase controller, CarsInfo request)

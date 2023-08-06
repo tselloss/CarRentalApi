@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "paI+T6kBvuF4F+YRQIpzK9Tzx7pTW4GpkWq+Nl40LWg=",
+  "Hash": "rTDKxuuiAP9t4tCd6FRFK9U/pUFSVKQ5bdVRjLXbjhY=",
   "Source": "CarRental",
   "BasePath": "_content/CarRental",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CarRental\\wwwroot",
+      "Source": "CarRental",
+      "ContentRoot": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\wwwroot\\",
+      "BasePath": "_content/CarRental",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }
