@@ -19,7 +19,6 @@ namespace Cars.Info.Responses
         public string Model { get; set; }
         public int? Seats { get; set; }
         public float? Price { get; set; }
-        public string Image { get; set; }
         public int AdminId { get; set; }
         public string Color { get; set; }
         public string Status { get; set; }
@@ -70,7 +69,6 @@ namespace Cars.Info.Responses
                 Model = car.Model,
                 Seats = car.Seats,
                 Price = car.Price,
-                Image = car.Image,
                 Color = car.Color,
                 Status = car.Status,
                 AdminId = car.Admin.UserId
