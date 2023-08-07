@@ -68,6 +68,42 @@ namespace CarRental.Migrations
                     b.ToTable("CarsInfo");
                 });
 
+            modelBuilder.Entity("Postgres.Context.Entities.PreferenceEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("text");
+
+                    b.Property<int>("ClientUserId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Model")
+                        .HasColumnType("text");
+
+                    b.Property<float?>("Price")
+                        .HasColumnType("real");
+
+                    b.Property<int?>("Seats")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientUserId");
+
+                    b.ToTable("PreferenceInfo");
+                });
+
             modelBuilder.Entity("RentInfo.Entities.RentalEntity", b =>
                 {
                     b.Property<int>("RentalId")
@@ -167,6 +203,17 @@ namespace CarRental.Migrations
                     b.Navigation("Admin");
                 });
 
+            modelBuilder.Entity("Postgres.Context.Entities.PreferenceEntity", b =>
+                {
+                    b.HasOne("Postgres.Context.Entities.ClientEntity", "Client")
+                        .WithMany("Preferences")
+                        .HasForeignKey("ClientUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Client");
+                });
+
             modelBuilder.Entity("RentInfo.Entities.RentalEntity", b =>
                 {
                     b.HasOne("Cars.Entities.CarEntity", "Car")
@@ -198,6 +245,8 @@ namespace CarRental.Migrations
 
             modelBuilder.Entity("Postgres.Context.Entities.ClientEntity", b =>
                 {
+                    b.Navigation("Preferences");
+
                     b.Navigation("Rents");
                 });
 #pragma warning restore 612, 618

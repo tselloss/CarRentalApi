@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Recomentation.Info.Interface;
+using Recomentation.Info.Repository;
 using RentInfo.Interface;
 using RentInfo.Repository;
 using Statistics.Info.Interface;
@@ -76,6 +78,8 @@ builder.Services.AddScoped<IRental, RentalService>();
 builder.Services.AddScoped<RentalService>();
 builder.Services.AddScoped<IStatistics, StatisticsService>();
 builder.Services.AddScoped<StatisticsService>();
+builder.Services.AddScoped<IRecomentation, RecomentationService>();
+builder.Services.AddScoped<RecomentationService>();
 
 // Enable CORS to allow all origins, headers, and methods
 builder.Services.AddCors(options =>

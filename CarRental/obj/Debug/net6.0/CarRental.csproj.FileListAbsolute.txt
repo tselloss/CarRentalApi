@@ -346,3 +346,5 @@ C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\obj\Debug\net6.0\ref\Ca
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Statistics.Info.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Statistics.Info.pdb
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\CarRental.staticwebassets.runtime.json
+C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Recomentation.Info.dll
+C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\CarRental\bin\Debug\net6.0\Recomentation.Info.pdb

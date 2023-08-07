@@ -22,6 +22,7 @@
           "Newtonsoft.Json": "13.0.3",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4",
           "Postgres.Context": "1.0.0",
+          "Recomentation.Info": "1.0.0",
           "Rental.Info": "1.0.0",
           "Statistics.Info": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0",
@@ -762,6 +763,16 @@
           "Postgres.Context.dll": {}
         }
       },
+      "Recomentation.Info/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
+          "Postgres.Context": "1.0.0",
+          "User.Info": "1.0.0"
+        },
+        "runtime": {
+          "Recomentation.Info.dll": {}
+        }
+      },
       "Rental.Info/1.0.0": {
         "dependencies": {
           "AutoMapper": "12.0.1",
@@ -1397,6 +1408,11 @@
       "sha512": ""
     },
     "Postgres.Context/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Recomentation.Info/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

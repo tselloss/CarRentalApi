@@ -1385,6 +1385,21 @@
           "bin/placeholder/Postgres.Context.dll": {}
         }
       },
+      "Recomentation.Info/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
+          "Postgres.Context": "1.0.0",
+          "User.Info": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Recomentation.Info.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Recomentation.Info.dll": {}
+        }
+      },
       "Rental.Info/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3779,6 +3794,11 @@
       "path": "../Postgres.Context/Postgres.Context.csproj",
       "msbuildProject": "../Postgres.Context/Postgres.Context.csproj"
     },
+    "Recomentation.Info/1.0.0": {
+      "type": "project",
+      "path": "../Recomentation.Info/Recomentation.Info.csproj",
+      "msbuildProject": "../Recomentation.Info/Recomentation.Info.csproj"
+    },
     "Rental.Info/1.0.0": {
       "type": "project",
       "path": "../Rental.Info/Rental.Info.csproj",
@@ -3811,6 +3831,7 @@
       "Newtonsoft.Json >= 13.0.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.4",
       "Postgres.Context >= 1.0.0",
+      "Recomentation.Info >= 1.0.0",
       "Rental.Info >= 1.0.0",
       "Statistics.Info >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0",
@@ -3853,6 +3874,9 @@
             },
             "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
               "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj"
+            },
+            "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Recomentation.Info\\Recomentation.Info.csproj": {
+              "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Recomentation.Info\\Recomentation.Info.csproj"
             },
             "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\Rental.Info.csproj": {
               "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\Rental.Info.csproj"

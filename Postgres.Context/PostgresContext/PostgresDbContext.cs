@@ -1,6 +1,7 @@
 ﻿using CarRentalManagment.Extensions;
 using Cars.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Postgres.Context.Entities;
 using RentInfo.Entities;
 using Users.Entities;
@@ -12,6 +13,7 @@ namespace CarRentalManagment.PostgresContext
         public DbSet<UserEntity> UserInfo { get; set; }
         public DbSet<CarEntity> CarsInfo { get; set; }
         public DbSet<RentalEntity> RentalInfo { get; set; }
+        public DbSet<PreferenceEntity> PreferenceInfo { get; set; }
 
         public PostgresDbContext(DbContextOptions<PostgresDbContext> options) : base(options) { }
 
@@ -133,6 +135,17 @@ namespace CarRentalManagment.PostgresContext
                 .HasOne(r => r.Car)
                 .WithMany(c => c.Rents)
                 .IsRequired();
+
+            modelBuilder.Entity<ClientEntity>()
+                .HasMany(c => c.Preferences)
+                .WithOne(p => p.Client)
+                .IsRequired();
+
+            modelBuilder.Entity<PreferenceEntity>()
+                .HasOne(p => p.Client)
+                .WithMany(c => c.Preferences)
+                .IsRequired();
+
             base.OnModelCreating(modelBuilder);
         }
     }

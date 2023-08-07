@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Postgres.Context.Entities;
 using RentInfo.Entities;
+using Users.Entities;
 
 namespace Cars.Info.Repository
 {
@@ -164,11 +165,27 @@ namespace Cars.Info.Repository
 
         public async Task<IActionResult> GetCarInfoByIdAsync(ControllerBase controller, int id)
         {
+            
             var car = await _context.CarsInfo.Where(_ => _.CarId == id).FirstOrDefaultAsync();
             if (car == null)
             {
                 _logger.LogInformation(ErrorMessages.ITEM_NOT_FOUND + $" car find by id: {id} ");
                 return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.CAR_NOT_FOUND });
+            }
+            UserEntity user = await Tools.GetUser(_httpContextAccessor, _context);
+            if (user is ClientEntity) {
+                PreferenceEntity preference = new PreferenceEntity()
+                {
+                    Brand = car.Brand,
+                    Color = car.Color,
+                    Model = car.Model,
+                    Price = car.Price,
+                    Seats = car.Seats,
+                    Status = car.Status,
+                    Client = (ClientEntity)user
+                };
+                _context.PreferenceInfo.Add(preference);
+                _context.SaveChanges();
             }
             return controller.Ok(CarPresenter.GetPresenter(car));
         }
