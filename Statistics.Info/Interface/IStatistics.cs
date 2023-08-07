@@ -12,5 +12,6 @@ namespace Statistics.Info.Interface
         Task<IActionResult> GetHistory(ControllerBase controller);
         Task<IActionResult> GetTotalSpendings(ControllerBase controller);
         Task<IActionResult> GetTotalStatistics(ControllerBase controller);
+        Task<IActionResult> GetUserSpendings(ControllerBase controller);
     }
 }

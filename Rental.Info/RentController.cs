@@ -33,12 +33,5 @@ namespace CarRentalManagment.Controllers
         {
             return await _rental.CreateReservation(this, request);
         }
-
-        [HttpDelete("{id}")]
-        [Authorize]
-        public async Task<IActionResult> DeleteRental(int id)
-        {
-            return await _rental.DeleteReservationAsync(this, id);
-        }
     }
 }

@@ -34,5 +34,12 @@ namespace Statistics.Info
             return await _statistics.GetTotalStatistics(this);
         }
 
+        [HttpGet("user_spendings")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetUserSpendings()
+        {
+            return await _statistics.GetUserSpendings(this);
+        }
+
     }
 }

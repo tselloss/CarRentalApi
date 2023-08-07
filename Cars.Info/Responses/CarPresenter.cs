@@ -1,14 +1,5 @@
 ﻿using CarRentalApi.Model;
 using Cars.Entities;
-using Microsoft.AspNetCore.Http;
-using Postgres.Context.Entities;
-using RentInfo.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cars.Info.Responses
 {
@@ -27,7 +18,7 @@ namespace Cars.Info.Responses
 
         public List<int> Rents { get; set; } = new List<int>();
 
-        public static CarPresenter GetPresenter(CarEntity car) 
+        public static CarPresenter GetPresenter(CarEntity car)
         {
             CarPresenter carPresenter = BuildPresenter(car);
 

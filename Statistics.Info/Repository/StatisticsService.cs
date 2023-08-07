@@ -129,5 +129,31 @@ namespace Statistics.Info.Repository
             DateTime date2 = UnixTimeStampToDateTime(date2Unix);
             return ((date1.Year - date2.Year) * 12) + date1.Month - date2.Month;
         }
+
+        public async Task<IActionResult> GetUserSpendings(ControllerBase controller)
+        {
+            AdminEntity adminEntity = (AdminEntity) await Tools.GetUser(_httpContextAccessor, _context);
+            if (adminEntity == null) { return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.INVALID_TOKEN }); }
+            
+            Dictionary<string,int> userSpengings = new Dictionary<string,int>();
+            foreach (var rent in _context.RentalInfo.ToList())
+            {
+                if (userSpengings.ContainsKey(rent.Client.Username))
+                {
+                    userSpengings[rent.Client.Username] += rent.Value;
+                }
+                else
+                {
+                    userSpengings.Add(rent.Client.Username, rent.Value);
+                }
+            }
+
+            List<UserSpendingsResponse> userSpendingsResponses = new List<UserSpendingsResponse>();
+            foreach (var username in userSpengings.Keys.ToList())
+            {
+                userSpendingsResponses.Add(new UserSpendingsResponse() { Username = username, Value = userSpengings[username] });
+            }
+            return controller.Ok(userSpendingsResponses);
+        }
     }
 }

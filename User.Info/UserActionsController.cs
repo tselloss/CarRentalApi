@@ -49,11 +49,5 @@ namespace CarRentalManagment.Controllers
         {
             return await _userInfo.EditUser(this, request);
         }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
-        {
-            return await _userInfo.DeleteUser(this, id);
-        }
     }
 }
