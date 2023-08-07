@@ -22,6 +22,7 @@ namespace Cars.Info.Responses
         public int AdminId { get; set; }
         public string Color { get; set; }
         public string Status { get; set; }
+        public string Image { get; set; }
         public List<String> ExcludedMonths { get; set; }
 
         public List<int> Rents { get; set; } = new List<int>();
@@ -62,6 +63,11 @@ namespace Cars.Info.Responses
         }
         public static CarPresenter BuildPresenter(CarEntity car)
         {
+            String Image = null;
+            if (car.Image != null)
+            {
+                Image = "https://localhost:7104/api/car/" + car.CarId + "/image";
+            }
             return new CarPresenter()
             {
                 CarId = car.CarId,
@@ -71,6 +77,7 @@ namespace Cars.Info.Responses
                 Price = car.Price,
                 Color = car.Color,
                 Status = car.Status,
+                Image = Image,
                 AdminId = car.Admin.UserId
             };
         }

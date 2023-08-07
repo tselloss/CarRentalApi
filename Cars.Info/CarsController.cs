@@ -30,7 +30,6 @@ namespace CarRentalManagment.Controllers
         }
 
         [HttpGet("{id}/image")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetImage(int id)
         {
             return await _cars.GetCarImage(this, id);
