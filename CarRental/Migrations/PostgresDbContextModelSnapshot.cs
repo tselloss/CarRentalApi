@@ -50,9 +50,8 @@ namespace CarRental.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<float?>("Price")
-                        .IsRequired()
-                        .HasColumnType("real");
+                    b.Property<double>("Price")
+                        .HasColumnType("double precision");
 
                     b.Property<int?>("Seats")
                         .IsRequired()
@@ -88,8 +87,8 @@ namespace CarRental.Migrations
                     b.Property<string>("Model")
                         .HasColumnType("text");
 
-                    b.Property<float?>("Price")
-                        .HasColumnType("real");
+                    b.Property<double>("Price")
+                        .HasColumnType("double precision");
 
                     b.Property<int?>("Seats")
                         .HasColumnType("integer");

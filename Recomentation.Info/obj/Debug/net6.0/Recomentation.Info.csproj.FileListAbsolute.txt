@@ -15,3 +15,5 @@ C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\Recomentation.Info\obj\Debug\net6
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\Recomentation.Info\obj\Debug\net6.0\refint\Recomentation.Info.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\Recomentation.Info\obj\Debug\net6.0\Recomentation.Info.pdb
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\Recomentation.Info\obj\Debug\net6.0\ref\Recomentation.Info.dll
+C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\Recomentation.Info\bin\Debug\net6.0\Cars.Info.dll
+C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\Recomentation.Info\bin\Debug\net6.0\Cars.Info.pdb

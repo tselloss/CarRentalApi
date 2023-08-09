@@ -3,12 +3,18 @@ using CarRentalApi.Model;
 using CarRentalApi.Responses;
 using CarRentalManagment.Controllers;
 using CarRentalManagment.PostgresContext;
+using Cars.Info.Responses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.ML;
+using Microsoft.ML.Data;
 using Postgres.Context.Entities;
 using Recomentation.Info.Interface;
+using Recomentation.Info.Model;
 using Recomentation.Info.Response;
+using System.Linq;
+using System.Text;
 using Users.Entities;
 
 namespace Recomentation.Info.Repository
@@ -28,9 +34,20 @@ namespace Recomentation.Info.Repository
             _httpContext = httpContext;
         }
 
-        public Task<IActionResult> getCars(ControllerBase controller)
+        public async Task<IActionResult> getCars(ControllerBase controller)
         {
-            throw new NotImplementedException();
+            UserEntity user = await Tools.GetUser(_httpContext, _context);
+            if (user == null) { return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.INVALID_TOKEN }); }
+
+            double priceDeviation = 0.2;
+            double avgPrice = _context.PreferenceInfo.Where(_ => _.Client.UserId == user.UserId).Average(_ => _.Price);
+            
+            var recCar = _context.CarsInfo.Where(car =>
+                (Math.Abs(car.Price - avgPrice) <= avgPrice * priceDeviation) &&
+                _context.PreferenceInfo.Any(_ => _.Brand == car.Brand) &&
+                _context.PreferenceInfo.Any(_ => _.Model == car.Model)).ToList();
+
+            return controller.Ok(CarPresenter.GetPresenter(recCar));
         }
 
         public async Task<IActionResult> getDataset(ControllerBase controller)
@@ -52,4 +69,5 @@ namespace Recomentation.Info.Repository
             return controller.Ok(RecomentationPresenter.getPresenter(entities));
         }
     }
+
 }
