@@ -11,11 +11,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Postgres.Context.Entities;
 using RentInfo.Entities;
 using Users.Entities;
+using User.Info.Response;
+using User.Info.Model;
+using Microsoft.Extensions.Configuration;
 
 namespace Cars.Info.Repository
 {
@@ -26,14 +28,16 @@ namespace Cars.Info.Repository
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IHostingEnvironment _environment;
+        private readonly IConfiguration _config;
 
-        public CarsService(PostgresDbContext postgresContext, ILogger<CarsController> logger, IMapper mapper, IHttpContextAccessor httpContextAccessor, IHostingEnvironment environment)
+        public CarsService(PostgresDbContext postgresContext, ILogger<CarsController> logger, IMapper mapper, IHttpContextAccessor httpContextAccessor, IHostingEnvironment environment, IConfiguration config)
         {
             _context = postgresContext ?? throw new ArgumentException(nameof(postgresContext));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _httpContextAccessor = httpContextAccessor;
             _logger = logger ?? throw new ArgumentException(nameof(logger));
             _environment = environment ?? throw new ArgumentNullException(nameof(environment));
+            _config = config ?? throw new ArgumentNullException(nameof(config));
         }
 
         public async Task<IActionResult> CreateNewCar(ControllerBase controller, CarsInfo request)
@@ -53,13 +57,8 @@ namespace Cars.Info.Repository
             };
             newCar = _context.CarsInfo.Add(newCar).Entity;
             _context.SaveChanges();
-            if (request.Image != null)
-            {
-                newCar.Image = SaveImage(newCar.CarId, request.Image);
-            }
-            _context.SaveChanges();
 
-            return controller.Ok(CarPresenter.GetPresenter(newCar));
+            return controller.Ok(new ValetKeyResponse() { ValetKey = Tools.CreateValetKeyToken(_config, newCar.CarId.ToString(), Scope.Upload) });
         }
 
         public async Task<IActionResult> DeleteCarAsync(ControllerBase controller, int id)
@@ -116,11 +115,6 @@ namespace Cars.Info.Repository
                 car.Price = request.Price;
             }
 
-            if (request.Image != null)
-            {
-                car.Image = SaveImage(car.CarId, request.Image);
-            }
-
             if (request.Color != null)
             {
                 car.Color = request.Color;
@@ -140,28 +134,6 @@ namespace Cars.Info.Repository
             return controller.Ok(CarPresenter.GetPresenter(await _context.CarsInfo.OrderBy(_ => _.CarId).ToListAsync()));
         }
 
-        public async Task<IActionResult> GetCarImage(ControllerBase controller, int id)
-        {
-            CarEntity car = _context.CarsInfo.Where(_ => _.CarId == id).FirstOrDefault();
-            if (car == null)
-            {
-                return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.CAR_NOT_FOUND });
-            }
-
-            string wwwPath = Path.GetFullPath("wwwroot");
-            string path = Path.Combine(wwwPath, "Uploads");
-            Byte[] b;
-            try
-            {
-               b = File.ReadAllBytes(Path.Combine(path, car.Image));
-            }
-            catch (Exception)
-            {
-                return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.IMAGE_NOT_FOUND });
-            }
-
-            return controller.File(b, "image/jpeg");
-        }
 
         public async Task<IActionResult> GetCarInfoByIdAsync(ControllerBase controller, int id)
         {

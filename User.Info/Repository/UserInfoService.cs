@@ -4,21 +4,18 @@ using CarRentalApi.Presenters;
 using CarRentalApi.Requests;
 using CarRentalApi.Responses;
 using CarRentalManagment.Controllers;
-using CarRentalManagment.Extensions;
 using CarRentalManagment.PostgresContext;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using User.Info.Interface;
 using User.Info.Model;
 using User.Info.Request;
+using User.Info.Response;
 using Users.Entities;
 
 namespace User.Info.Repository
@@ -99,7 +96,7 @@ namespace User.Info.Repository
             {
                 return controller.NotFound();
             }
-            return controller.Ok(UserPresenter.GetUserPresenter(user, CreateToken(user)));
+            return controller.Ok(UserPresenter.GetUserPresenter(user, Tools.CreateToken(_config, user), Tools.CreateValetKeyToken(_config, user.UserId.ToString(), Scope.Download)));
         }
 
         public async Task<ActionResult<IEnumerable<UserInfoForGet>>> GetAllUsersAsync(ControllerBase controller)
@@ -126,25 +123,6 @@ namespace User.Info.Repository
         public async Task<bool> SaveChangesAsync()
         {
             return await _context.SaveChangesAsync() >= 0;
-        }
-
-        private string CreateToken(UserEntity user)
-        {
-            List<Claim> claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.Username),
-                new Claim(ClaimTypes.Role, user.Role.ToString())
-            };
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));
-            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
-            var token = new JwtSecurityToken(
-                claims: claims,
-                expires: DateTime.Now.AddDays(1),
-                signingCredentials: credentials
-            );
-
-            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
-            return jwt;
         }
 
         private string VerifyPassword(string password)
@@ -209,6 +187,14 @@ namespace User.Info.Repository
             _context.SaveChanges();
 
             return controller.Ok(UserPresenter.GetUserPresenter(user));
+        }
+
+        public async Task<ActionResult<UserInfoForGet>> GetValetkey(ControllerBase controller)
+        {
+            UserEntity userEntity = await Tools.GetUser(_httpContextAccessor,_context);
+            if (userEntity == null) { controller.BadRequest(new ErrorResponse() { message = ErrorMessages.INVALID_TOKEN }); }
+            string valet_key = Tools.CreateValetKeyToken(_config, userEntity.UserId.ToString(), Scope.Download);
+            return controller.Ok(new ValetKeyResponse() { ValetKey = valet_key });
         }
     }
 }

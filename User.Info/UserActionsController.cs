@@ -31,6 +31,14 @@ namespace CarRentalManagment.Controllers
             return await _userInfo.GetUserInfoByIdAsync(this, id);
         }
 
+        [HttpGet("valet_key")]
+        [Authorize]
+        public async Task<ActionResult<UserInfoForGet>> GetValetKey()
+        {
+            return await _userInfo.GetValetkey(this);
+        }
+
+
         [HttpPost("register")]
         public async Task<IActionResult> RegisterUser([FromBody] UserAuthRegister request)
         {

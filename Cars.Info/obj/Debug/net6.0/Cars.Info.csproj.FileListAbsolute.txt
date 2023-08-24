@@ -73,3 +73,5 @@ C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\Cars.Info\obj\Debug\net6.0\Cars.I
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\Cars.Info\obj\Debug\net6.0\refint\Cars.Info.dll
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\Cars.Info\obj\Debug\net6.0\Cars.Info.pdb
 C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\Cars.Info\obj\Debug\net6.0\ref\Cars.Info.dll
+C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\Cars.Info\bin\Debug\net6.0\User.Info.dll
+C:\Users\Y9GNGS726\Desktop\Merged\CarRentalApi\Cars.Info\bin\Debug\net6.0\User.Info.pdb

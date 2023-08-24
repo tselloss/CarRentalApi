@@ -20,7 +20,6 @@ namespace Cars.Entities
         public double Price { get; set; }
         public string Color { get; set; }
         public string Status { get; set; }
-        public string Image { get; set; }
         public virtual AdminEntity Admin { get; set; }
         public virtual List<RentalEntity> Rents { get; set; } = new List<RentalEntity>();
     }

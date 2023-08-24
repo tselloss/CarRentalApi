@@ -1,4 +1,5 @@
 ﻿using CarRentalApi.Requests;
+using CarRentalManagment.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using User.Info.Model;
 using User.Info.Request;
@@ -13,5 +14,6 @@ namespace User.Info.Interface
         Task<IActionResult> Login(ControllerBase controller, UserAuthLogin request);
         Task<IActionResult> DeleteUser(ControllerBase controller, int id);
         Task<IActionResult> EditUser(ControllerBase controller, UserEditRequest request);
+        Task<ActionResult<UserInfoForGet>> GetValetkey(ControllerBase controller);
     }
 }

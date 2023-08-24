@@ -13,5 +13,6 @@ namespace User.Info.Response
         public string Username { get; set; }
         public string Email { get; set; }
         public string Token { get; set; }
+        public string ValetKey { get; set; }
     }
 }

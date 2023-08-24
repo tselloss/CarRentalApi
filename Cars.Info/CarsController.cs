@@ -29,12 +29,6 @@ namespace CarRentalManagment.Controllers
             return await _cars.GetCarInfoByIdAsync(this, id);
         }
 
-        [HttpGet("{id}/image")]
-        public async Task<IActionResult> GetImage(int id)
-        {
-            return await _cars.GetCarImage(this, id);
-        }
-
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateCarAsync([FromForm] CarsInfo request)

@@ -43,9 +43,6 @@ namespace CarRental.Migrations
                     b.Property<string>("Color")
                         .HasColumnType("text");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("text");
-
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasColumnType("text");

@@ -30,6 +30,9 @@
             "projectReferences": {
               "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
                 "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj"
+              },
+              "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj": {
+                "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj"
               }
             }
           }
@@ -129,9 +132,17 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.32.1, )"
+            },
             "Microsoft.ML": {
               "target": "Package",
               "version": "[2.0.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.32.1, )"
             }
           },
           "imports": [

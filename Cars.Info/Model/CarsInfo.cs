@@ -10,6 +10,5 @@ namespace Cars.Info.Model
         public double Price { get; set; }
         public string Color { get; set; }
         public string Status { get; set; }
-        public IFormFile Image { get; set; }
     }
 }

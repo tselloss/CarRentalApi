@@ -54,11 +54,6 @@ namespace Cars.Info.Responses
         }
         public static CarPresenter BuildPresenter(CarEntity car)
         {
-            String Image = null;
-            if (car.Image != null)
-            {
-                Image = "https://localhost:7104/api/car/" + car.CarId + "/image";
-            }
             return new CarPresenter()
             {
                 CarId = car.CarId,
@@ -68,7 +63,7 @@ namespace Cars.Info.Responses
                 Price = car.Price,
                 Color = car.Color,
                 Status = car.Status,
-                Image = Image,
+                Image = "https://localhost:5401/api/file/" + car.CarId,
                 AdminId = car.Admin.UserId
             };
         }
