@@ -3,6 +3,7 @@ using CarRentalApi.Model;
 using CarRentalApi.Responses;
 using CarRentalManagment.Controllers;
 using CarRentalManagment.PostgresContext;
+using Cars.Entities;
 using Cars.Info.Responses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -38,7 +39,10 @@ namespace Recomentation.Info.Repository
         {
             UserEntity user = await Tools.GetUser(_httpContext, _context);
             if (user == null) { return controller.BadRequest(new ErrorResponse() { message = ErrorMessages.INVALID_TOKEN }); }
-
+            if (_context.PreferenceInfo.ToList().Count == 0)
+            {
+                return controller.Ok(new List<CarEntity>());
+            }
             double priceDeviation = 0.2;
             double avgPrice = _context.PreferenceInfo.Where(_ => _.Client.UserId == user.UserId).Average(_ => _.Price);
             
