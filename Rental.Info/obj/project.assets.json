@@ -4541,19 +4541,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Y9GNGS726\\.nuget\\packages\\": {}
+    "C:\\Users\\ilias\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\Rental.Info.csproj",
+      "projectUniqueName": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Rental.Info\\Rental.Info.csproj",
       "projectName": "Rental.Info",
-      "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\Rental.Info.csproj",
-      "packagesPath": "C:\\Users\\Y9GNGS726\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Rental.Info\\obj\\",
+      "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Rental.Info\\Rental.Info.csproj",
+      "packagesPath": "C:\\Users\\ilias\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Rental.Info\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Y9GNGS726\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ilias\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4567,11 +4567,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\Cars.Info.csproj": {
-              "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Cars.Info\\Cars.Info.csproj"
+            "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Cars.Info\\Cars.Info.csproj": {
+              "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Cars.Info\\Cars.Info.csproj"
             },
-            "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj": {
-              "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj"
+            "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\User.Info.csproj": {
+              "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\User.Info.csproj"
             }
           }
         }

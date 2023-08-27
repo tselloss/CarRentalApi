@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yLoeE6sNmOKK+QyFf1g1XiJPIJt43jdJEpRcIIhl6Do=",
+  "Hash": "rW8CVb5MhZofFSrzWJ2XmX13nk0LKiCvz93/gkJs80Q=",
   "Source": "CarRental",
   "BasePath": "_content/CarRental",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CarRental\\wwwroot",
       "Source": "CarRental",
-      "ContentRoot": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\CarRental\\wwwroot\\",
       "BasePath": "_content/CarRental",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\wwwroot\\Uploads\\0.png",
+      "Identity": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\CarRental\\wwwroot\\Uploads\\0.png",
       "SourceId": "CarRental",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\CarRental\\wwwroot\\",
       "BasePath": "_content/CarRental",
       "RelativePath": "Uploads/0.png",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\Uploads\\0.png"
     },
     {
-      "Identity": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\wwwroot\\Uploads\\3.png",
+      "Identity": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\CarRental\\wwwroot\\Uploads\\3.png",
       "SourceId": "CarRental",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\CarRental\\wwwroot\\",
       "BasePath": "_content/CarRental",
       "RelativePath": "Uploads/3.png",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\Uploads\\3.png"
     },
     {
-      "Identity": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\wwwroot\\Uploads\\9.png",
+      "Identity": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\CarRental\\wwwroot\\Uploads\\9.png",
       "SourceId": "CarRental",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\CarRental\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\CarRental\\wwwroot\\",
       "BasePath": "_content/CarRental",
       "RelativePath": "Uploads/9.png",
       "AssetKind": "All",

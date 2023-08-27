@@ -151,7 +151,6 @@ namespace User.Info.Repository
             _context.UserInfo.Remove(user);
             await _context.SaveChangesAsync();
             return controller.Ok();
-
         }
 
         public async Task<IActionResult> EditUser(ControllerBase controller, UserEditRequest request)

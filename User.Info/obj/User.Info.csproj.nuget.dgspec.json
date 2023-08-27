@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj": {}
+    "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\User.Info.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
+    "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj",
+        "projectUniqueName": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj",
         "projectName": "Postgres.Context",
-        "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj",
-        "packagesPath": "C:\\Users\\Y9GNGS726\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\obj\\",
+        "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj",
+        "packagesPath": "C:\\Users\\ilias\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Y9GNGS726\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ilias\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,17 +89,17 @@
         }
       }
     },
-    "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj": {
+    "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\User.Info.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj",
+        "projectUniqueName": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\User.Info.csproj",
         "projectName": "User.Info",
-        "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\User.Info.csproj",
-        "packagesPath": "C:\\Users\\Y9GNGS726\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\User.Info\\obj\\",
+        "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\User.Info.csproj",
+        "packagesPath": "C:\\Users\\ilias\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Y9GNGS726\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ilias\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -113,8 +113,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
-                "projectPath": "C:\\Users\\Y9GNGS726\\Desktop\\Merged\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj"
+              "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
+                "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj"
               }
             }
           }
