@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Cars.Info\\Cars.Info.csproj": {}
+    "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Cars.Info\\Cars.Info.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Cars.Info\\Cars.Info.csproj": {
+    "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Cars.Info\\Cars.Info.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Cars.Info\\Cars.Info.csproj",
+        "projectUniqueName": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Cars.Info\\Cars.Info.csproj",
         "projectName": "Cars.Info",
-        "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Cars.Info\\Cars.Info.csproj",
-        "packagesPath": "C:\\Users\\ilias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Cars.Info\\obj\\",
+        "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Cars.Info\\Cars.Info.csproj",
+        "packagesPath": "C:\\Users\\karac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Cars.Info\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ilias\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\karac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,17 +26,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
-                "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj"
+              "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Postgres.Context\\Postgres.Context.csproj": {
+                "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Postgres.Context\\Postgres.Context.csproj"
               },
-              "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\User.Info.csproj": {
-                "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\User.Info.csproj"
+              "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\User.Info\\User.Info.csproj": {
+                "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\User.Info\\User.Info.csproj"
               }
             }
           }
@@ -80,17 +85,21 @@
         }
       }
     },
-    "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
+    "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Postgres.Context\\Postgres.Context.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj",
+        "projectUniqueName": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Postgres.Context\\Postgres.Context.csproj",
         "projectName": "Postgres.Context",
-        "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj",
-        "packagesPath": "C:\\Users\\ilias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\obj\\",
+        "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Postgres.Context\\Postgres.Context.csproj",
+        "packagesPath": "C:\\Users\\karac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Postgres.Context\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ilias\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\karac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -98,6 +107,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -165,17 +175,21 @@
         }
       }
     },
-    "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\User.Info.csproj": {
+    "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\User.Info\\User.Info.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\User.Info.csproj",
+        "projectUniqueName": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\User.Info\\User.Info.csproj",
         "projectName": "User.Info",
-        "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\User.Info.csproj",
-        "packagesPath": "C:\\Users\\ilias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\obj\\",
+        "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\User.Info\\User.Info.csproj",
+        "packagesPath": "C:\\Users\\karac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\User.Info\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ilias\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\karac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -183,14 +197,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
-                "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj"
+              "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Postgres.Context\\Postgres.Context.csproj": {
+                "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Postgres.Context\\Postgres.Context.csproj"
               }
             }
           }

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "0n0uRuu3W4wZgnijvVXx4d4M/8evYR0B1OMBwBTYC2GjgINibHMAtGhu/oz1vljb6UEGS+Xl2QMutAcuBskgsA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\HealthCheck\\HealthCheck.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\karac\\.nuget\\packages\\microsoft.extensions.diagnostics.healthchecks.abstractions\\7.0.10\\microsoft.extensions.diagnostics.healthchecks.abstractions.7.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}

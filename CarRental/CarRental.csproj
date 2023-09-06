@@ -44,6 +44,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cars.Info\Cars.Info.csproj" />
+    <ProjectReference Include="..\HealthCheck\HealthCheck.csproj" />
     <ProjectReference Include="..\Postgres.Context\Postgres.Context.csproj" />
     <ProjectReference Include="..\Recomentation.Info\Recomentation.Info.csproj" />
     <ProjectReference Include="..\Rental.Info\Rental.Info.csproj" />

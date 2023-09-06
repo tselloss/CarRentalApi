@@ -1,11 +1,14 @@
 using CarRentalManagment.PostgresContext;
 using Cars.Info.Interface;
 using Cars.Info.Repository;
+using HealthCheck;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using Recomentation.Info.Interface;
 using Recomentation.Info.Repository;
 using RentInfo.Interface;
@@ -21,6 +24,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddHealthChecks().AddCheck<HealthChecks>("CustomCheck"); 
 // Security Config
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters
@@ -109,7 +114,33 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
-app.UseCors(); 
+app.UseCors();
+app.MapHealthChecks("/health", new HealthCheckOptions
+{
+    ResultStatusCodes =
+    {
+        [HealthStatus.Healthy] = StatusCodes.Status200OK,
+        [HealthStatus.Degraded] = StatusCodes.Status200OK,
+        [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable,
+    },
+    ResponseWriter = async (context, report) =>
+    {
+        var result = new
+        {
+            Status = report.Status.ToString(),
+            Checks = report.Entries.Select(entry => new
+            {
+                Component = entry.Key,
+                Description = entry.Value.Description,
+                Duration = entry.Value.Duration.TotalMilliseconds
+            }),
+        };
+
+        context.Response.ContentType = "application/json";
+        await context.Response.WriteAsync(JsonConvert.SerializeObject(result));
+    }
+
+});
 
 app.MapControllers();
 

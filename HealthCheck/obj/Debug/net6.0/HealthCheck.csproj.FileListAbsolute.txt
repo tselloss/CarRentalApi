@@ -1,0 +1,12 @@
+C:\Users\karac\source\repos\CarRentalApi1\HealthCheck\bin\Debug\net6.0\HealthCheck.deps.json
+C:\Users\karac\source\repos\CarRentalApi1\HealthCheck\bin\Debug\net6.0\HealthCheck.dll
+C:\Users\karac\source\repos\CarRentalApi1\HealthCheck\bin\Debug\net6.0\HealthCheck.pdb
+C:\Users\karac\source\repos\CarRentalApi1\HealthCheck\obj\Debug\net6.0\HealthCheck.csproj.AssemblyReference.cache
+C:\Users\karac\source\repos\CarRentalApi1\HealthCheck\obj\Debug\net6.0\HealthCheck.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\karac\source\repos\CarRentalApi1\HealthCheck\obj\Debug\net6.0\HealthCheck.AssemblyInfoInputs.cache
+C:\Users\karac\source\repos\CarRentalApi1\HealthCheck\obj\Debug\net6.0\HealthCheck.AssemblyInfo.cs
+C:\Users\karac\source\repos\CarRentalApi1\HealthCheck\obj\Debug\net6.0\HealthCheck.csproj.CoreCompileInputs.cache
+C:\Users\karac\source\repos\CarRentalApi1\HealthCheck\obj\Debug\net6.0\HealthCheck.dll
+C:\Users\karac\source\repos\CarRentalApi1\HealthCheck\obj\Debug\net6.0\refint\HealthCheck.dll
+C:\Users\karac\source\repos\CarRentalApi1\HealthCheck\obj\Debug\net6.0\HealthCheck.pdb
+C:\Users\karac\source\repos\CarRentalApi1\HealthCheck\obj\Debug\net6.0\ref\HealthCheck.dll

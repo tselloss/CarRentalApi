@@ -643,6 +643,19 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/7.0.10": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.FileProviders.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -1649,6 +1662,19 @@
         },
         "runtime": {
           "bin/placeholder/Cars.Info.dll": {}
+        }
+      },
+      "HealthCheck/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "7.0.10"
+        },
+        "compile": {
+          "bin/placeholder/HealthCheck.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HealthCheck.dll": {}
         }
       },
       "Postgres.Context/1.0.0": {
@@ -2696,6 +2722,25 @@
         "microsoft.extensions.dependencymodel.7.0.0.nupkg.sha512",
         "microsoft.extensions.dependencymodel.nuspec",
         "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/7.0.10": {
+      "sha512": "1hgZxNv/VAdkfW0ML4qwkqJJH7WB3cMad12b/bkURiw8fPgJN4YWY/Bg+KvHGLBKnPAHNMwtbKbN2gz+/ZuJew==",
+      "type": "package",
+      "path": "microsoft.extensions.diagnostics.healthchecks.abstractions/7.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net462/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.xml",
+        "microsoft.extensions.diagnostics.healthchecks.abstractions.7.0.10.nupkg.sha512",
+        "microsoft.extensions.diagnostics.healthchecks.abstractions.nuspec"
       ]
     },
     "Microsoft.Extensions.FileProviders.Abstractions/2.2.0": {
@@ -4608,6 +4653,11 @@
       "path": "../Cars.Info/Cars.Info.csproj",
       "msbuildProject": "../Cars.Info/Cars.Info.csproj"
     },
+    "HealthCheck/1.0.0": {
+      "type": "project",
+      "path": "../HealthCheck/HealthCheck.csproj",
+      "msbuildProject": "../HealthCheck/HealthCheck.csproj"
+    },
     "Postgres.Context/1.0.0": {
       "type": "project",
       "path": "../Postgres.Context/Postgres.Context.csproj",
@@ -4640,6 +4690,7 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "Cars.Info >= 1.0.0",
       "FluentAssertions >= 6.11.0",
+      "HealthCheck >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.20",
       "Microsoft.EntityFrameworkCore >= 7.0.9",
       "Microsoft.EntityFrameworkCore.Proxies >= 7.0.9",
@@ -4662,19 +4713,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ilias\\.nuget\\packages\\": {}
+    "C:\\Users\\karac\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\CarRental\\CarRental.csproj",
+      "projectUniqueName": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\CarRental\\CarRental.csproj",
       "projectName": "CarRental",
-      "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\CarRental\\CarRental.csproj",
-      "packagesPath": "C:\\Users\\ilias\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\CarRental\\obj\\",
+      "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\CarRental\\CarRental.csproj",
+      "packagesPath": "C:\\Users\\karac\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\CarRental\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\ilias\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\karac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4682,6 +4738,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -4689,23 +4746,26 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Cars.Info\\Cars.Info.csproj": {
-              "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Cars.Info\\Cars.Info.csproj"
+            "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Cars.Info\\Cars.Info.csproj": {
+              "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Cars.Info\\Cars.Info.csproj"
             },
-            "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj": {
-              "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Postgres.Context\\Postgres.Context.csproj"
+            "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\HealthCheck\\HealthCheck.csproj": {
+              "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\HealthCheck\\HealthCheck.csproj"
             },
-            "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Recomentation.Info\\Recomentation.Info.csproj": {
-              "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Recomentation.Info\\Recomentation.Info.csproj"
+            "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Postgres.Context\\Postgres.Context.csproj": {
+              "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Postgres.Context\\Postgres.Context.csproj"
             },
-            "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Rental.Info\\Rental.Info.csproj": {
-              "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Rental.Info\\Rental.Info.csproj"
+            "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Recomentation.Info\\Recomentation.Info.csproj": {
+              "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Recomentation.Info\\Recomentation.Info.csproj"
             },
-            "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Statistics.Info\\Statistics.Info.csproj": {
-              "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\Statistics.Info\\Statistics.Info.csproj"
+            "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Rental.Info\\Rental.Info.csproj": {
+              "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Rental.Info\\Rental.Info.csproj"
             },
-            "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\User.Info.csproj": {
-              "projectPath": "C:\\Users\\ilias\\Desktop\\CarRentalApi\\User.Info\\User.Info.csproj"
+            "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Statistics.Info\\Statistics.Info.csproj": {
+              "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\Statistics.Info\\Statistics.Info.csproj"
+            },
+            "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\User.Info\\User.Info.csproj": {
+              "projectPath": "C:\\Users\\karac\\source\\repos\\CarRentalApi1\\User.Info\\User.Info.csproj"
             }
           }
         }

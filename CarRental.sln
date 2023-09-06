@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Postgres.Context", "Postgre
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Statistics.Info", "Statistics.Info\Statistics.Info.csproj", "{B542DC30-5CDB-45F1-B5D6-37F3FED07DA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recomentation.Info", "Recomentation.Info\Recomentation.Info.csproj", "{E40002B5-F5A0-4F26-AF38-D6BBCD00AF68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recomentation.Info", "Recomentation.Info\Recomentation.Info.csproj", "{E40002B5-F5A0-4F26-AF38-D6BBCD00AF68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCheck", "HealthCheck\HealthCheck.csproj", "{5CFDD2BA-DE03-439C-A5B7-BFB4B1C6E5F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{E40002B5-F5A0-4F26-AF38-D6BBCD00AF68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E40002B5-F5A0-4F26-AF38-D6BBCD00AF68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E40002B5-F5A0-4F26-AF38-D6BBCD00AF68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CFDD2BA-DE03-439C-A5B7-BFB4B1C6E5F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CFDD2BA-DE03-439C-A5B7-BFB4B1C6E5F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CFDD2BA-DE03-439C-A5B7-BFB4B1C6E5F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CFDD2BA-DE03-439C-A5B7-BFB4B1C6E5F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

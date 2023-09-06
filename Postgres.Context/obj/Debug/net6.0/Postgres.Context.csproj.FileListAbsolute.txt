@@ -70,3 +70,15 @@ C:\Users\ilias\Desktop\CarRentalApi\Postgres.Context\obj\Debug\net6.0\Postgres.C
 C:\Users\ilias\Desktop\CarRentalApi\Postgres.Context\obj\Debug\net6.0\refint\Postgres.Context.dll
 C:\Users\ilias\Desktop\CarRentalApi\Postgres.Context\obj\Debug\net6.0\Postgres.Context.pdb
 C:\Users\ilias\Desktop\CarRentalApi\Postgres.Context\obj\Debug\net6.0\ref\Postgres.Context.dll
+C:\Users\karac\source\repos\CarRentalApi1\Postgres.Context\bin\Debug\net6.0\Postgres.Context.deps.json
+C:\Users\karac\source\repos\CarRentalApi1\Postgres.Context\bin\Debug\net6.0\Postgres.Context.dll
+C:\Users\karac\source\repos\CarRentalApi1\Postgres.Context\bin\Debug\net6.0\Postgres.Context.pdb
+C:\Users\karac\source\repos\CarRentalApi1\Postgres.Context\obj\Debug\net6.0\Postgres.Context.csproj.AssemblyReference.cache
+C:\Users\karac\source\repos\CarRentalApi1\Postgres.Context\obj\Debug\net6.0\Postgres.Context.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\karac\source\repos\CarRentalApi1\Postgres.Context\obj\Debug\net6.0\Postgres.Context.AssemblyInfoInputs.cache
+C:\Users\karac\source\repos\CarRentalApi1\Postgres.Context\obj\Debug\net6.0\Postgres.Context.AssemblyInfo.cs
+C:\Users\karac\source\repos\CarRentalApi1\Postgres.Context\obj\Debug\net6.0\Postgres.Context.csproj.CoreCompileInputs.cache
+C:\Users\karac\source\repos\CarRentalApi1\Postgres.Context\obj\Debug\net6.0\Postgres.Context.dll
+C:\Users\karac\source\repos\CarRentalApi1\Postgres.Context\obj\Debug\net6.0\refint\Postgres.Context.dll
+C:\Users\karac\source\repos\CarRentalApi1\Postgres.Context\obj\Debug\net6.0\Postgres.Context.pdb
+C:\Users\karac\source\repos\CarRentalApi1\Postgres.Context\obj\Debug\net6.0\ref\Postgres.Context.dll
